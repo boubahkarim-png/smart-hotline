@@ -103,8 +103,8 @@ export default function FrHome() {
                   'Reponse en moins de 2 secondes',
                   'Francais natif: Quebec, France, Belgique, Suisse',
                   'Transfert intelligent vers conseiller',
-                  "Jusqu'a 70% moins cher qu'un agent traditionnel",
-                  'Disponible 24/7, aucun temps d'attente',
+                  "Jusqu'a 70% moins cher qu&apos;un agent traditionnel",
+                  'Disponible 24/7, aucun temps d&apos;attente',
                 ].map((f) => (
                   <li key={f} className="flex items-center gap-2 text-gray-700">
                     <span className="text-green-500 font-bold">✓</span> {f}
@@ -179,7 +179,7 @@ export default function FrHome() {
       <section className="bg-gradient-to-br from-blue-900 to-blue-600 py-16">
         <div className="max-w-4xl mx-auto px-4 text-center text-white">
           <h2 className="text-3xl font-bold mb-3">Pret a Transformer Votre Communication?</h2>
-          <p className="text-blue-100 mb-8">2 semaines d'essai gratuit. Sans engagement. Sans carte de credit.</p>
+          <p className="text-blue-100 mb-8">2 semaines d&apos;essai gratuit. Sans engagement. Sans carte de credit.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/fr/contact"
               className="bg-white text-blue-700 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-all">

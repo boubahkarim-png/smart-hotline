@@ -93,7 +93,7 @@ export default function FrTarifs() {
           {/* AI Agents */}
           <div>
             <h2 className="text-3xl font-bold text-center mb-2">Agents IA Vocaux</h2>
-            <p className="text-center text-gray-500 mb-3">Jusqu'a 70% moins cher qu'un agent traditionnel</p>
+            <p className="text-center text-gray-500 mb-3">Jusqu'a 70% moins cher qu&apos;un agent traditionnel</p>
             <div className="w-16 h-1 bg-purple-600 mx-auto rounded mb-10"/>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {['Starter', 'Professional', 'Business', 'Enterprise'].map((label, i) => (

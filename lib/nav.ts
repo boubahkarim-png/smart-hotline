@@ -1,9 +1,4 @@
-
-// ============================================================
-// NAVIGATION — single source of truth
-// All hrefs are absolute paths (no relative path issues)
-// ============================================================
-
+// Navigation — single source of truth
 export interface NavItem {
   label: string
   href: string
@@ -22,11 +17,11 @@ export const NAV_FR: NavItem[] = [
       { label: 'CRM & Listes',     href: '/fr/crm' },
     ],
   },
-  { label: 'Tarifs',    href: '/fr/tarifs' },
-  { label: 'Secteurs',  href: '/fr/secteurs' },
-  { label: 'A Propos',  href: '/fr/a-propos' },
-  { label: 'Blog',      href: '/fr/blog' },
-  { label: 'Contact',   href: '/fr/contact' },
+  { label: 'Tarifs',   href: '/fr/tarifs' },
+  { label: 'Secteurs', href: '/fr/secteurs' },
+  { label: 'A Propos', href: '/fr/a-propos' },
+  { label: 'Blog',     href: '/fr/blog' },
+  { label: 'Contact',  href: '/fr/contact' },
 ]
 
 export const NAV_EN: NavItem[] = [
@@ -34,18 +29,18 @@ export const NAV_EN: NavItem[] = [
     label: 'Solutions',
     href: '/en/services',
     children: [
-      { label: 'Inbound Calls',   href: '/en/inbound' },
-      { label: 'Outbound Calls',  href: '/en/outbound' },
-      { label: 'AI Voice Agents', href: '/en/ai-agents' },
-      { label: 'Customer Support',href: '/en/support' },
-      { label: 'CRM & Lists',     href: '/en/crm' },
+      { label: 'Inbound Calls',    href: '/en/inbound' },
+      { label: 'Outbound Calls',   href: '/en/outbound' },
+      { label: 'AI Voice Agents',  href: '/en/ai-agents' },
+      { label: 'Customer Support', href: '/en/support' },
+      { label: 'CRM & Lists',      href: '/en/crm' },
     ],
   },
-  { label: 'Pricing',  href: '/en/pricing' },
-  { label: 'Sectors',  href: '/en/sectors' },
-  { label: 'About',    href: '/en/about' },
-  { label: 'Blog',     href: '/en/blog' },
-  { label: 'Contact',  href: '/en/contact' },
+  { label: 'Pricing', href: '/en/pricing' },
+  { label: 'Sectors', href: '/en/sectors' },
+  { label: 'About',   href: '/en/about' },
+  { label: 'Blog',    href: '/en/blog' },
+  { label: 'Contact', href: '/en/contact' },
 ]
 
 export const CONTACT = {

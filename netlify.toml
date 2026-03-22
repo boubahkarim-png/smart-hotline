@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/"
+  to = "/fr/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/fr"
+  to = "/fr/"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    Cache-Control = "public, max-age=0, must-revalidate"

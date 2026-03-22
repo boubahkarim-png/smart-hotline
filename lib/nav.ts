@@ -53,5 +53,5 @@ export const CONTACT = {
   phoneDisplay: '+1 514 819-0559',
   whatsapp: 'https://wa.me/15148190559',
   email: 'direction@smart-hotline.com',
-  calendly: 'https://calendly.com/smart-hotline/30min',
+  calendly: 'https://calendly.com/boubah-karim/30min?month=2026-03',
 }

@@ -42,7 +42,7 @@ export default function FrContact() {
                   { icon: '📞', label: '+1 514 819-0559', href: 'tel:+15148190559', sub: 'Lun-Ven 9h-18h' },
                   { icon: '💬', label: 'WhatsApp', href: 'https://wa.me/15148190559', sub: '24/7' },
                   { icon: '✉️', label: 'direction@smart-hotline.com', href: 'mailto:direction@smart-hotline.com', sub: 'Reponse sous 24h' },
-                  { icon: '📅', label: 'Reserver 30 min', href: 'https://calendly.com/smart-hotline/30min', sub: 'Consultation gratuite' },
+                  { icon: '📅', label: 'Reserver 30 min', href: 'https://calendly.com/boubah-karim/30min?month=2026-03', sub: 'Consultation gratuite' },
                 ].map(({ icon, label, href, sub }) => (
                   <a key={href} href={href}
                     className="flex items-center gap-4 p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors">

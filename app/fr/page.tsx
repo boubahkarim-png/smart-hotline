@@ -38,7 +38,7 @@ export default function FrHome() {
         cta2="Nos Solutions"
         cta2href="/fr/services"
         imageSrc="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80"
-        imageAlt="Centre d&apos;appels Smart Hotline"
+        imageAlt="Centre d'appels Smart Hotline"
         badge="Agents & IA Vocaux"
         badges={['2 sem. essai gratuit', 'RGPD', '24/7', 'Sans engagement']}
       />
@@ -103,7 +103,7 @@ export default function FrHome() {
                   'Reponse en moins de 2 secondes',
                   'Francais natif: Quebec, France, Belgique, Suisse',
                   'Transfert intelligent vers conseiller',
-                  "Jusqu'a 70% moins cher qu&apos;un agent traditionnel",
+                  "Jusqu&apos;a 70% moins cher qu&apos;un agent traditionnel",
                   'Disponible 24/7 - temps d&apos;attente',
                 ].map((f) => (
                   <li key={f} className="flex items-center gap-2 text-gray-700">
@@ -179,11 +179,11 @@ export default function FrHome() {
       <section className="bg-gradient-to-br from-blue-900 to-blue-600 py-16">
         <div className="max-w-4xl mx-auto px-4 text-center text-white">
           <h2 className="text-3xl font-bold mb-3">Pret a Transformer Votre Communication?</h2>
-          <p className="text-blue-100 mb-8">2 semaines d&apos;essai gratuit. Sans engagement. Sans carte de credit.</p>
+          <p className="text-blue-100 mb-8">2 semaines d'essai gratuit. Sans engagement. Sans carte de credit.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/fr/contact"
               className="bg-white text-blue-700 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-all">
-              Demarrer l&apos;Essai Gratuit
+              Demarrer l'Essai Gratuit
             </Link>
             <a href="tel:+15148190559"
               className="border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white hover:text-blue-700 transition-all">

@@ -9,7 +9,7 @@ const CURRENCIES: Currency[] = ['CAD', 'EUR', 'USD', 'CHF']
 export default function FrTarifs() {
   const { currency, prices, loading, changeCurrency } = useCurrency()
 
-  const fmt = (n: number) => (loading ? &apos;...&apos; : prices.symbol + n)
+  const fmt = (n: number) => (loading ? '...' : prices.symbol + n)
 
   return (
     <>
@@ -52,12 +52,12 @@ export default function FrTarifs() {
                 </h3>
                 <p className="text-gray-600 text-sm mt-1">
                   20h/semaine pendant 2 semaines<br/>
-                  <strong>OU 1 semaine gratuite — payez seulement 3 semaines</strong>
+                  <strong>OU 1 semaine gratuite - payez seulement 3 semaines</strong>
                 </p>
               </div>
               <Link href="/fr/contact?plan=essai"
                 className="bg-orange-500 text-white font-bold px-6 py-3 rounded-xl hover:bg-orange-600 whitespace-nowrap">
-                Commencer l&apos;Essai
+                Commencer l'Essai
               </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -93,7 +93,7 @@ export default function FrTarifs() {
           {/* AI Agents */}
           <div>
             <h2 className="text-3xl font-bold text-center mb-2">Agents IA Vocaux</h2>
-            <p className="text-center text-gray-500 mb-3">Jusqu&apos;a 70% moins cher qu&apos;un agent traditionnel</p>
+            <p className="text-center text-gray-500 mb-3">Jusqu'a 70% moins cher qu'un agent traditionnel</p>
             <div className="w-16 h-1 bg-purple-600 mx-auto rounded mb-10"/>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {['Starter', 'Professional', 'Business', 'Enterprise'].map((label, i) => (

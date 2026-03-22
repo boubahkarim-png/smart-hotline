@@ -3,7 +3,7 @@ import Footer from '@/components/Footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Smart Hotline Agency | Centre d\'Appels & IA pour PME',
+  title: 'Smart Hotline Agency | Centre d&apos;Appels & IA pour PME',
   description: 'Externalisez votre relation client. Agents professionnels et IA 24/7. Essai 2 semaines gratuit.',
 }
 

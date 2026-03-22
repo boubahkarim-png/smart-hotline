@@ -103,8 +103,8 @@ export default function FrHome() {
                   'Reponse en moins de 2 secondes',
                   'Francais natif: Quebec, France, Belgique, Suisse',
                   'Transfert intelligent vers conseiller',
-                  "Jusqu&apos;a 70% moins cher qu&apos;un agent traditionnel",
-                  'Disponible 24/7 - temps d&apos;attente',
+                  "Jusqu’a 70% moins cher qu’un agent traditionnel",
+                  'Disponible 24/7, sans temps d’attente',
                 ].map((f) => (
                   <li key={f} className="flex items-center gap-2 text-gray-700">
                     <span className="text-green-500 font-bold">✓</span> {f}

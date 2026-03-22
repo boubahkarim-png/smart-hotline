@@ -1,26 +1,23 @@
-import Link from 'next/link'
-
-export default function Page() {
+export const metadata = { title: "Politique de Confidentialite | Smart Hotline Agency" }
+export default function Confidentialite() {
   return (
-    <>
-      <section className="bg-gradient-to-br from-blue-900 to-blue-600 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="text-5xl mb-4">🔒</div>
-          <h1 className="text-4xl font-bold mb-3">Politique de Confidentialite</h1>
-          <p className="text-blue-100">Smart Hotline Agency</p>
+    <section className="py-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-4xl font-bold mb-8">Politique de Confidentialite</h1>
+        <div className="prose prose-lg max-w-none text-gray-600 space-y-6">
+          <p>Derniere mise a jour: 1er janvier 2026</p>
+          <h2 className="text-2xl font-bold text-gray-900">1. Collecte des donnees</h2>
+          <p>Smart Hotline Agency collecte uniquement les informations necessaires a la fourniture de ses services: nom, email, telephone, nom d&apos;entreprise et informations relatives a vos besoins en communication.</p>
+          <h2 className="text-2xl font-bold text-gray-900">2. Utilisation</h2>
+          <p>Vos donnees sont utilisees pour vous fournir nos services, vous contacter concernant votre compte, ameliorer nos services et vous envoyer des communications marketing si vous y avez consenti.</p>
+          <h2 className="text-2xl font-bold text-gray-900">3. Protection</h2>
+          <p>Nous utilisons des mesures de securite conformes aux normes de l&apos;industrie pour proteger vos informations personnelles contre tout acces non autorise.</p>
+          <h2 className="text-2xl font-bold text-gray-900">4. Vos droits</h2>
+          <p>Conformement au RGPD et a la Loi 25 (Quebec), vous avez le droit d&apos;acceder, corriger ou supprimer vos donnees personnelles. Contactez-nous a direction@smart-hotline.com.</p>
+          <h2 className="text-2xl font-bold text-gray-900">5. Contact</h2>
+          <p>Pour toute question: direction@smart-hotline.com | +1 514 819-0559</p>
         </div>
-      </section>
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-gray-600 text-lg mb-8">
-            Cette page est en cours de developpement. Contactez-nous pour plus d'informations.
-          </p>
-          <Link href="/fr/contact"
-            className="inline-block bg-blue-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-700">
-            Nous Contacter
-          </Link>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }

@@ -4,20 +4,10 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 [[redirects]]
   from = "/"
   to = "/fr/"
   status = 302
   force = true
-
-[[redirects]]
-  from = "/fr"
-  to = "/fr/"
-  status = 301
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    Cache-Control = "public, max-age=0, must-revalidate"

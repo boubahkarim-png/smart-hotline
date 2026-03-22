@@ -4,6 +4,6 @@ const nextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
   basePath: '/smart-hotline-last',
-  assetPrefix: '/smart-hotline-last/',
+  assetPrefix: 'https://boubahkarim-png.github.io/smart-hotline-last',
 }
 module.exports = nextConfig

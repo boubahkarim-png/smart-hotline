@@ -13,7 +13,7 @@ export default function Page() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-gray-600 text-lg mb-8">
-            Cette page est en cours de developpement. Contactez-nous pour plus d'informations.
+            Cette page est en cours de developpement. Contactez-nous pour plus d&apos;informations.
           </p>
           <Link href="/fr/contact"
             className="inline-block bg-blue-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-700">

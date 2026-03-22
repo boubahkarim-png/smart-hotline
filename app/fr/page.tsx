@@ -38,7 +38,7 @@ export default function FrHome() {
         cta2="Nos Solutions"
         cta2href="/fr/services"
         imageSrc="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80"
-        imageAlt="Centre d'appels Smart Hotline"
+        imageAlt="Centre d&apos;appels Smart Hotline"
         badge="Agents & IA Vocaux"
         badges={['2 sem. essai gratuit', 'RGPD', '24/7', 'Sans engagement']}
       />
@@ -104,7 +104,7 @@ export default function FrHome() {
                   'Francais natif: Quebec, France, Belgique, Suisse',
                   'Transfert intelligent vers conseiller',
                   "Jusqu'a 70% moins cher qu&apos;un agent traditionnel",
-                  'Disponible 24/7, aucun temps d&apos;attente',
+                  'Disponible 24/7 - temps d&apos;attente',
                 ].map((f) => (
                   <li key={f} className="flex items-center gap-2 text-gray-700">
                     <span className="text-green-500 font-bold">✓</span> {f}
@@ -183,7 +183,7 @@ export default function FrHome() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/fr/contact"
               className="bg-white text-blue-700 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-all">
-              Demarrer l'Essai Gratuit
+              Demarrer l&apos;Essai Gratuit
             </Link>
             <a href="tel:+15148190559"
               className="border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white hover:text-blue-700 transition-all">

@@ -13,9 +13,9 @@ export default function FrContact() {
     const form = e.currentTarget
     const data = Object.fromEntries(new FormData(form))
     try {
-      await fetch('http://194.163.187.192:8084/api/contacts/new', {
-        method: 'POST', mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+      await fetch(&apos;http://194.163.187.192:8084/api/contacts/new&apos;, {
+        method: &apos;POST&apos;, mode: &apos;no-cors&apos;,
+        headers: { &apos;Content-Type&apos;: &apos;application/json&apos; },
         body: JSON.stringify({ firstname: data.name, email: data.email, phone: data.phone, company: data.company }),
       })
     } catch {}
@@ -101,7 +101,7 @@ export default function FrContact() {
                     <label className="flex items-start gap-3 cursor-pointer">
                       <input type="checkbox" required className="mt-1"/>
                       <span className="text-sm text-gray-600">
-                        J'accepte le traitement de mes donnees conformement a la{' '}
+                        J&apos;accepte le traitement de mes donnees conformement a la{&apos; &apos;}
                         <Link href="/fr/confidentialite" className="text-blue-600 underline">
                           politique de confidentialite
                         </Link>.
@@ -110,7 +110,7 @@ export default function FrContact() {
                   </div>
                   <button type="submit" disabled={sending}
                     className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-50 text-lg">
-                    {sending ? 'Envoi...' : 'Envoyer le Message ✉️'}
+                    {sending ? &apos;Envoi...&apos; : &apos;Envoyer le Message ✉️&apos;}
                   </button>
                 </form>
               )}

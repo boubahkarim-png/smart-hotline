@@ -65,10 +65,10 @@ export default function FrHome() {
             {/* IMAGE RIGHT 40% */}
             <div className="w-full lg:w-[40%]">
               <div className="relative">
-                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=85"
-                  alt="Equipe Smart Hotline"
-                  className="rounded-2xl shadow-2xl w-full object-cover"
-                  style={{maxHeight:'420px', objectFit:'cover'}}/>
+      <img src="/images/main-hero.jpg"
+        alt="Equipe Smart Hotline"
+        className="rounded-2xl shadow-2xl w-full object-cover"
+        style={{maxHeight:'420px', objectFit:'cover'}}/>
 <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl p-4 shadow-2xl border border-slate-100">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
@@ -161,10 +161,10 @@ export default function FrHome() {
               </Link>
             </div>
             <div className="w-full lg:w-[40%]">
-              <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&q=85"
-                alt="Agent IA Sophie"
-                className="rounded-2xl shadow-xl w-full object-cover"
-                style={{maxHeight:'380px', objectFit:'cover'}}/>
+          <img src="/images/agents-ia-hero.jpg"
+          alt="Agent IA Sophie"
+          className="rounded-2xl shadow-xl w-full object-cover"
+          style={{maxHeight:'380px', objectFit:'cover'}}/>
             </div>
           </div>
         </div>

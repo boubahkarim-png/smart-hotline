@@ -39,14 +39,13 @@ export const PRICES_CA: CurrencyConfig = {
   outbound_trial: 15,
   outbound: [19, 18, 17, 16], // per hour, volume discounts
   // AI: 25% below Retell ($0.11-0.31/min)
-  ai_per_min: [0.12, 0.15, 0.11, 0.09],
-  // Inbound: per-call model (more transparent than per-minute)
-  // Average call = 3 min, so 500 calls ≈ 1500 min ≈ Ruby $720 value
-  inbound: [299, 449, 649],
+  ai_per_min: [0.15, 0.18, 0.14, 0.12],
+  // Inbound: starts at $499 - premium positioning
+  inbound: [499, 749, 999],
   // Support: multi-channel
-  support: [289, 439, 649],
+  support: [399, 599, 849],
   // CRM: aggressive (selected)
-  crm: [99, 199, 299],
+  crm: [149, 289, 449],
 }
 
 // ============================================================
@@ -61,13 +60,13 @@ export const PRICES_EU: CurrencyConfig = {
   outbound_trial: 11,
   outbound: [13, 12, 11, 10],
   // AI: similar tech costs
-  ai_per_min: [0.09, 0.11, 0.08, 0.07],
-  // Inbound: adjusted for European market
-  inbound: [189, 299, 419],
+  ai_per_min: [0.12, 0.15, 0.11, 0.09],
+  // Inbound: starts at €399 - premium positioning
+  inbound: [399, 599, 799],
   // Support
-  support: [219, 329, 489],
+  support: [319, 479, 699],
   // CRM: aggressive
-  crm: [79, 169, 269],
+  crm: [119, 229, 359],
 }
 
 // ============================================================
@@ -82,13 +81,13 @@ export const PRICES_US: CurrencyConfig = {
   outbound_trial: 12,
   outbound: [14, 13, 12, 11],
   // AI: Retell $0.07-0.31/min base
-  ai_per_min: [0.10, 0.13, 0.09, 0.08],
-  // Inbound: competitive with Ruby
-  inbound: [219, 339, 479],
+  ai_per_min: [0.13, 0.16, 0.12, 0.10],
+  // Inbound: starts at $449 - premium positioning
+  inbound: [449, 679, 899],
   // Support
-  support: [249, 379, 559],
+  support: [359, 539, 769],
   // CRM: aggressive
-  crm: [89, 179, 279],
+  crm: [129, 249, 389],
 }
 
 // ============================================================
@@ -103,13 +102,13 @@ export const PRICES_CH: CurrencyConfig = {
   outbound_trial: 14,
   outbound: [17, 16, 15, 14],
   // AI: similar tech, premium positioning
-  ai_per_min: [0.13, 0.16, 0.12, 0.10],
-  // Inbound: premium
-  inbound: [269, 409, 599],
+  ai_per_min: [0.16, 0.19, 0.14, 0.12],
+  // Inbound: starts at CHF 549 - premium
+  inbound: [549, 819, 1089],
   // Support
-  support: [299, 449, 649],
+  support: [439, 659, 929],
   // CRM: aggressive
-  crm: [99, 199, 299],
+  crm: [159, 309, 479],
 }
 
 export const PRICES: Record<Currency, CurrencyConfig> = {

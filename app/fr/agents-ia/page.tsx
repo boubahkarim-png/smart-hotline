@@ -2,18 +2,19 @@
 import Link from 'next/link'
 import { useGeo } from '@/hooks/useGeo'
 import { CONTACT } from '@/lib/nav'
+import { PhoneIcon, CalendarIcon, QuestionIcon, TransferIcon, MessageIcon, AnalyticsIcon, CheckIcon, BoltIcon } from '@/components/Icons'
 
 const FEATURES = [
-  {'icon': '📞', 'title': 'Réponse instantanée', 'desc': 'Moins de 2 secondes, 24h/24, 7j/7, sans temps d’attente.'},
-  {'icon': '🗓️', 'title': 'Prise de rendez-vous', 'desc': 'Synchronisé avec Google Calendar, Calendly. Confirmation auto.'},
-  {'icon': '❓', 'title': 'FAQ automatisée', 'desc': 'Répond aux questions fréquentes : horaires, tarifs, adresse.'},
-  {'icon': '🔄', 'title': 'Transfert intelligent', 'desc': 'Détecte les situations complexes, transfert vers conseiller.'},
-  {'icon': '📝', 'title': 'Prise de messages', 'desc': 'Enregistre nom, numéro, motif — transmis par email ou CRM.'},
-  {'icon': '📊', 'title': 'Transcriptions & analyses', 'desc': 'Chaque appel transcrit. Tendances et insights mensuels.'},
+  {'icon': PhoneIcon, 'title': 'Réponse instantanée', 'desc': 'Moins de 2 secondes, 24h/24, 7j/7, sans temps d\'attente.'},
+  {'icon': CalendarIcon, 'title': 'Prise de rendez-vous', 'desc': 'Synchronisé avec Google Calendar, Calendly. Confirmation auto.'},
+  {'icon': QuestionIcon, 'title': 'FAQ automatisée', 'desc': 'Répond aux questions fréquentes : horaires, tarifs, adresse.'},
+  {'icon': TransferIcon, 'title': 'Transfert intelligent', 'desc': 'Détecte les situations complexes, transfert vers conseiller.'},
+  {'icon': MessageIcon, 'title': 'Prise de messages', 'desc': 'Enregistre nom, numéro, motif — transmis par email ou CRM.'},
+  {'icon': AnalyticsIcon, 'title': 'Transcriptions & analyses', 'desc': 'Chaque appel transcrit. Tendances et insights mensuels.'},
 ]
 const STEPS = [
   {'n': '1', 't': 'Configuration de Sophie', 'd': 'Personnalisation de la voix, du script et de la base de connaissance.'},
-  {'n': '2', 't': 'Test & validation', 'd': 'Simulation d’appels réels pour valider les réponses.'},
+  {'n': '2', 't': 'Test & validation', 'd': 'Simulation d\'appels réels pour valider les réponses.'},
   {'n': '3', 't': 'Intégration', 'd': 'Connexion à votre numéro existant en moins de 24h.'},
   {'n': '4', 't': 'Go live & optimisation', 'd': 'Sophie gère vos appels. Tableau de bord en temps réel.'},
 ]
@@ -24,17 +25,17 @@ function CTAButtons({ slug }: { slug: string }) {
   return (
     <div className="flex flex-col sm:flex-row gap-4 mb-6">
       <Link href={`/fr/contact?service=${slug}`}
-        className="bg-white text-violet-800 font-bold px-7 py-3.5 rounded-xl hover:bg-violet-50 text-center shadow-lg">
+        className="bg-violet-600 text-white font-bold px-7 py-3.5 rounded-xl hover:bg-violet-700 text-center shadow-lg">
         Démo Sans Engagement
       </Link>
       {showPhone ? (
         <a href={`tel:${CONTACT.phone}`}
-          className="border-2 border-white text-white font-bold px-7 py-3.5 rounded-xl hover:bg-white text-violet-800 transition-all text-center">
+          className="border-2 border-violet-600 text-violet-600 font-bold px-7 py-3.5 rounded-xl hover:bg-violet-600 hover:text-white transition-all text-center">
           {CONTACT.phoneDisplay}
         </a>
       ) : (
         <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer"
-          className="border-2 border-white text-white font-bold px-7 py-3.5 rounded-xl hover:bg-white text-violet-800 transition-all text-center">
+          className="border-2 border-violet-600 text-violet-600 font-bold px-7 py-3.5 rounded-xl hover:bg-violet-600 hover:text-white transition-all text-center">
           💬 WhatsApp 24/7
         </a>
       )}
@@ -45,32 +46,34 @@ function CTAButtons({ slug }: { slug: string }) {
 export default function Page() {
   return (
     <>
-      <section className="bg-gradient-to-br from-slate-900 to-violet-800 text-white py-20 lg:py-28">
+      <section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="w-full lg:w-[55%]">
-              <span className="inline-block bg-white bg-opacity-20 text-white text-sm px-3 py-1 rounded-full mb-5">
-                🤖 Agents IA Vocaux
+              <span className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 text-sm px-3 py-1 rounded-full mb-5">
+                <BoltIcon className="w-4 h-4" /> Agents IA Vocaux
               </span>
-              <h1 className="text-4xl lg:text-5xl font-black mb-5 leading-tight">
+              <h1 className="text-4xl lg:text-5xl font-black mb-5 leading-tight text-slate-900">
                 Sophie, votre IA<br/>en Français Natif 24/7
               </h1>
-              <p className="text-lg text-white text-opacity-90 mb-8">Réponse en moins de 2 secondes. Français natif Québec, France, Belgique, Suisse. Jusqu’à 70% moins cher qu’un agent traditionnel.</p>
+              <p className="text-lg text-slate-600 mb-8">Réponse en moins de 2 secondes. Français natif Québec, France, Belgique, Suisse. Jusqu'à 70% moins cher qu'un agent traditionnel.</p>
               <CTAButtons slug="ia"/>
               <div className="flex flex-wrap gap-3">
                 {['Réponse 2 sec', 'Français natif', '24/7', 'Tarif/minute'].map(b => (
-                  <span key={b} className="bg-white bg-opacity-15 text-sm px-3 py-1.5 rounded-full">&#10003; {b}</span>
+                  <span key={b} className="flex items-center gap-1 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full"><CheckIcon className="w-4 h-4 text-violet-600" /> {b}</span>
                 ))}
               </div>
             </div>
             <div className="w-full lg:w-[40%]">
               <div className="relative">
-                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&q=80" alt="Agent IA Sophie"
-                  className="rounded-2xl shadow-2xl w-full object-cover"
-                  style={{maxHeight:'380px', objectFit:'cover'}}/>
-                <div className="absolute -bottom-4 -left-4 bg-white text-slate-900 rounded-xl p-3.5 shadow-xl">
+                <img src="/images/agents-ia-hero.jpg" alt="Agent IA Sophie"
+                className="rounded-2xl shadow-2xl w-full object-cover"
+                style={{maxHeight:'380px', objectFit:'cover'}}/>
+                <div className="absolute -bottom-4 -left-4 bg-white text-slate-900 rounded-xl p-3.5 shadow-xl border border-slate-100">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-xl">⚡</div>
+                    <div className="w-10 h-10 bg-violet-100 rounded-full flex items-center justify-center">
+                      <BoltIcon className="w-5 h-5 text-violet-600" />
+                    </div>
                     <div><p className="font-black text-sm">{"< 2 secondes"}</p><p className="text-slate-500 text-xs">temps de réponse</p></div>
                   </div>
                 </div>
@@ -87,9 +90,11 @@ export default function Page() {
             <div className="w-16 h-1 bg-violet-600 mx-auto rounded"/>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {FEATURES.map(({icon, title, desc}: any) => (
+            {FEATURES.map(({icon: Icon, title, desc}: any) => (
               <div key={title} className="bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-lg transition-all">
-                <div className="text-3xl mb-4">{icon}</div>
+                <div className="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center mb-4">
+                  <Icon className="w-6 h-6 text-violet-700" />
+                </div>
                 <h3 className="font-bold text-lg text-slate-900 mb-2">{title}</h3>
                 <p className="text-slate-500 text-sm">{desc}</p>
               </div>

@@ -81,44 +81,38 @@ export default function FrHome() {
         </div>
       </section>
 
-      {/* SECTION 2: DARK - Why Choose Us */}
+      {/* SECTION 2: DARK - NO IMAGE */}
       <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 text-white py-20 lg:py-24 overflow-hidden relative">
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-blue-500 opacity-10 rounded-full blur-3xl"/>
           <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-violet-500 opacity-10 rounded-full blur-3xl"/>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="flex flex-col lg:flex-row items-center gap-14">
-            <div className="w-full lg:w-[40%]">
-              <img src="/smart-hotline-last/images/team.webp"
-                alt="Equipe professionnelle"
-                className="rounded-2xl shadow-2xl w-full object-cover"
-                style={{maxHeight:'380px', objectFit:'cover'}}/>
-            </div>
-            <div className="w-full lg:w-[55%]">
-              <h2 className="text-3xl lg:text-4xl font-black mb-6">
-                Pourquoi les PME Nous Font Confiance?
-              </h2>
-              <p className="text-blue-200 text-lg mb-8">
-                Plus de 500 entreprises ont choisi Smart Hotline pour externaliser leur relation client avec succès.
-              </p>
-              <ul className="space-y-4">
-                {[
-                  {icon: CheckIcon, text: 'Réponse en moins de 3 sonneries'},
-                  {icon: CheckIcon, text: 'Bilingue français-anglais natif'},
-                  {icon: CheckIcon, text: 'Scripts personnalisés à votre marque'},
-                  {icon: CheckIcon, text: 'Rapports détaillés en temps réel'},
-                  {icon: CheckIcon, text: 'Mise en service en 48h'},
-                ].map(({icon: Icon, text}, i) => (
-                  <li key={i} className="flex items-center gap-3 text-slate-200">
-                    <span className="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-4 h-4 text-green-400" />
-                    </span>
-                    {text}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-black mb-4">
+              Pourquoi les PME Nous Font Confiance?
+            </h2>
+            <p className="text-blue-200 text-lg max-w-2xl mx-auto">
+              Plus de 500 entreprises ont choisi Smart Hotline pour externaliser leur relation client avec succès.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {icon: CheckIcon, title: 'Réponse en moins de 3 sonneries', desc: 'Vos clients ne patientent jamais'},
+              {icon: CheckIcon, title: 'Bilingue français-anglais', desc: 'Conseillers natifs Québec et France'},
+              {icon: CheckIcon, title: 'Scripts personnalisés', desc: 'Adaptés à votre marque et secteur'},
+              {icon: CheckIcon, title: 'Rapports en temps réel', desc: 'Tableaux de bord détaillés 24/7'},
+              {icon: CheckIcon, title: 'Mise en service 48h', desc: 'Aucune infrastructure requise'},
+              {icon: CheckIcon, title: 'Tarifs PME', desc: 'Jusqu\'à 60% moins cher qu\'un poste interne'},
+            ].map(({icon: Icon, title, desc}, i) => (
+              <div key={i} className="bg-white/5 backdrop-blur rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all">
+                <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center mb-4">
+                  <Icon className="w-5 h-5 text-green-400" />
+                </div>
+                <h3 className="font-bold text-white text-lg mb-2">{title}</h3>
+                <p className="text-blue-200 text-sm">{desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -162,7 +156,7 @@ export default function FrHome() {
         </div>
       </section>
 
-      {/* AI FEATURE */}
+      {/* AI FEATURE - WITH IMAGE */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-14">

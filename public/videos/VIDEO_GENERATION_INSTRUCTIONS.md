@@ -304,7 +304,7 @@ git commit -m "Add marketing videos for FR and EN"
 git push origin main
 
 # Deploy
-gh workflow run "Deploy to GitHub Pages" --repo boubahkarim-png/smart-hotline-last
+gh workflow run "Deploy to GitHub Pages" --repo boubahkarim-png/smart-hotline-late2
 ```
 
 ---

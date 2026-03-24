@@ -4,7 +4,7 @@ _Last updated: 2026-03-24_
 ## Current State
 ACTIVE PROJECT. Next.js 14.2 website for Smart Hotline Agency deployed on GitHub Pages.
 
-**LIVE SITE:** https://boubahkarim-png.github.io/smart-hotline-last/fr/
+**LIVE SITE:** https://boubahkarim-png.github.io/smart-hotline-late2/fr/
 
 **TECH STACK:**
 - Next.js 14.2 + TypeScript + Tailwind v4 (CSS-first)

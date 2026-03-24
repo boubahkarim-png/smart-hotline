@@ -5,8 +5,23 @@ import TawkToChat from '@/components/TawkToChat'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Smart Hotline Agency | Centre d'Appels & IA pour PME",
-  description: 'Externalisez votre relation client. Conseillers professionnels et IA 24/7.',
+  title: "Centre d'Appels Quebec | Externalisation PME | Smart Hotline 24/7",
+  description: "Centre d'appels à Quebec. Réception 24/7, agents IA vocaux, support client. Externalisez votre relation client à partir de 15$/h. Essai gratuit 2 semaines. Quebec, Montreal, Canada.",
+  keywords: ['centre d\'appels quebec', 'centre d\'appels pme', 'externalisation centre d\'appels', 'réception d\'appels 24/7', 'agents ia vocaux', 'call center quebec', 'service téléconseiller'],
+  openGraph: {
+    title: "Centre d'Appels Quebec | Externalisation PME | Smart Hotline 24/7",
+    description: "Centre d'appels à Quebec. Réception 24/7, agents IA vocaux, support client. Externalisez votre relation client à partir de 15$/h.",
+    type: 'website',
+    locale: 'fr_CA',
+    siteName: 'Smart Hotline',
+  },
+  alternates: {
+    canonical: 'https://boubahkarim-png.github.io/smart-hotline-last/fr/',
+    languages: {
+      'fr-CA': 'https://boubahkarim-png.github.io/smart-hotline-last/fr/',
+      'en-CA': 'https://boubahkarim-png.github.io/smart-hotline-last/en/',
+    },
+  },
 }
 
 export default function FrLayout({ children }: { children: React.ReactNode }) {

@@ -97,7 +97,13 @@ export const JSON_LD_FR = {
   "logo": `${BASE_URL}/smart-hotline-last/favicon.ico`,
   "image": SEO_FR.ogImage,
   "telephone": "+1-514-819-0559",
-  "email": "contact@smart-hotline.com",
+  "email": "direction@smart-hotline.com",
+  "foundingDate": "2018",
+  "numberOfEmployees": {
+    "@type": "QuantitativeValue",
+    "minValue": 10,
+    "maxValue": 50
+  },
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Montreal",
@@ -115,10 +121,17 @@ export const JSON_LD_FR = {
     "opens": "00:00",
     "closes": "23:59"
   },
-  "priceRange": "$$$",
+  "priceRange": "$$",
   "currenciesAccepted": "CAD USD EUR CHF",
   "paymentAccepted": "Credit Card, Bank Transfer",
-  "areaServed": ["Canada", "France", "Belgium", "Switzerland", "United States"],
+  "areaServed": [
+    { "@type": "Country", "name": "Canada" },
+    { "@type": "Country", "name": "France" },
+    { "@type": "Country", "name": "Belgium" },
+    { "@type": "Country", "name": "Switzerland" },
+    { "@type": "Country", "name": "United States" }
+  ],
+  "availableLanguage": ["French", "English"],
   "sameAs": [
     "https://www.linkedin.com/company/smart-hotline",
     "https://twitter.com/smarthotline"
@@ -132,7 +145,9 @@ export const JSON_LD_FR = {
         "itemOffered": {
           "@type": "Service",
           "name": "Réception d'Appels 24/7",
-          "description": "Service de réception téléphonique professionnel 24h/24, 7j/7"
+          "description": "Service de réception téléphonique professionnel 24h/24, 7j/7",
+          "availableLanguage": ["French", "English"],
+          "areaServed": [{ "@type": "Country", "name": "Canada" }]
         }
       },
       {
@@ -140,7 +155,8 @@ export const JSON_LD_FR = {
         "itemOffered": {
           "@type": "Service",
           "name": "Agents IA Vocaux",
-          "description": "Assistante vocale IA Sophie - réponse en moins de 2 secondes"
+          "description": "Assistante vocale IA Sophie - réponse en moins de 2 secondes",
+          "availableLanguage": ["French", "English"]
         }
       },
       {
@@ -148,7 +164,24 @@ export const JSON_LD_FR = {
         "itemOffered": {
           "@type": "Service",
           "name": "Appels Sortants",
-          "description": "Prospection téléphonique et génération de leads qualifiés"
+          "description": "Prospection téléphonique et génération de leads qualifiés",
+          "availableLanguage": ["French", "English"]
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Support Client",
+          "description": "Support multicanal: téléphone, email, chat, WhatsApp"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "CRM & Listes",
+          "description": "SuiteCRM intégré et listes de prospection B2B/B2C"
         }
       }
     ]
@@ -159,12 +192,23 @@ export const JSON_LD_FR = {
     "reviewCount": "127",
     "bestRating": "5",
     "worstRating": "1"
-  }
+  },
+  "knowsAbout": [
+    "Call Center",
+    "Customer Service",
+    "AI Voice Agents",
+    "Phone Answering Service",
+    "Lead Generation",
+    "Customer Support",
+    "CRM Integration"
+  ],
+  "slogan": "Le Centre d'Appels qui Fait Grandir votre PME"
 }
 
 export const JSON_LD_EN = {
   ...JSON_LD_FR,
   "description": SEO_EN.description,
+  "slogan": "The Call Center That Grows Your SMB",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Call Center Services",
@@ -174,7 +218,8 @@ export const JSON_LD_EN = {
         "itemOffered": {
           "@type": "Service",
           "name": "24/7 Call Reception",
-          "description": "Professional phone reception service 24/7"
+          "description": "Professional phone reception service 24/7",
+          "availableLanguage": ["French", "English"]
         }
       },
       {
@@ -182,7 +227,8 @@ export const JSON_LD_EN = {
         "itemOffered": {
           "@type": "Service",
           "name": "AI Voice Agents",
-          "description": "AI Assistant Sophie - answer in less than 2 seconds"
+          "description": "AI Assistant Sophie - answer in less than 2 seconds",
+          "availableLanguage": ["French", "English"]
         }
       },
       {
@@ -190,7 +236,24 @@ export const JSON_LD_EN = {
         "itemOffered": {
           "@type": "Service",
           "name": "Outbound Calls",
-          "description": "Phone prospecting and qualified lead generation"
+          "description": "Phone prospecting and qualified lead generation",
+          "availableLanguage": ["French", "English"]
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Customer Support",
+          "description": "Multi-channel support: phone, email, chat, WhatsApp"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "CRM & Lists",
+          "description": "SuiteCRM integration and B2B/B2C prospect lists"
         }
       }
     ]

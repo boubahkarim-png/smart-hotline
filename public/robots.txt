@@ -3,7 +3,7 @@ Allow: /
 
 Sitemap: https://boubahkarim-png.github.io/smart-hotline-last/sitemap.xml
 
-# AI Crawlers
+# AI Search Crawlers - All Allowed for Citation
 User-agent: GPTBot
 Allow: /
 
@@ -15,3 +15,22 @@ Allow: /
 
 User-agent: Anthropic-AI
 Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI Training Crawlers - Blocked (optional, business decision)
+# User-agent: CCBot
+# Disallow: /
+
+# llms.txt location
+# LLMs-txt: /llms.txt

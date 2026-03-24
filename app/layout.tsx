@@ -11,7 +11,6 @@ const jsonLd = {
   "@type": "LocalBusiness",
   "name": "Smart Hotline",
   "description": "Centre d'appels externalisé pour PME. Réception d'appels 24/7, émission d'appels, agents IA vocaux, support client et intégration CRM.",
-  "url": "https://boubahkarim-png.github.io/smart-hotline-last/",
   "telephone": "+1-514-819-0559",
   "email": "direction@smart-hotline.com",
   "address": {

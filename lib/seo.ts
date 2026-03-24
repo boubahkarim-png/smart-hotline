@@ -27,7 +27,7 @@ export const SEO_EN = {
 
 export function generateMetadata(lang: Lang): Metadata {
   const seo = lang === 'fr' ? SEO_FR : SEO_EN
-  
+
   return {
     title: {
       default: seo.title,
@@ -69,7 +69,7 @@ export function generateMetadata(lang: Lang): Metadata {
       ]
     },
     twitter: {
-      card: seo.twitterCard,
+      card: 'summary_large_image' as const,
       title: seo.title,
       description: seo.description,
       images: [seo.ogImage]

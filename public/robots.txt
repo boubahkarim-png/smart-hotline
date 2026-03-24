@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://boubahkarim-png.github.io/smart-hotline-last/sitemap.xml
+
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /

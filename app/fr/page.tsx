@@ -243,30 +243,6 @@ return (
 </div>
 </section>
 
-{/* VIDEO SECTION */}
-<section className="py-20 bg-slate-50">
-<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div className="text-center mb-12">
-<h2 className="text-3xl font-black text-slate-900 mb-3">Découvrez Smart Hotline en vidéo</h2>
-<p className="text-slate-600 max-w-2xl mx-auto">Notre équipe de conseillers et agents IA prête à transformer votre relation client</p>
-</div>
-<div className="max-w-4xl mx-auto">
-<div className="relative rounded-2xl overflow-hidden shadow-2xl bg-slate-900">
-<video
-  className="w-full aspect-video"
-  controls
-  poster="/smart-hotline-last/images/team.webp"
-  preload="metadata"
->
-<source src="/smart-hotline-last/videos/smart_hotline_promo.webm" type="video/webm" />
-<p>Votre navigateur ne supporte pas la lecture vidéo.</p>
-</video>
-</div>
-<p className="text-center text-slate-500 text-sm mt-6">Vidéo promotionnelle Smart Hotline - Centre d&apos;appels & IA pour PME</p>
-</div>
-</div>
-</section>
-
       {/* FINAL CTA */}
       <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center text-white">

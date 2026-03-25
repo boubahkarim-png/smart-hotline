@@ -7,25 +7,58 @@ import { CONTACT } from '@/lib/nav'
 export default function FrContact() {
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
+  const [error, setError] = useState('')
   const { geo, loading } = useGeo()
   const showPhone = !loading && geo.showPhone
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setSending(true)
+    setError('')
     const form = e.currentTarget
-    const data = new FormData(form)
+    const formData = new FormData(form)
+    
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone') || '',
+      company: formData.get('company') || '',
+      service: formData.get('service') || '',
+      volume: formData.get('volume') || '',
+      message: formData.get('message') || '',
+      source: 'contact-form-fr',
+      language: 'fr'
+    }
 
     try {
-      // Netlify forms — works automatically on Netlify deployment
-      await fetch('/fr/contact/', {
+      // Post to VPS webhook which handles SuiteCRM + email notification
+      const response = await fetch('http://194.163.187.192:3002/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data as any).toString(),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       })
-    } catch {}
 
-    setSent(true)
+      if (response.ok) {
+        setSent(true)
+      } else {
+        // Fallback: send email via mailto link
+        const subject = encodeURIComponent(`Demande de contact - ${data.name}`)
+        const body = encodeURIComponent(
+          `Nom: ${data.name}\nEmail: ${data.email}\nTéléphone: ${data.phone}\nEntreprise: ${data.company}\nService: ${data.service}\nVolume: ${data.volume}\n\nMessage:\n${data.message}`
+        )
+        window.location.href = `mailto:direction@smart-hotline.com?subject=${subject}&body=${body}`
+        setSent(true)
+      }
+    } catch (err) {
+      // Fallback: send email via mailto link
+      const subject = encodeURIComponent(`Demande de contact - ${data.name}`)
+      const body = encodeURIComponent(
+        `Nom: ${data.name}\nEmail: ${data.email}\nTéléphone: ${data.phone}\nEntreprise: ${data.company}\nService: ${data.service}\nVolume: ${data.volume}\n\nMessage:\n${data.message}`
+      )
+      window.location.href = `mailto:direction@smart-hotline.com?subject=${subject}&body=${body}`
+      setSent(true)
+    }
+    
     setSending(false)
   }
 
@@ -41,19 +74,19 @@ export default function FrContact() {
           </Link>
         </div>
       </section>
-      
+
       {/* SECTION 2: DARK - CONTACT INFO */}
       <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 text-white py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">Nous sommes là pour vous aider</h2>
           <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
-            Que vous ayez une question sur nos services, besoin d'une démonstration,
+            Que vous ayez une question sur nos services, besoin d&apos;une démonstration,
             ou simplement envie de discuter de vos besoins en relation client,
             notre équipe est prête à vous répondre.
           </p>
         </div>
       </section>
-      
+
       {/* SECTION 3: LIGHT - HOW WE HELP */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4">
@@ -82,15 +115,15 @@ export default function FrContact() {
           </div>
         </div>
       </section>
-      
+
       {/* SECTION 4: LIGHT - TRUST BADGES */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
-            {n:'500+',l:'PME accompagnées'},
-            {n:'98%',l:'Taux de satisfaction'},
-            {n:'24/7',l:'Disponibilité'},
-            {n:'70%',l:'Économie moyenne'}
+            {n:'500+', l:'PME accompagnées'},
+            {n:'98%', l:'Taux de satisfaction'},
+            {n:'24/7', l:'Disponibilité'},
+            {n:'70%', l:'Économie moyenne'}
           ].map(({n,l}) => (
             <div key={l}>
               <div className="text-4xl lg:text-5xl font-extrabold text-blue-600">{n}</div>
@@ -99,7 +132,7 @@ export default function FrContact() {
           ))}
         </div>
       </section>
-      
+
       {/* SECTION 5: LIGHT - CONTACT FORM */}
       <section className="py-20 bg-slate-50" id="contact-form">
         <div className="max-w-4xl mx-auto px-4">
@@ -108,7 +141,7 @@ export default function FrContact() {
             Décrivez vos besoins et nous vous répondrons sous 2 heures avec
             une recommandation personnalisée.
           </p>
-          
+
           {sent ? (
             <div className="bg-green-50 border border-green-200 rounded-2xl p-12 text-center">
               <div className="text-6xl mb-4">✅</div>
@@ -118,14 +151,8 @@ export default function FrContact() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              name="contact-fr"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-              className="bg-white rounded-2xl shadow-xl border border-slate-100 p-6">
-              <input type="hidden" name="form-name" value="contact-fr"/>
-              <input type="hidden" name="bot-field" className="hidden"/>
-
+              className="bg-white rounded-2xl shadow-xl border border-slate-100 p-6"
+            >
               <h2 className="text-2xl font-black text-slate-900 mb-6">Envoyez-nous un Message</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -137,15 +164,22 @@ export default function FrContact() {
                 ].map(({ name, label, type, required }) => (
                   <div key={name}>
                     <label className="block text-sm font-semibold text-slate-700 mb-1.5">{label}</label>
-                    <input type={type} name={name} required={required}
-                      className="w-full border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-slate-900 bg-slate-50"/>
+                    <input 
+                      type={type} 
+                      name={name} 
+                      required={required}
+                      className="w-full border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-slate-900 bg-slate-50"
+                    />
                   </div>
                 ))}
               </div>
 
               <div className="mb-4">
                 <label className="block text-sm font-semibold text-slate-700 mb-1.5">Service souhaité</label>
-                <select name="service" className="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 text-slate-900 bg-slate-50">
+                <select 
+                  name="service" 
+                  className="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 text-slate-900 bg-slate-50"
+                >
                   <option value="">Sélectionnez...</option>
                   <option>Appels Entrants</option>
                   <option>Appels Sortants</option>
@@ -158,42 +192,57 @@ export default function FrContact() {
               </div>
 
               <div className="mb-4">
-                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Volume d’appels estimé</label>
-                <select name="volume" className="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 text-slate-900 bg-slate-50">
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Volume d&apos;appels estimé</label>
+                <select 
+                  name="volume" 
+                  className="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 text-slate-900 bg-slate-50"
+                >
                   <option value="">Sélectionnez...</option>
                   <option>Moins de 100 appels/mois</option>
                   <option>100 – 500 appels/mois</option>
-                  <option>500 – 2 000 appels/mois</option>
-                  <option>Plus de 2 000 appels/mois</option>
+                  <option>500 – 2 000 appels/mois</option>
+                  <option>Plus de 2 000 appels/mois</option>
                 </select>
               </div>
 
               <div className="mb-5">
                 <label className="block text-sm font-semibold text-slate-700 mb-1.5">Message</label>
-                <textarea name="message" rows={5}
+                <textarea 
+                  name="message" 
+                  rows={5}
                   className="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 resize-none text-slate-900 bg-slate-50"
-                  placeholder="Décrivez vos besoins, vos horaires, votre secteur..."/>
+                  placeholder="Décrivez vos besoins, vos horaires, votre secteur..."
+                />
               </div>
 
               <div className="mb-6">
                 <label className="flex items-start gap-3 cursor-pointer">
                   <input type="checkbox" required className="mt-1 w-4 h-4 rounded border-slate-300 text-blue-600"/>
                   <span className="text-sm text-slate-600">
-                    J’accepte le traitement de mes données conformément à la{' '}
+                    J&apos;accepte le traitement de mes données conformément à la{' '}
                     <Link href="/fr/confidentialite" className="text-blue-600 underline">politique de confidentialité</Link>.
                   </span>
                 </label>
               </div>
 
-              <button type="submit" disabled={sending}
-                className="w-full bg-blue-700 text-white font-black py-4 rounded-xl hover:bg-blue-800 transition-colors disabled:opacity-50 text-lg shadow-lg">
+              {error && (
+                <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700">
+                  {error}
+                </div>
+              )}
+
+              <button 
+                type="submit" 
+                disabled={sending}
+                className="w-full bg-blue-700 text-white font-black py-4 rounded-xl hover:bg-blue-800 transition-colors disabled:opacity-50 text-lg shadow-lg"
+              >
                 {sending ? 'Envoi en cours...' : 'Envoyer le Message →'}
               </button>
             </form>
           )}
         </div>
       </section>
-      
+
       {/* SECTION 6: LIGHT - WHY CHOOSE US */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4">
@@ -259,7 +308,7 @@ export default function FrContact() {
           </div>
         </div>
       </section>
-      
+
       {/* SECTION 7: LIGHT - ADDITIONAL INFO */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4">
@@ -277,7 +326,7 @@ export default function FrContact() {
                   <strong>Q:</strong> Proposez-vous un essai gratuit ?
                 </div>
                 <div className="text-sm text-gray-600 ml-4">
-                  <strong>R:</strong> Oui, nous offrons un essai de 2 semaines à notre tarif d'entrée ou 1 semaine gratuite suivie de 3 semaines payantes.
+                  <strong>R:</strong> Oui, nous offrons un essai de 2 semaines à notre tarif d&apos;entrée ou 1 semaine gratuite suivie de 3 semaines payantes.
                 </div>
                 <div className="text-sm text-gray-700">
                   <strong>Q:</strong> Quel est votre taux de disponibilité ?
@@ -307,13 +356,13 @@ export default function FrContact() {
           </div>
         </div>
       </section>
-      
+
       {/* SECTION 8: DARK - FINAL CTA */}
       <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 text-white py-20">
         <div className="max-w-4xl mx-auto px-4 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Prêt à ne plus rater un appel?</h2>
           <p className="text-lg text-blue-100 mb-8">
-            En place en 48h. Pas d'engagement longue durée. On commence quand vous voulez.
+            En place en 48h. Pas d&apos;engagement longue durée. On commence quand vous voulez.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="#contact-form" className="bg-white text-blue-700 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 inline-block">

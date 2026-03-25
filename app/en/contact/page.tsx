@@ -7,24 +7,58 @@ import { CONTACT } from '@/lib/nav'
 export default function EnContact() {
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
+  const [error, setError] = useState('')
   const { geo, loading } = useGeo()
   const showPhone = !loading && geo.showPhone
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setSending(true)
+    setError('')
     const form = e.currentTarget
-    const data = new FormData(form)
+    const formData = new FormData(form)
+    
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone') || '',
+      company: formData.get('company') || '',
+      service: formData.get('service') || '',
+      volume: formData.get('volume') || '',
+      message: formData.get('message') || '',
+      source: 'contact-form-en',
+      language: 'en'
+    }
 
     try {
-      await fetch('/en/contact/', {
+      // Post to VPS webhook which handles SuiteCRM + email notification
+      const response = await fetch('http://194.163.187.192:3002/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data as any).toString(),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       })
-    } catch {}
 
-    setSent(true)
+      if (response.ok) {
+        setSent(true)
+      } else {
+        // Fallback: send email via mailto link
+        const subject = encodeURIComponent(`Contact Request - ${data.name}`)
+        const body = encodeURIComponent(
+          `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nCompany: ${data.company}\nService: ${data.service}\nVolume: ${data.volume}\n\nMessage:\n${data.message}`
+        )
+        window.location.href = `mailto:direction@smart-hotline.com?subject=${subject}&body=${body}`
+        setSent(true)
+      }
+    } catch (err) {
+      // Fallback: send email via mailto link
+      const subject = encodeURIComponent(`Contact Request - ${data.name}`)
+      const body = encodeURIComponent(
+        `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nCompany: ${data.company}\nService: ${data.service}\nVolume: ${data.volume}\n\nMessage:\n${data.message}`
+      )
+      window.location.href = `mailto:direction@smart-hotline.com?subject=${subject}&body=${body}`
+      setSent(true)
+    }
+    
     setSending(false)
   }
 
@@ -46,7 +80,7 @@ export default function EnContact() {
               <h2 className="text-2xl font-black text-slate-900 mb-6">Our Contact Info</h2>
               <div className="space-y-4">
                 {showPhone && (
-                  <a href={"tel:" + CONTACT.phone}
+                  <a href={'tel:' + CONTACT.phone}
                     className="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition-all">
                     <span className="text-2xl">📞</span>
                     <div>
@@ -63,7 +97,7 @@ export default function EnContact() {
                     <p className="text-slate-500 text-sm">24/7 — Immediate response</p>
                   </div>
                 </a>
-                <a href={"mailto:" + CONTACT.email}
+                <a href={'mailto:' + CONTACT.email}
                   className="flex items-center gap-4 p-4 bg-white rounded-xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition-all">
                   <span className="text-2xl">✉️</span>
                   <div>
@@ -87,7 +121,7 @@ export default function EnContact() {
                 <ul className="space-y-2 text-sm text-slate-600">
                   {['Needs analysis (30 min)', 'Personalized recommendation', 'Detailed quote within 24h', 'No commitment'].map(i => (
                     <li key={i} className="flex items-center gap-2">
-                      <span className="text-green-500 font-bold">&#10003;</span> {i}
+                      <span className="text-green-500 font-bold">✓</span> {i}
                     </li>
                   ))}
                 </ul>
@@ -105,14 +139,8 @@ export default function EnContact() {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  name="contact-en"
-                  method="POST"
-                  data-netlify="true"
-                  netlify-honeypot="bot-field"
-                  className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8">
-                  <input type="hidden" name="form-name" value="contact-en"/>
-                  <input type="hidden" name="bot-field" className="hidden"/>
-
+                  className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8"
+                >
                   <h2 className="text-2xl font-black text-slate-900 mb-6">Send Us a Message</h2>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -124,15 +152,22 @@ export default function EnContact() {
                     ].map(({ name, label, type, required }) => (
                       <div key={name}>
                         <label className="block text-sm font-semibold text-slate-700 mb-1.5">{label}</label>
-                        <input type={type} name={name} required={required}
-                          className="w-full border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-slate-900 bg-slate-50"/>
+                        <input 
+                          type={type} 
+                          name={name} 
+                          required={required}
+                          className="w-full border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-slate-900 bg-slate-50"
+                        />
                       </div>
                     ))}
                   </div>
 
                   <div className="mb-4">
                     <label className="block text-sm font-semibold text-slate-700 mb-1.5">Service Needed</label>
-                    <select name="service" className="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 text-slate-900 bg-slate-50">
+                    <select 
+                      name="service" 
+                      className="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 text-slate-900 bg-slate-50"
+                    >
                       <option value="">Select...</option>
                       <option>Inbound Calls</option>
                       <option>Outbound Calls</option>
@@ -146,7 +181,10 @@ export default function EnContact() {
 
                   <div className="mb-4">
                     <label className="block text-sm font-semibold text-slate-700 mb-1.5">Estimated Call Volume</label>
-                    <select name="volume" className="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 text-slate-900 bg-slate-50">
+                    <select 
+                      name="volume" 
+                      className="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 text-slate-900 bg-slate-50"
+                    >
                       <option value="">Select...</option>
                       <option>Less than 100 calls/month</option>
                       <option>100 – 500 calls/month</option>
@@ -157,9 +195,12 @@ export default function EnContact() {
 
                   <div className="mb-5">
                     <label className="block text-sm font-semibold text-slate-700 mb-1.5">Message</label>
-                    <textarea name="message" rows={4}
+                    <textarea 
+                      name="message" 
+                      rows={4}
                       className="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 resize-none text-slate-900 bg-slate-50"
-                      placeholder="Describe your needs, schedule, industry..."/>
+                      placeholder="Describe your needs, schedule, industry..."
+                    />
                   </div>
 
                   <div className="mb-6">
@@ -172,8 +213,17 @@ export default function EnContact() {
                     </label>
                   </div>
 
-                  <button type="submit" disabled={sending}
-                    className="w-full bg-blue-700 text-white font-black py-4 rounded-xl hover:bg-blue-800 transition-colors disabled:opacity-50 text-lg shadow-lg">
+                  {error && (
+                    <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700">
+                      {error}
+                    </div>
+                  )}
+
+                  <button 
+                    type="submit" 
+                    disabled={sending}
+                    className="w-full bg-blue-700 text-white font-black py-4 rounded-xl hover:bg-blue-800 transition-colors disabled:opacity-50 text-lg shadow-lg"
+                  >
                     {sending ? 'Sending...' : 'Send Message →'}
                   </button>
                 </form>

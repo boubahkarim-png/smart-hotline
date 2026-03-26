@@ -11,6 +11,7 @@ const SERVICES = [
   { Icon: BotIcon, title: 'AI Voice Agents', desc: 'Sophie answers in 2 sec, 24/7.', href: '/en/ai-agents', bg: 'bg-violet-100', color: 'text-violet-700', badge: 'New' },
   { Icon: HeadphonesIcon, title: 'Client Support', desc: 'Tickets, email, chat, WhatsApp.', href: '/en/support', bg: 'bg-teal-100', color: 'text-teal-700' },
   { Icon: DatabaseIcon, title: 'CRM & Lists', desc: 'SuiteCRM + B2B/B2C lists.', href: '/en/crm', bg: 'bg-indigo-100', color: 'text-indigo-700' },
+  { Icon: MegaphoneIcon, title: 'Industry Expertise', desc: 'Healthcare, real estate, legal...', href: '/en/sectors', bg: 'bg-orange-100', color: 'text-orange-700' },
 ]
 
 const STEPS = [

@@ -1,11 +1,12 @@
 import Link from 'next/link'
 export const metadata = { title: "Our Services | Smart Hotline Agency" }
 const SERVICES = [
- { icon: "📞", title: "Inbound Calls", desc: "Professional 24/7 reception. Never miss a call again.", href: "/en/inbound", color: "blue" },
- { icon: "📢", title: "Outbound Calls", desc: "Prospecting, telemarketing, appointment setting. Qualified leads guaranteed.", href: "/en/outbound", color: "green" },
- { icon: "🤖", title: "Voice AI Agents", desc: "Sophie answers in 2 sec, 24/7. Up to 70% cheaper.", href: "/en/ai-agents", color: "purple", badge: "New" },
- { icon: "🎧", title: "Customer Support", desc: "Tickets, email, chat, WhatsApp. 5-star support for your clients.", href: "/en/support", color: "teal" },
- { icon: "🗄️", title: "CRM & Lists", desc: "Integrated SuiteCRM + qualified B2B/B2C prospecting lists.", href: "/en/crm", color: "indigo" },
+  { icon: "📞", title: "Inbound Calls", desc: "Professional 24/7 reception. Never miss a call again.", href: "/en/inbound", color: "blue" },
+  { icon: "📢", title: "Outbound Calls", desc: "Prospecting, telemarketing, appointment setting. Qualified leads guaranteed.", href: "/en/outbound", color: "green" },
+  { icon: "🤖", title: "Voice AI Agents", desc: "Sophie answers in 2 sec, 24/7. Up to 70% cheaper.", href: "/en/ai-agents", color: "purple", badge: "New" },
+  { icon: "🎧", title: "Customer Support", desc: "Tickets, email, chat, WhatsApp. 5-star support for your clients.", href: "/en/support", color: "teal" },
+  { icon: "🗄️", title: "CRM & Lists", desc: "Integrated SuiteCRM + qualified B2B/B2C prospecting lists.", href: "/en/crm", color: "indigo" },
+  { icon: "🏭", title: "Industry Expertise", desc: "Specialized solutions for healthcare, real estate, legal, and more.", href: "/en/sectors", color: "orange" },
 ]
 const STATS = [
  { value: "500+", label: "SMEs accompanied" },

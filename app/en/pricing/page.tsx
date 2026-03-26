@@ -53,8 +53,8 @@ function PricingCard({ name, desc, price, unit, popular, accent, ctaHref, featur
 export default function Pricing() {
   const { prices, loading } = useGeo()
   const sym = prices.symbol
-  const fmt = (n: number) => loading ? '...' : `${sym}${n}`
-  const fmtDec = (n: number) => loading ? '...' : `${sym}${n.toFixed(2)}`
+  const fmt = (n: number) => `${sym}${n}`
+  const fmtDec = (n: number) => `${sym}${n.toFixed(2)}`
 
   return (
     <>

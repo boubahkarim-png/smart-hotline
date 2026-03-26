@@ -2,222 +2,310 @@
 
 import Link from 'next/link'
 import { useGeo } from '@/hooks/useGeo'
-import { StarIcon } from '@/components/Icons'
+import { StarIcon, CheckIcon } from '@/components/Icons'
 
-function PricingSlider({ title, subtitle, accentColor, children }: { title: string, subtitle?: string, accentColor: string, children: React.ReactNode }) {
-  return (
-    <div className="mb-20">
-      <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-slate-900 mb-2">{title}</h2>
-        {subtitle && <p className="text-slate-500">{subtitle}</p>}
-        <div className={`w-16 h-1 ${accentColor} mx-auto rounded mt-3`}/>
-      </div>
-      <div className="relative">
-        <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {children}
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function PricingCard({ name, desc, price, unit, popular, accent, ctaHref, features }: { name: string, desc: string, price: string, unit: string, popular?: boolean, accent: string, ctaHref: string, features?: string[] }) {
-  return (
-    <div className={` flex-shrink-0 w-72 snap-start bg-white rounded-2xl p-6 relative ${popular ? `border-2 ${accent.replace('bg-', 'border-')} shadow-xl` : 'border border-slate-200 shadow-sm'} `}>
-      {popular && (
-        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-          <span className={`${accent} text-white text-xs font-bold px-3 py-1 rounded-full`}>Populaire</span>
-        </div>
-      )}
-      <h3 className="font-bold text-lg text-slate-900 mb-1">{name}</h3>
-      <p className="text-slate-500 text-sm mb-4 min-h-[40px]">{desc}</p>
-      <div className="mb-1">
-        <span className={`text-4xl font-extrabold ${accent.replace('bg-', 'text-')}`}>{price}</span>
-      </div>
-      <p className="text-slate-400 text-sm mb-5">/{unit}</p>
-      {features && (
-        <ul className="space-y-2 mb-6">
-          {features.map(f => (
-            <li key={f} className="flex items-center gap-2 text-sm text-slate-600">
-              <span className="text-green-500 font-bold">&#10003;</span>
-              {f}
-            </li>
-          ))}
-        </ul>
-      )}
-      <Link href={ctaHref} className={`block text-center py-2.5 px-4 rounded-xl font-semibold text-sm transition-colors ${popular ? `${accent} text-white hover:opacity-90` : `border-2 ${accent.replace('bg-', 'border-')} ${accent.replace('bg-', 'text-')} hover:${accent.replace(/bg-(\w+)-\d+/, 'bg-$1-50')}` }`}>
-        Choisir
-      </Link>
-    </div>
-  )
-}
+const TIERS = [
+  { name: 'Starter', desc: 'Pour débuter', badge: null },
+  { name: 'Pro', desc: 'Pour croître', badge: 'Populaire' },
+  { name: 'Business', desc: 'Pour scaler', badge: 'Meilleure Valeur' },
+]
 
 export default function Tarifs() {
   const { prices, loading } = useGeo()
   const sym = prices.symbol
 
-  const fmt = (n: number, fallback: string) => loading ? fallback : `${sym}${n}`
-  const fmtDec = (n: number, fallback: string) => loading ? fallback : `${sym}${n.toFixed(2)}`
+  const fmt = (n: number) => loading ? '...' : `${sym}${n}`
 
   return (
     <>
-      {/* SECTION 1: Hero - LIGHT with Image */}
-      <section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
+      {/* HERO */}
+      <section className="bg-gradient-to-br from-slate-50 via-white to-sky-50 text-slate-900 py-20 lg:py-28 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="w-full lg:w-[55%]">
-              <h1 className="text-4xl lg:text-5xl font-black mb-5 leading-tight text-slate-900">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <div className="w-full lg:w-1/2 animate-slide-left">
+              <span className="inline-flex items-center gap-2 bg-sky-100 text-sky-700 text-sm font-semibold px-4 py-2 rounded-full mb-6 animate-slow-float">
                 Tarifs Transparents
+              </span>
+              <h1 className="text-4xl lg:text-5xl font-black mb-6 leading-tight text-slate-900">
+                Des Prix Qui<br/>
+                <span className="bg-gradient-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent">Respectent Votre Croissance</span>
               </h1>
-              <p className="text-lg text-slate-600 mb-4">20 à 40% moins chers que le marché</p>
-              <p className="text-slate-500 text-sm mb-6">Prix adaptés automatiquement à votre région</p>
-              <Link href="#pricing" className="bg-emerald-600 text-white font-bold px-7 py-3.5 rounded-xl hover:bg-emerald-700 inline-block shadow-lg">
-                Voir les Tarifs
-              </Link>
+              <p className="text-xl text-slate-600 mb-8 leading-relaxed">
+                Pas de frais cachés. Pas de surprise. Trois forfaits clairs, adaptés à votre pays.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {['Sans engagement', 'Annulez quand vous voulez', 'Essai 2 semaines', 'Support FR/EN'].map((b, i) => (
+                  <span key={b} className={`flex items-center gap-2 bg-white text-slate-700 text-sm font-medium px-4 py-2 rounded-full shadow-md animate-fade-in-up animate-delay-${(i+1)*100}`}>
+                    <CheckIcon className="w-5 h-5 text-green-600" /> {b}
+                  </span>
+                ))}
+              </div>
             </div>
-            <div className="w-full lg:w-[40%]">
-              <img src="/smart-hotline-last/images/pricing-hero.png" alt="Tarifs Smart Hotline" className="rounded-2xl shadow-2xl w-full object-cover" style={{maxHeight:'380px', objectFit:'cover'}}/>
+            <div className="w-full lg:w-1/2 animate-slide-right">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-sky-400 to-blue-500 rounded-3xl blur-2xl opacity-20"></div>
+                <img src="/smart-hotline-last/images/pricing-hero.png" alt="Tarifs Smart Hotline" className="relative rounded-3xl shadow-2xl w-full object-cover hero-image-zoom" style={{maxHeight:'450px', objectFit:'cover'}}/>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: Pricing Sliders - LIGHT (bg-white implicit) */}
-      <section className="py-16 bg-white">
+{/* OUTBOUND CALLS - HOUR-BASED PRICING */}
+<section className="py-20 bg-gradient-to-br from-emerald-50 to-teal-50" id="pricing">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <span className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+        📞 Appels Sortants
+      </span>
+      <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-3">Prospection Téléphonique</h2>
+      <p className="text-slate-500 text-lg max-w-2xl mx-auto">Agents dédiés pour vos campagnes de prise de rendez-vous. Facturation à l'heure.</p>
+    </div>
+    <div className="flex flex-wrap justify-center gap-6 mb-8">
+      {/* Trial Card */}
+      <div className="bg-amber-50 border-2 border-amber-300 rounded-2xl p-6 w-64 relative">
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+          <span className="bg-amber-500 text-white text-xs font-bold px-4 py-1.5 rounded-full">Essai</span>
+        </div>
+        <h3 className="font-bold text-xl text-slate-900 mb-2 text-center">Découverte</h3>
+        <p className="text-slate-500 text-sm mb-4 text-center">20h/semaine, 2 semaines</p>
+        <div className="text-center mb-2">
+          <span className="text-4xl font-black text-amber-600">{fmt(prices.outbound_trial)}</span>
+          <span className="text-slate-500">/heure</span>
+        </div>
+        <p className="text-amber-700 text-xs text-center font-semibold bg-amber-100 rounded-lg p-2 mb-4">
+          OU: 1 semaine gratuite
+        </p>
+        <Link href="/fr/contact?service=outbound&plan=trial" className="block text-center py-2.5 px-4 rounded-xl font-bold bg-amber-500 text-white hover:bg-amber-600">
+          Essayer
+        </Link>
+      </div>
+      {/* Regular Tiers */}
+      {[
+        { name: 'Starter', hours: '20h/semaine', i: 0 },
+        { name: 'Pro', hours: '40h/semaine', i: 1 },
+        { name: 'Business', hours: '80h/semaine', i: 2, popular: true },
+        { name: 'Premium', hours: '120h/semaine', i: 3 },
+        { name: 'Enterprise', hours: 'Illimité', i: 4 },
+      ].map(tier => (
+        <div key={tier.name} className={`bg-white rounded-2xl p-6 w-64 relative ${tier.popular ? 'border-2 border-emerald-500 shadow-2xl scale-105' : 'border border-slate-200 shadow-lg'}`}>
+          {tier.popular && (
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+              <span className="bg-emerald-600 text-white text-xs font-bold px-4 py-1.5 rounded-full">Populaire</span>
+            </div>
+          )}
+          <h3 className="font-bold text-xl text-slate-900 mb-2 text-center">{tier.name}</h3>
+          <p className="text-slate-500 text-sm mb-4 text-center">{tier.hours}</p>
+          <div className="text-center mb-4">
+            <span className="text-3xl font-black text-emerald-600">{fmt(prices.outbound[tier.i])}</span>
+            <span className="text-slate-500">/heure</span>
+          </div>
+          <ul className="space-y-2 mb-4 text-sm">
+            <li className="flex items-center gap-2 text-slate-600">
+              <CheckIcon className="w-4 h-4 text-emerald-600" /> Agent dédié
+            </li>
+            <li className="flex items-center gap-2 text-slate-600">
+              <CheckIcon className="w-4 h-4 text-emerald-600" /> Scripts personnalisés
+            </li>
+            <li className="flex items-center gap-2 text-slate-600">
+              <CheckIcon className="w-4 h-4 text-emerald-600" /> Rapports quotidiens
+            </li>
+            {tier.i > 0 && (
+              <li className="flex items-center gap-2 text-slate-600">
+                <CheckIcon className="w-4 h-4 text-emerald-600" /> CRM intégré
+              </li>
+            )}
+            {tier.i > 2 && (
+              <li className="flex items-center gap-2 text-slate-600">
+                <CheckIcon className="w-4 h-4 text-emerald-600" /> Manager dédié
+              </li>
+            )}
+          </ul>
+          <Link href={`/fr/contact?service=outbound&plan=${tier.name.toLowerCase()}`} className={`block text-center py-2.5 px-4 rounded-xl font-bold transition-all ${tier.popular ? 'bg-emerald-600 text-white hover:bg-emerald-700' : 'border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50'}`}>
+            Choisir
+          </Link>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* AI VOICE AGENTS */}
+<section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-{/* OUTBOUND */}
-<PricingSlider title="Appels Sortants" subtitle="Conseillers professionnels — plus d'heures = meilleur tarif" accentColor="bg-emerald-600">
-{/* Trial card */}
-<div className="flex-shrink-0 w-72 snap-start bg-amber-50 border-2 border-amber-300 rounded-2xl p-6 relative">
-<div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-<span className="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full">Offre Essai</span>
-</div>
-<h3 className="font-bold text-lg text-slate-900 mb-1">Démarrage</h3>
-<p className="text-slate-500 text-sm mb-4 min-h-[40px]">20h/semaine, 2 semaines</p>
-<div className="mb-1">
-<span className="text-4xl font-extrabold text-amber-600">{fmt(prices.outbound_trial, '11-15$')}</span>
-</div>
-<p className="text-slate-400 text-sm mb-3">/heure</p>
-<p className="text-amber-700 text-xs font-semibold bg-amber-100 rounded-lg p-2 mb-5">
-OU : 1 semaine offerte — payez seulement 3 semaines
-</p>
-<Link href="/fr/contact?plan=essai" className="block text-center py-2.5 px-4 rounded-xl font-semibold text-sm bg-amber-500 text-white hover:bg-amber-600">
-Démarrer l'Essai
-</Link>
-</div>
-{[
-{ name: "Starter", desc: "20h/semaine", i: 0, features: ["Conseiller dédié", "Scripts sur mesure", "Rapport quotidien"] },
-{ name: "Pro", desc: "40h/semaine", i: 1, features: ["2 conseillers", "CRM intégré", "Rapport temps réel"] },
-{ name: "Business", desc: "80h/semaine", i: 2, popular: true, features: ["4 conseillers", "Manager dédié", "SLA garanti"] },
-{ name: "Premium", desc: "120h/semaine", i: 3, features: ["6 conseillers", "Account manager", "Tarif dégressif"] },
-{ name: "Enterprise", desc: "Volume illimité", i: 4, features: ["Équipe sur mesure", "Manager senior", "Contrat annuel"] },
-].map(({ name, desc, i, popular, features }) => (
-              <PricingCard
-                key={name}
-                name={name}
-                desc={desc}
-                price={fmt(prices.outbound[i], '10-19$')}
-                unit="heure"
-                popular={popular}
-      accent="bg-emerald-600"
-      ctaHref={`/fr/contact?plan=outbound-${name.toLowerCase()}`}
-                features={features}
-              />
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+              🤖 Agents IA Vocaux
+            </span>
+            <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-3">Sophie, Votre Réceptionniste IA</h2>
+            <p className="text-slate-500 text-lg max-w-2xl mx-auto">Réponse en moins de 2 secondes. Français natif. Transfert vers humain si nécessaire.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {TIERS.map((tier, i) => (
+              <div key={tier.name} className={`relative bg-white rounded-2xl p-8 ${tier.badge === 'Populaire' ? 'border-2 border-violet-500 shadow-2xl scale-105' : 'border border-slate-200 shadow-lg'}`}>
+                {tier.badge && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                    <span className={`text-white text-xs font-bold px-4 py-1.5 rounded-full ${tier.badge === 'Populaire' ? 'bg-violet-600' : 'bg-sky-600'}`}>{tier.badge}</span>
+                  </div>
+                )}
+                <h3 className="font-black text-2xl text-slate-900 mb-1">{tier.name}</h3>
+                <p className="text-slate-500 text-sm mb-6">{tier.desc}</p>
+                <div className="mb-2">
+                  <span className="text-4xl font-black text-violet-600">{fmt(prices.ai_monthly[i])}</span>
+                  <span className="text-slate-400 text-lg">/mois</span>
+                </div>
+                <p className="text-slate-600 font-semibold mb-6">{loading ? '...' : `${prices.ai_minutes[i].toLocaleString()} minutes incluses`}</p>
+                <ul className="space-y-3 mb-8">
+                  {[
+                    'Réponse &lt; 2 secondes',
+                    'Français natif (Québec/France)',
+                    'Prise de messages',
+                    'Prise de rendez-vous',
+                    'Transfert vers humain',
+                    i > 0 ? 'Intégration CRM' : null,
+                    i > 1 ? 'SLA 99.9%' : null,
+                  ].filter(Boolean).map(f => (
+                    <li key={f} className="flex items-center gap-3 text-slate-700">
+                      <CheckIcon className="w-5 h-5 text-violet-600 flex-shrink-0" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href={`/fr/contact?service=ia&plan=${tier.name.toLowerCase()}`} className={`block text-center py-3.5 px-6 rounded-xl font-bold transition-all ${tier.badge === 'Populaire' ? 'bg-violet-600 text-white hover:bg-violet-700' : 'border-2 border-violet-600 text-violet-600 hover:bg-violet-50'}`}>
+                  Commencer
+                </Link>
+              </div>
             ))}
-          </PricingSlider>
-
-{/* AI AGENTS */}
-<PricingSlider title="Agents IA Vocaux" subtitle="Tarification à la minute — plus vous utilisez, moins vous payez" accentColor="bg-violet-600">
-{[
-{ name: "Starter", desc: "500 min/mois", i: 0, features: ["Réponse < 2 sec", "Français natif", "Prise de messages"] },
-{ name: "Pro", desc: "2 000 min/mois", i: 1, features: ["Tout Starter +", "Prise de RDV", "Intégration CRM"] },
-{ name: "Business", desc: "5 000 min/mois", i: 2, popular: true, features: ["Tout Pro +", "Transfert conseiller", "Tableau de bord"] },
-{ name: "Premium", desc: "10 000 min/mois", i: 3, features: ["Tout Business +", "SLA 99.9%", "Support prioritaire"] },
-{ name: "Enterprise", desc: "Volume illimité", i: 4, features: ["Tout Premium +", "Account manager", "Tarif dégressif"] },
-].map(({ name, desc, i, popular, features }) => (
-              <PricingCard
-                key={name}
-                name={name}
-                desc={desc}
-                price={fmtDec(prices.ai_per_min[i], '0.09-0.18$')}
-                unit="minute"
-                popular={popular}
-                accent="bg-violet-600"
-                ctaHref={`/fr/contact?plan=ia-${name.toLowerCase()}`}
-                features={features}
-              />
-            ))}
-          </PricingSlider>
-
-{/* INBOUND */}
-<PricingSlider title="Appels Entrants" subtitle="Forfaits mensuels — plus d'appels = meilleur tarif" accentColor="bg-sky-600">
-{[
-{ name: "Basic", desc: "300 appels/mois", i: 0, features: ["Réception 24/7", "Bilingue FR/EN", "Rapport mensuel"] },
-{ name: "Standard", desc: "750 appels/mois", i: 1, features: ["Tout Basic +", "Transfert intelligent", "Rapport hebdo"] },
-{ name: "Pro", desc: "1 500 appels/mois", i: 2, popular: true, features: ["Tout Standard +", "Conseiller dédié", "SLA garanti"] },
-{ name: "Premium", desc: "3 000 appels/mois", i: 3, features: ["Tout Pro +", "2 conseillers", "Priorité absolue"] },
-{ name: "Enterprise", desc: "Volume illimité", i: 4, features: ["Équipe sur mesure", "Manager dédié", "Contrat annuel"] },
-].map(({ name, desc, i, popular, features }) => (
-              <PricingCard
-                key={name}
-                name={name}
-                desc={desc}
-                price={fmt(prices.inbound[i], '399-999$')}
-                unit="mois"
-                popular={popular}
-      accent="bg-sky-600"
-      ctaHref={`/fr/contact?plan=inbound-${name.toLowerCase()}`}
-                features={features}
-              />
-            ))}
-          </PricingSlider>
-
-{/* CRM */}
-<PricingSlider title="CRM & Listes" subtitle="SuiteCRM intégré + listes de prospection — plus de contacts = meilleur tarif" accentColor="bg-purple-600">
-{[
-{ name: "Starter", desc: "500 contacts/mois", i: 0, features: ["CRM SuiteCRM", "500 leads/mois", "Intégration email"] },
-{ name: "Pro", desc: "2 000 contacts + listes", i: 1, popular: true, features: ["Tout Starter +", "Listes B2B/B2C", "Automatisations"] },
-{ name: "Business", desc: "5 000 contacts", i: 2, features: ["Tout Pro +", "Intégrations custom", "Account manager"] },
-{ name: "Premium", desc: "15 000 contacts", i: 3, features: ["Tout Business +", "API complète", "Support prioritaire"] },
-{ name: "Enterprise", desc: "Illimité + sur mesure", i: 4, features: ["Tout Premium +", "Formation illimitée", "Contrat annuel"] },
-].map(({ name, desc, i, popular, features }) => (
-              <PricingCard
-                key={name}
-                name={name}
-                desc={desc}
-                price={fmt(prices.crm[i], '119-449$')}
-                unit="mois"
-                popular={popular}
-      accent="bg-purple-600"
-      ctaHref={`/fr/contact?plan=crm-${name.toLowerCase()}`}
-                features={features}
-              />
-            ))}
-          </PricingSlider>
-
+          </div>
+          <p className="text-center text-slate-500 mt-8">
+            Minutes supplémentaires : <span className="font-semibold">{fmt(prices.ai_per_min[0])}/min</span> (Starter), <span className="font-semibold">{fmt(prices.ai_per_min[1])}/min</span> (Pro), <span className="font-semibold">{fmt(prices.ai_per_min[2])}/min</span> (Business)
+          </p>
         </div>
       </section>
 
-      {/* SECTION 3: FAQ - LIGHT (bg-slate-50) */}
-      <section className="py-20 bg-slate-50">
+      {/* INBOUND RECEPTION */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-sky-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 bg-sky-100 text-sky-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+              📞 Réception 24/7
+            </span>
+            <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-3">Appels Entrants</h2>
+            <p className="text-slate-500 text-lg max-w-2xl mx-auto">Conseillers professionnels bilingues. Zéro appel manqué.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {TIERS.map((tier, i) => (
+              <div key={tier.name} className={`relative bg-white rounded-2xl p-8 ${tier.badge === 'Populaire' ? 'border-2 border-sky-500 shadow-2xl scale-105' : 'border border-slate-200 shadow-lg'}`}>
+                {tier.badge && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                    <span className={`text-white text-xs font-bold px-4 py-1.5 rounded-full ${tier.badge === 'Populaire' ? 'bg-sky-600' : 'bg-emerald-600'}`}>{tier.badge}</span>
+                  </div>
+                )}
+                <h3 className="font-black text-2xl text-slate-900 mb-1">{tier.name}</h3>
+                <p className="text-slate-500 text-sm mb-6">{tier.desc}</p>
+                <div className="mb-2">
+                  <span className="text-4xl font-black text-sky-600">{fmt(prices.inbound[i])}</span>
+                  <span className="text-slate-400 text-lg">/mois</span>
+                </div>
+                <p className="text-slate-600 font-semibold mb-6">{loading ? '...' : `${prices.inbound_calls[i]} appels/mois inclus`}</p>
+                <ul className="space-y-3 mb-8">
+                  {[
+                    'Réception 24/7',
+                    'Bilingue FR/EN',
+                    'Moins de 3 sonneries',
+                    'Messages temps réel',
+                    'Conseiller dédié',
+                    i > 0 ? 'Rapport hebdomadaire' : null,
+                    i > 1 ? 'SLA 99.9%' : null,
+                  ].filter(Boolean).map(f => (
+                    <li key={f} className="flex items-center gap-3 text-slate-700">
+                      <CheckIcon className="w-5 h-5 text-sky-600 flex-shrink-0" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link href={`/fr/contact?service=reception&plan=${tier.name.toLowerCase()}`} className={`block text-center py-3.5 px-6 rounded-xl font-bold transition-all ${tier.badge === 'Populaire' ? 'bg-sky-600 text-white hover:bg-sky-700' : 'border-2 border-sky-600 text-sky-600 hover:bg-sky-50'}`}>
+                  Commencer
+                </Link>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-slate-500 mt-8">
+            Appels supplémentaires : <span className="font-semibold">{fmt(prices.inbound_per_call[0])}/appel</span> (Starter), <span className="font-semibold">{fmt(prices.inbound_per_call[1])}/appel</span> (Pro), <span className="font-semibold">{fmt(prices.inbound_per_call[2])}/appel</span> (Business)
+          </p>
+        </div>
+      </section>
+
+{/* CRM INTEGRATION - Monthly only, no setup fee */}
+<section className="py-20 bg-gradient-to-br from-slate-50 to-purple-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <span className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+        📊 CRM & Listes
+      </span>
+      <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-3">SuiteCRM + Listes B2B</h2>
+      <p className="text-slate-500 text-lg max-w-2xl mx-auto">CRM intégré + listes de prospection qualifiées. Setup gratuit inclus.</p>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      {TIERS.map((tier, i) => (
+        <div key={tier.name} className={`relative bg-white rounded-2xl p-8 ${tier.badge === 'Populaire' ? 'border-2 border-purple-500 shadow-2xl scale-105' : 'border border-slate-200 shadow-lg'}`}>
+          {tier.badge && (
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+              <span className={`text-white text-xs font-bold px-4 py-1.5 rounded-full ${tier.badge === 'Populaire' ? 'bg-purple-600' : 'bg-sky-600'}`}>{tier.badge}</span>
+            </div>
+          )}
+          <h3 className="font-black text-2xl text-slate-900 mb-1">{tier.name}</h3>
+          <p className="text-slate-500 text-sm mb-6">{tier.desc}</p>
+          <div className="mb-2">
+            <span className="text-4xl font-black text-purple-600">{fmt(prices.crm_monthly[i])}</span>
+            <span className="text-slate-400 text-lg">/mois</span>
+          </div>
+          <p className="text-slate-600 font-semibold mb-1">{loading ? '...' : `${prices.crm_contacts[i].toLocaleString()} contacts inclus`}</p>
+          <p className="text-emerald-600 text-sm font-semibold mb-6">✓ Setup gratuit</p>
+          <ul className="space-y-3 mb-8">
+            {[
+              'SuiteCRM hébergé',
+              'Formation incluse',
+              'Support FR dédié',
+              'Import de vos données',
+              i > 0 ? 'Listes B2B/B2C' : null,
+              i > 0 ? 'Automatisations' : null,
+              i > 1 ? 'API complète' : null,
+              i > 1 ? 'Intégrations custom' : null,
+            ].filter(Boolean).map(f => (
+              <li key={f} className="flex items-center gap-3 text-slate-700">
+                <CheckIcon className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+          <Link href={`/fr/contact?service=crm&plan=${tier.name.toLowerCase()}`} className={`block text-center py-3.5 px-6 rounded-xl font-bold transition-all ${tier.badge === 'Populaire' ? 'bg-purple-600 text-white hover:bg-purple-700' : 'border-2 border-purple-600 text-purple-600 hover:bg-purple-50'}`}>
+            Commencer
+          </Link>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-3">Questions Fréquentes</h2>
-            <p className="text-slate-500">Tout ce que vous devez savoir avant de commencer</p>
-            <div className="w-16 h-1 bg-blue-700 mx-auto rounded-full mt-4"/>
+            <p className="text-slate-500">Tout ce que vous devez savoir</p>
           </div>
           <div className="space-y-4">
             {[
-              { q: 'Vraiment, combien de temps pour démarrer?', a: 'En général 48h. Mais ça dépend de vous. Si vous nous donnez vos scripts et infos aujourd\'hui, on peut être opérationnels demain. Le plus long, c\'est souvent de vous décider — et ça, on comprend.' },
-              { q: 'Y a-t-il un engagement minimum?', a: 'Non, zéro. Vous pouvez arrêter du jour au lendemain avec 7 jours de préavis. Pourquoi? Parce qu\'on sait que si ça fonctionne pas, vous partirez anyway. Autant être transparents.' },
-              { q: 'Comment ça fonctionne la facturation?', a: 'Simple. Sortants : vous payez les heures réellement utilisées. Entrants : forfait mensuel. Agents IA : à la minute. Pas de frais cachés, pas de surprise sur la facture.' },
-              { q: 'Quels accents vous avez?', a: 'Québec (standard et joual léger), France (parisien et régional), Belgique, Suisse. Pour l\'IA, c\'est au choix. Pour les conseillers humains, on vous assigne quelqu\'un qui matche votre clientèle.' },
-              { q: 'Puis-je changer de forfait?', a: 'Oui, à tout moment. Up ou down. La facturation s\'ajuste au prorata. Si vous grandissez, on grandit avec vous. Si vous ralentissez, on s\'adapte.' },
-              { q: 'Mes données sont-elles sécurisées?', a: 'Hébergement au Canada (et UE pour clients européens). Chiffrement bout en bout. RGPD + Loi 25. On ne vend rien, on ne partage rien. Vos données = vos données.' },
+              { q: 'Y a-t-il un engagement minimum?', a: 'Non, zéro engagement. Vous pouvez annuler avec 7 jours de préavis. On préfère vous garder parce que ça fonctionne, pas parce que vous êtes coincé.' },
+              { q: 'Comment fonctionne l\'essai gratuit?', a: '2 semaines à notre tarif d\'entrée. Pas besoin de carte de crédit. Si ça ne vous convient pas, vous nous dites au revoir — point final.' },
+              { q: 'Puis-je changer de forfait?', a: 'Oui, à tout moment. Up ou down. La facturation s\'ajuste au prorata. Si vous grandissez, on grandit avec vous.' },
+              { q: 'Quels accents sont disponibles?', a: 'Québec (standard et joual léger), France (parisien et régional), Belgique, Suisse. Pour l\'IA, c\'est configurable. Pour les conseillers, on vous assigne selon votre clientèle.' },
+              { q: 'Mes données sont-elles sécurisées?', a: 'Hébergement au Canada (ou UE pour clients européens). Chiffrement bout en bout. RGPD + Loi 25. On ne vend rien, on ne partage rien.' },
+              { q: 'Combien de temps pour démarrer?', a: 'En général 48h. Si vous nous donnez vos scripts aujourd\'hui, on peut être opérationnels demain. Le plus long, c\'est souvent de vous décider.' },
             ].map(({ q, a }, i) => (
-              <details key={i} className="group bg-white rounded-2xl border border-slate-200 overflow-hidden">
-                <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-slate-50 transition-colors">
+              <details key={i} className="group bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden">
+                <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-white transition-colors">
                   <span className="font-semibold text-slate-900 pr-4">{q}</span>
                   <span className="w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center flex-shrink-0 group-open:rotate-180 transition-transform">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
@@ -230,127 +318,14 @@ Démarrer l'Essai
         </div>
       </section>
 
-      {/* SECTION 4: Testimonials - LIGHT (bg-white) */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-3">Ce que disent nos clients</h2>
-            <p className="text-slate-500">Plus de 500 PME nous font confiance</p>
-            <div className="w-16 h-1 bg-blue-700 mx-auto rounded-full mt-4"/>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { q: "J'ai comparé 3 centres d'appels. Vous êtes le seul où les agents comprennent vraiment ce que je fais. Et ça se sent quand mes clients appellent.", name: 'Marie-Claire Dupont', role: 'CEO, StartupTech — Mile-End, Montréal', av: 'MD' },
-              { q: "Mon comptable m'a dit : 'Tu devrais engager une réceptionniste.' J'ai dit non, j'ai pris Smart Hotline. Résultat? 40% moins cher, et je peux scaler demain si je veux.", name: 'Philippe Martin', role: 'Fondateur, AgenceDigitale — Lyon, France', av: 'PM' },
-              { q: "Pendant l'essai de 2 semaines, ils ont pris 87 appels pour moi. J'ai signé le contrat le jour 10. Pas besoin de plus.", name: 'Stéphanie Bernier', role: 'Directrice, Cabinet Conseil — Paris 11e', av: 'SB' },
-            ].map(({ q, name, role, av }) => (
-              <div key={name} className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:shadow-lg transition-all">
-                <div className="flex gap-0.5 mb-4">
-                  {[StarIcon, StarIcon, StarIcon, StarIcon, StarIcon].map((Icon, i) => <Icon key={i} className="w-5 h-5 text-amber-400" />)}
-                </div>
-                <p className="text-slate-700 mb-5 leading-relaxed italic">&ldquo;{q}&rdquo;</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center font-bold text-white text-sm">{av}</div>
-                  <div>
-                    <p className="font-bold text-slate-900 text-sm">{name}</p>
-                    <p className="text-slate-500 text-xs">{role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 5: How it Works - LIGHT (bg-slate-50) */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-3">Comment ça marche</h2>
-            <p className="text-slate-500">De l'appel initial au déploiement en 4 étapes</p>
-            <div className="w-16 h-1 bg-blue-700 mx-auto rounded-full mt-4"/>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { n: '1', t: 'Appel Découverte', d: '30 min pour comprendre vos besoins et objectifs' },
-              { n: '2', t: 'Proposition', d: 'Devis personnalisé sous 24h avec tarifs adaptés' },
-              { n: '3', t: 'Configuration', d: 'Scripts, formation et tests en 48h' },
-              { n: '4', t: 'Lancement', d: 'Vos appels pris en charge, suivi en temps réel' },
-            ].map(({ n, t, d }) => (
-              <div key={n} className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-black shadow-lg">{n}</div>
-                <h3 className="font-bold text-slate-900 text-lg mb-2">{t}</h3>
-                <p className="text-slate-500 text-sm">{d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6: Custom Pricing CTA - DARK */}
-      <section className="py-20 bg-gradient-to-br from-slate-800 to-blue-900">
+      {/* CTA */}
+      <section className="bg-gradient-to-br from-slate-900 via-sky-900 to-blue-900 text-white py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">Volume supérieur ou solution sur mesure?</h2>
-          <p className="text-blue-200 text-lg mb-8">On crée des offres personnalisées pour les grandes équipes et les besoins spécifiques. Vous avez un projet particulier? On en parle.</p>
-          <Link href="/fr/contact?plan=sur-mesure" className="inline-flex items-center gap-2 bg-white text-blue-900 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors">
-            Demander un Devis Personnalisé
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          <h2 className="text-3xl lg:text-4xl font-black mb-4">Pas sûr quel forfait choisir?</h2>
+          <p className="text-sky-200 text-lg mb-8 max-w-2xl mx-auto">Consultation gratuite de 30 minutes. On analyse vos besoins et on vous recommande la meilleure option.</p>
+          <Link href="/fr/contact" className="inline-block bg-white text-sky-700 font-bold px-10 py-4 rounded-2xl hover:bg-sky-50 transition-colors shadow-xl">
+            Demander une Consultation
           </Link>
-          <p className="text-blue-300 text-sm mt-6">Réponse sous 24h — sans engagement</p>
-        </div>
-      </section>
-
-      {/* SECTION 7: Final CTA - DARK */}
-      <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 py-20 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-black mb-4">Prêt à économiser 40% sur vos appels?</h2>
-          <p className="text-blue-200 text-lg mb-8">Essai de 2 semaines. Si c'est pas pour vous, on vous laisse tranquille. Pas de pression.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/fr/contact" className="inline-flex items-center justify-center gap-2 bg-white text-blue-900 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors">
-              Demander un Devis Gratuit
-            </Link>
-            <a href="tel:+15148190559" className="inline-flex items-center justify-center gap-2 border-2 border-white/30 text-white font-bold px-8 py-4 rounded-xl hover:bg-white/10 transition-colors">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-              +1 514 819-0559
-            </a>
-          </div>
-          <p className="text-blue-300 text-sm mt-8">Ouvert 24/7 - Réponse immédiate</p>
-        </div>
-      </section>
-
-      {/* SECTION 8: Nos Engagements - LIGHT (bg-white) */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-3">Nos Engagements</h2>
-            <p className="text-slate-500">Pourquoi plus de 500 PME restent avec nous</p>
-            <div className="w-16 h-1 bg-blue-700 mx-auto rounded-full mt-4"/>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { icon: '🛡️', t: 'Données Protégées', d: 'Hébergement local, chiffrement E2E, RGPD et Loi 25. Vos infos ne quittent pas nos serveurs sécurisés.' },
-              { icon: '⚡', t: 'Dispo 24/7/365', d: 'Vos appels sont pris même quand vous dormez. Weekends, fêtes, 3h du matin — on est là.' },
-              { icon: '💰', t: 'Prix Transparents', d: 'Pas de frais cachés, pas de surprises. Vous savez exactement ce que vous payez avant de signer.' },
-              { icon: '🤝', t: 'Contrat Flexible', d: 'Zéro engagement forcé. 7 jours de préavis et vous êtes libre. On préfère vous garder par choix, pas par force.' },
-            ].map(({ icon, t, d }) => (
-              <div key={t} className="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-all">
-                <div className="text-4xl mb-4">{icon}</div>
-                <h3 className="font-bold text-slate-900 text-lg mb-2">{t}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{d}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
-            <p className="text-slate-400 text-sm mb-6">Des questions? On répond en moins de 2h en moyenne.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/fr/contact" className="inline-flex items-center justify-center gap-2 bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl hover:bg-blue-800 transition-colors">
-                Nous Contacter
-              </Link>
-              <a href="mailto:contact@smarthotline.ca" className="inline-flex items-center justify-center gap-2 border-2 border-slate-200 text-slate-600 font-semibold px-6 py-3 rounded-xl hover:bg-slate-50 transition-colors">
-                contact@smarthotline.ca
-              </a>
-            </div>
-          </div>
         </div>
       </section>
     </>

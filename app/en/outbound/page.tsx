@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import { useGeo } from '@/hooks/useGeo'
 import { CONTACT } from '@/lib/nav'
-import { TargetIcon, TrendingIcon, FolderIcon, CalendarIcon, AnalyticsIcon, GlobeIcon, CheckIcon, PhoneIcon, UsersIcon, BoltIcon, ShieldIcon } from '@/components/Icons'
+import { TargetIcon, TrendingIcon, FolderIcon, CalendarIcon, AnalyticsIcon, GlobeIcon, CheckIcon, PhoneIcon, UsersIcon, BoltIcon, ShieldCheckIcon } from '@/components/Icons'
 
 const FEATURES = [
   {'icon': TargetIcon, 'title': 'Qualified Leads', 'desc': 'Precise targeting and qualification of each lead before transfer.'},
@@ -237,7 +237,7 @@ export default function Page() {
             </div>
             <div className="flex gap-4 items-start">
               <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <ShieldIcon className="w-5 h-5 text-emerald-600" />
+                <ShieldCheckIcon className="w-5 h-5 text-emerald-600" />
               </div>
               <div>
                 <h3 className="font-bold text-slate-900 mb-1">Quality Guarantee</h3>

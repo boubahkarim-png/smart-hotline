@@ -32,13 +32,22 @@ const CATEGORIES = [
 export default function Blog() {
   return (
     <>
-      {/* Section 1: DARK - Hero */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-600 text-white py-20">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl lg:text-5xl font-extrabold mb-5">Smart Hotline Blog</h1>
-          <p className="text-lg text-blue-100">Tips, strategies and insights to optimize your customer relationships.</p>
-        </div>
-      </section>
+{/* Section 1: LIGHT HERO - Text LEFT, Image RIGHT */}
+<section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div className="flex flex-col lg:flex-row items-center gap-12">
+<div className="w-full lg:w-[55%]">
+<h1 className="text-4xl lg:text-5xl font-black mb-5 leading-tight text-slate-900">
+Smart Hotline Blog
+</h1>
+<p className="text-lg text-slate-600 mb-6">Tips, strategies and insights to optimize your customer relationships.</p>
+</div>
+<div className="w-full lg:w-[40%]">
+<img src="/smart-hotline-last/images/main-hero.jpg" alt="Smart Hotline Blog" className="rounded-2xl shadow-2xl w-full object-cover" style={{maxHeight:'380px', objectFit:'cover'}}/>
+</div>
+</div>
+</div>
+</section>
 
       {/* Section 2: LIGHT - Blog posts grid */}
       <section className="py-20">

@@ -58,12 +58,24 @@ export default function Pricing() {
 
   return (
     <>
-      {/* SECTION 1: Hero - DARK */}
-      <section className="bg-gradient-to-br from-slate-900 to-blue-900 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl lg:text-5xl font-extrabold mb-4">Transparent Pricing</h1>
-          <p className="text-xl text-blue-200 mb-4">20 to 40% cheaper than market rates</p>
-          <p className="text-blue-300 text-sm">Prices automatically adjusted to your region</p>
+      {/* SECTION 1: Hero - LIGHT with Image */}
+      <section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="w-full lg:w-[55%]">
+              <h1 className="text-4xl lg:text-5xl font-black mb-5 leading-tight text-slate-900">
+                Transparent Pricing
+              </h1>
+              <p className="text-lg text-slate-600 mb-4">20 to 40% cheaper than market rates</p>
+              <p className="text-slate-500 text-sm mb-6">Prices automatically adjusted to your region</p>
+              <Link href="#pricing" className="bg-emerald-600 text-white font-bold px-7 py-3.5 rounded-xl hover:bg-emerald-700 inline-block shadow-lg">
+                View Pricing
+              </Link>
+            </div>
+            <div className="w-full lg:w-[40%]">
+              <img src="/smart-hotline-last/images/pricing-hero.png" alt="Smart Hotline Pricing" className="rounded-2xl shadow-2xl w-full object-cover" style={{maxHeight:'380px', objectFit:'cover'}}/>
+            </div>
+          </div>
         </div>
       </section>
 

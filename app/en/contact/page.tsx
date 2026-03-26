@@ -61,14 +61,23 @@ export default function EnContact() {
 
   return (
     <>
-      {/* SECTION 1: LIGHT HERO */}
-      <section className="bg-white text-slate-900 py-20">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl lg:text-5xl font-extrabold mb-5">Contact Us</h1>
-          <p className="text-lg text-slate-600 mb-8">Free consultation — response within 2h</p>
-          <Link href="#contact-form" className="bg-blue-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-700 inline-block">
-            Send Message →
-          </Link>
+{/* SECTION 1: LIGHT HERO - Text LEFT, Image RIGHT */}
+      <section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="w-full lg:w-[55%]">
+              <h1 className="text-4xl lg:text-5xl font-black mb-5 leading-tight text-slate-900">
+                Contact Us
+              </h1>
+              <p className="text-lg text-slate-600 mb-8">Free consultation — response within 2h. Our team is ready to answer all your questions.</p>
+              <Link href="#contact-form" className="bg-blue-600 text-white font-bold px-7 py-3.5 rounded-xl hover:bg-blue-700 inline-block shadow-lg">
+                Send Message →
+              </Link>
+            </div>
+            <div className="w-full lg:w-[40%]">
+              <img src="/smart-hotline-last/images/contact-hero.png" alt="Contact Smart Hotline" className="rounded-2xl shadow-2xl w-full object-cover" style={{maxHeight:'380px', objectFit:'cover'}}/>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -103,25 +103,30 @@ const STATS = [
 export default function BlogFr() {
   return (
     <>
-      {/* SECTION 1: LIGHT HERO - Text LEFT, Image concept */}
-      <section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"/>
-              Ressources & Expertise
-            </div>
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black mb-6 leading-tight text-slate-900">
-              Blog Smart Hotline<br/>
-              <span className="text-blue-700">Conseils d'Experts</span><br/>
-              pour votre Relation Client
-            </h1>
-            <p className="text-blue-600 text-lg max-w-2xl mx-auto">
-              Découvrez nos analyses, stratégies et meilleures pratiques pour optimiser votre service client et votre prospection téléphonique.
-            </p>
-          </div>
-        </div>
-      </section>
+{/* SECTION 1: LIGHT HERO - Text LEFT, Image RIGHT */}
+<section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div className="flex flex-col lg:flex-row items-center gap-12">
+<div className="w-full lg:w-[55%]">
+<div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+<span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"/>
+Ressources & Expertise
+</div>
+<h1 className="text-4xl lg:text-5xl font-black mb-6 leading-tight text-slate-900">
+Blog Smart Hotline<br/>
+<span className="text-blue-700">Conseils d'Experts</span><br/>
+pour votre Relation Client
+</h1>
+<p className="text-slate-600 text-lg mb-6">
+Découvrez nos analyses, stratégies et meilleures pratiques pour optimiser votre service client et votre prospection téléphonique.
+</p>
+</div>
+<div className="w-full lg:w-[40%]">
+<img src="/smart-hotline-last/images/main-hero.jpg" alt="Blog Smart Hotline" className="rounded-2xl shadow-2xl w-full object-cover" style={{maxHeight:'380px', objectFit:'cover'}}/>
+</div>
+</div>
+</div>
+</section>
 
       {/* SECTION 2: DARK - FEATURED POSTS */}
       <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 text-white py-20 lg:py-24 overflow-hidden relative">

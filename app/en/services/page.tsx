@@ -28,14 +28,25 @@ const STEPS = [
 export default function Services() {
  return (
   <>
-   {/* SECTION 1: LIGHT HERO */}
-   <section className="bg-gradient-to-br from-blue-900 to-blue-600 text-white py-20">
-    <div className="max-w-4xl mx-auto px-4 text-center">
-     <h1 className="text-4xl lg:text-5xl font-extrabold mb-5">Everything You Need<br/>To Manage Your Clients</h1>
-     <p className="text-lg text-blue-100 mb-8">We handle your phone while you handle your business. Simple as that.</p>
-     <Link href="/en/contact" className="bg-white text-blue-700 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 inline-block">Free Trial</Link>
-    </div>
-   </section>
+{/* SECTION 1: LIGHT HERO - Text LEFT, Image RIGHT */}
+      <section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="w-full lg:w-[55%]">
+              <h1 className="text-4xl lg:text-5xl font-black mb-5 leading-tight text-slate-900">
+                Everything You Need<br/>To Manage Your Clients
+              </h1>
+              <p className="text-lg text-slate-600 mb-8">We handle your phone while you handle your business. Simple as that.</p>
+              <Link href="/en/contact" className="bg-blue-600 text-white font-bold px-7 py-3.5 rounded-xl hover:bg-blue-700 inline-block shadow-lg">
+                Free Trial
+              </Link>
+            </div>
+            <div className="w-full lg:w-[40%]">
+              <img src="/smart-hotline-last/images/services-hero.jpg" alt="Our Services Smart Hotline" className="rounded-2xl shadow-2xl w-full object-cover" style={{maxHeight:'380px', objectFit:'cover'}}/>
+            </div>
+          </div>
+        </div>
+      </section>
    {/* SECTION 2: DARK - SERVICES OVERVIEW */}
    <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 text-white py-20">
     <div className="max-w-4xl mx-auto px-4 text-center">

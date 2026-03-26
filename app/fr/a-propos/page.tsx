@@ -42,7 +42,7 @@ export default function APropos() {
               {icon: "💬", title: "Communication Authentique", desc: "Nos agents parlent comme vos clients, avec votre ton et votre style"},
               {icon: "🔒", title: "Confidentialité Totale", desc: "RGPD, Loi 25 et normes de sécurité les plus strictes respectées"},
               {icon: "📈", title: "Résultats Mesurables", desc: "Des KPI clairs pour suivre l'impact réel sur votre business"},
-              {icon: "🚀", title: "Innovation Continue", desc: "Technologie IA de pointe et amélioration constante de nos services"},
+              {icon: "🚀", title: "Innovation Continue", desc: "Des outils modernes et des mises à jour régulières"},
               {icon: "❤️", title: "Approche Humaine", desc: "Nous traitons vos clients comme s'ils étaient les nôtres"}
             ].map(({icon, title, desc}, i) => (
               <div key={i} className="bg-white/5 backdrop-blur rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all">
@@ -86,7 +86,7 @@ export default function APropos() {
                   </div>
                   <div className="space-y-2">
                     <h3 className="font-bold text-slate-900">Fondation à Montréal</h3>
-                    <p className="text-gray-600">Avec 3 clients et une vision: révolutionner la relation client pour les PME</p>
+                    <p className="text-gray-600">Avec 3 clients et une vision: offrir aux PME le même service qu'aux grandes entreprises</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -167,9 +167,9 @@ export default function APropos() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {icon: "🤖", title: "IA Vocale Avancée", desc: "Sophie comprend le contexte, les accents et les nuances culturelles"},
-              {icon: "🔗", title: "Intégrations Fluides", desc: "Connexion native avec vos outils existants: CRM, calendriers, help desks"},
+              {icon: "🔗", title: "Intégrations Simples", desc: "Connexion directe avec vos outils: CRM, calendriers, help desks"},
               {icon: "📊", title: "Analytics en Temps Réel", desc: "Tableaux de bord personnalisés pour suivre vos performances"},
-              {icon: "🛡️", title: "Sécurité de Banque", desc: "Chiffrement de bout en bout et conformité aux normes les plus strictes"},
+              {icon: "🛡️", title: "Sécurité Solide", desc: "Chiffrement de bout en bout et conformité aux normes en vigueur"},
               {icon: "🌐", title: "Infrastructure Redondante", desc: "99.9% de disponibilité avec sauvegardes géo-distribuées"},
               {icon: "📱", title: "Mobile First", desc: "Applications iOS/Android pour gérer votre service où que vous soyez"}
             ].map(({icon, title, desc}) => (

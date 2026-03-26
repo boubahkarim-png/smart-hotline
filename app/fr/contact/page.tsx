@@ -277,7 +277,7 @@ export default function FrContact() {
               </ul>
             </div>
             <div className="bg-slate-50 rounded-2xl p-6">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Technologie de Pointe</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Technologie Qui Marche</h3>
               <ul className="space-y-4">
                 <li className="flex items-center gap-3 text-gray-700">
                   <span className="w-5 h-5 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
@@ -289,13 +289,13 @@ export default function FrContact() {
                   <span className="w-5 h-5 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
                     ✓
                   </span>
-                  <span>Intégrations fluides avec vos outils existants</span>
+                  <span>Intégrations simples avec vos outils existants</span>
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
                   <span className="w-5 h-5 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
                     ✓
                   </span>
-                  <span>Sécurité de niveau bancaire et conformité RGPD</span>
+                  <span>Sécurité solide et conformité RGPD</span>
                 </li>
                 <li className="flex items-center gap-3 text-gray-700">
                   <span className="w-5 h-5 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
@@ -345,8 +345,8 @@ export default function FrContact() {
             <div className="bg-white rounded-2xl p-6">
               <h3 className="text-2xl font-bold text-slate-900 mb-4">Prêt à commencer ?</h3>
               <p className="text-gray-600 mb-6">
-                Chaque jour que vous attendez, vous manquez potentiellement des appels importants
-                et des opportunités de business. Agissez maintenant pour transformer votre relation client.
+Chaque jour que vous attendez, vous manquez potentiellement des appels importants
+et des opportunités. Appelez-nous pour en discuter.
               </p>
               <Link href="#contact-form" className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3.5 rounded-xl font-bold hover:bg-blue-700 transition-colors">
                 Réserver un Appel →

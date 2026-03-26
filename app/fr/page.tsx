@@ -33,16 +33,16 @@ export default function FrHome() {
       <section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-14">
-            <div className="w-full lg:w-[55%]">
-              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"/>
-                Conseillers & IA disponibles 24/7
-              </div>
-<h1 className="text-4xl lg:text-5xl xl:text-6xl font-black mb-6 leading-tight text-slate-900">
-Le Centre d&#39;Appels<br/>
-<span className="text-blue-700">Qui Comprend</span><br/>
-les PME d&#39;Ici
-</h1>
+      <div className="w-full lg:w-[55%] animate-slide-left">
+        <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6 animate-float">
+          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"/>
+          Conseillers & IA disponibles 24/7
+        </div>
+        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black mb-6 leading-tight text-slate-900">
+          Le Centre d&#39;Appels<br/>
+          <span className="gradient-text-animated">Qui Comprend</span><br/>
+          les PME d&#39;Ici
+        </h1>
 <GeoHeroSubtitle lang="fr"/>
 			<div className="flex flex-wrap items-center gap-4 text-sm text-slate-600 mt-4">
 				<span className="flex items-center gap-1">
@@ -56,9 +56,9 @@ les PME d&#39;Ici
 			<div className="mt-6 mb-8">
 				<GeoAwareCTA lang="fr"/>
 			</div>
-              <div className="flex flex-wrap gap-3">
-                {[{icon: ClockIcon, text: 'Essai 2 semaines'}, {icon: ShieldCheckIcon, text: 'Loi 25 conforme'}, {icon: ClockIcon, text: '24/7'}, {icon: CheckIcon, text: 'Setup 48h'}].map(({icon: Icon, text}: any) => (
-                  <span key={text} className="flex items-center gap-1.5 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full">
+        <div className="flex flex-wrap gap-3">
+          {[{icon: ClockIcon, text: 'Essai 2 semaines'}, {icon: ShieldCheckIcon, text: 'Loi 25 conforme'}, {icon: ClockIcon, text: '24/7'}, {icon: CheckIcon, text: 'Setup 48h'}].map(({icon: Icon, text}: any, i: number) => (
+            <span key={text} className={`flex items-center gap-1.5 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full animate-fade-in-up animate-delay-${(i + 1) * 100}`}>
                     <Icon className="w-4 h-4" /> {text}
                   </span>
                 ))}
@@ -106,16 +106,16 @@ Pourquoi 500+ PME du Québec<br/>Nous Font Confiance
 Des restaurants de la Main aux startups du Mile-End. On comprend la réalité des PME d'ici.
 </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-{[
-{icon: CheckIcon, title: 'Réponse en moins de 3 sonneries', desc: 'Vos clients patientent jamais — même le dimanche soir'},
-{icon: CheckIcon, title: 'Français du Québec et de France', desc: 'Des conseillers qui parlent comme vos clients'},
-{icon: CheckIcon, title: 'Scripts qui vous ressemblent', desc: 'Pas de robot — on adopte votre ton, votre style'},
-{icon: CheckIcon, title: 'Rapports que vous comprenez', desc: 'Pas de jargon. Des chiffres clairs, c\'est tout'},
-{icon: CheckIcon, title: 'Opérationnel en 48h', desc: 'Pas d\'infrastructure, pas de casse-tête'},
-{icon: CheckIcon, title: 'Prix PME, pas prix enterprise', desc: '40-60% moins cher qu\'un poste interne'},
-].map(({icon: Icon, title, desc}, i) => (
-              <div key={i} className="bg-white/5 backdrop-blur rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          {icon: CheckIcon, title: 'Réponse en moins de 3 sonneries', desc: 'Vos clients patientent jamais — même le dimanche soir'},
+          {icon: CheckIcon, title: 'Français du Québec et de France', desc: 'Des conseillers qui parlent comme vos clients'},
+          {icon: CheckIcon, title: 'Scripts qui vous ressemblent', desc: 'Pas de robot — on adopte votre ton, votre style'},
+          {icon: CheckIcon, title: 'Rapports que vous comprenez', desc: 'Pas de jargon. Des chiffres clairs, c\'est tout'},
+          {icon: CheckIcon, title: 'Opérationnel en 48h', desc: 'Pas d\'infrastructure, pas de casse-tête'},
+          {icon: CheckIcon, title: 'Prix PME, pas prix enterprise', desc: '40-60% moins cher qu\'un poste interne'},
+        ].map(({icon: Icon, title, desc}, i) => (
+          <div key={i} className="bg-white/5 backdrop-blur rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover-lift transition-all animate-fade-in-up" style={{animationDelay: `${i * 100}ms`}}>
                 <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center mb-4">
                   <Icon className="w-5 h-5 text-green-400" />
                 </div>
@@ -148,9 +148,9 @@ Des restaurants de la Main aux startups du Mile-End. On comprend la réalité de
             <div className="w-16 h-1 bg-blue-700 mx-auto rounded-full mt-4"/>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-            {SERVICES.map(({ Icon, title, desc, href, bg, color, badge }: any) => (
-              <Link key={href} href={href}
-                className="bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group">
+      {SERVICES.map(({ Icon, title, desc, href, bg, color, badge }: any, i: number) => (
+      <Link key={href} href={href}
+        className="bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-xl hover:-translate-y-1 hover-lift transition-all group animate-fade-in-up" style={{animationDelay: `${i * 100}ms`}}>
                 <div className={`w-12 h-12 ${bg} rounded-2xl flex items-center justify-center mb-4`}>
                   <Icon className={`w-6 h-6 ${color}`} />
                 </div>
@@ -257,7 +257,7 @@ return (
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-4">Prêt à ne plus rater un appel?</h2>
           <p className="text-slate-600 text-lg mb-10">En place en 48h. Pas d'engagement longue durée. On commence quand vous voulez.</p>
-<Link href="/fr/contact" className="bg-blue-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-700 inline-block">Démarrer Maintenant</Link>
+      <Link href="/fr/contact" className="bg-blue-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-700 inline-block pulse-cta">Démarrer Maintenant</Link>
 			</div>
 		</section>
 		<div className="sr-only" aria-hidden="true">

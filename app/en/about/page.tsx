@@ -11,7 +11,7 @@ export default function About() {
             <div className="w-full lg:w-[55%]">
               <span className="inline-block bg-blue-500 bg-opacity-50 text-blue-100 text-sm px-3 py-1 rounded-full mb-5">Our Story</span>
               <h1 className="text-4xl lg:text-5xl font-extrabold mb-5 leading-tight">The Agency That Gives SMEs Enterprise-Grade Tools</h1>
-              <p className="text-lg text-blue-100 mb-6">Founded in Montreal, Smart Hotline Agency believes every SME deserves world-class customer service — without the prohibitive costs of an in-house department.</p>
+              <p className="text-lg text-blue-100 mb-6">Founded in Montreal, Smart Hotline Agency believes every SME deserves great customer service — without the high costs of building an in-house team.</p>
               <Link href="/en/contact" className="bg-white text-blue-700 font-bold px-7 py-3.5 rounded-xl hover:bg-blue-50 inline-block">Contact Us</Link>
             </div>
             <div className="w-full lg:w-[40%]">
@@ -42,7 +42,7 @@ export default function About() {
               {icon: "💬", title: "Authentic Communication", desc: "Our agents speak like your customers, with your tone and style"},
               {icon: "🔒", title: "Total Confidentiality", desc: "GDPR, Law 25 and highest security standards strictly respected"},
               {icon: "📈", title: "Measurable Results", desc: "Clear KPIs to track real impact on your business"},
-              {icon: "🚀", title: "Continuous Innovation", desc: "Cutting-edge AI technology and constant service improvement"},
+              {icon: "🚀", title: "Continuous Innovation", desc: "Modern AI tools and regular service updates"},
               {icon: "❤️", title: "Human Approach", desc: "We treat your customers as if they were ours"}
             ].map(({icon, title, desc}, i) => (
               <div key={i} className="bg-white/5 backdrop-blur rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all">
@@ -106,9 +106,9 @@ export default function About() {
           <div className="flex flex-col lg:flex-row items-center gap-14">
             <div className="w-full lg:w-[55%]">
               <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">Our Expert Team</h2>
-              <p className="text-slate-600 mb-6">
-                Our success comes from combining experienced professionals with cutting-edge AI technology to deliver unmatched service quality.
-              </p>
+<p className="text-slate-600 mb-6">
+Our success comes from combining experienced professionals with practical AI tools to deliver consistent quality.
+</p>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
@@ -116,7 +116,7 @@ export default function About() {
                   </div>
                   <div className="space-y-2">
                     <h3 className="font-bold text-slate-900">Founded in Montreal</h3>
-                    <p className="text-gray-600">Started with a vision to revolutionize customer service for SMEs</p>
+                    <p className="text-gray-600">Started with a simple idea: help SMEs answer every call</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -125,7 +125,7 @@ export default function About() {
                   </div>
                   <div className="space-y-2">
                     <h3 className="font-bold text-slate-900">AI Integration</h3>
-                    <p className="text-gray-600">Introduced our first voice AI agent to enhance human capabilities</p>
+                    <p className="text-gray-600">Added our first AI agent to handle routine calls</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -143,7 +143,7 @@ export default function About() {
                   </div>
                   <div className="space-y-2">
                     <h3 className="font-bold text-slate-900">Full CRM Integration</h3>
-                    <p className="text-gray-600">Native connection with major CRM platforms for seamless operations</p>
+                    <p className="text-gray-600">Direct connection with major CRM platforms for smooth operations</p>
                   </div>
                 </div>
               </div>
@@ -166,9 +166,9 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {icon: "🤖", title: "Advanced Voice AI", desc: "Sophie understands context, accents and cultural nuances"},
-              {icon: "🔗", title: "Seamless Integrations", desc: "Native connection with your existing tools: CRM, calendars, help desks"},
+              {icon: "🔗", title: "Simple Integrations", desc: "Direct connection with your existing tools: CRM, calendars, help desks"},
               {icon: "📊", title: "Real-time Analytics", desc: "Custom dashboards to monitor your performance metrics"},
-              {icon: "🛡️", title: "Bank-Level Security", desc: "End-to-end encryption and compliance with strictest standards"},
+              {icon: "🛡️", title: "Strong Security", desc: "End-to-end encryption and compliance with industry standards"},
               {icon: "🌐", title: "Redundant Infrastructure", desc: "99.9% uptime with geographically distributed backups"},
               {icon: "📱", title: "Mobile-First Access", desc: "iOS/Android apps to manage your service anywhere"}
             ].map(({icon, title, desc}) => (

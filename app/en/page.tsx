@@ -37,15 +37,15 @@ export default function EnHome() {
       <section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-14">
-            <div className="w-full lg:w-[55%]">
-              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"/>
-                Agents & AI available 24/7
-              </div>
-<h1 className="text-4xl lg:text-5xl xl:text-6xl font-black mb-6 leading-tight text-slate-900">
-        Never Miss<br/>
-        <span className="text-blue-700">Another Call</span>
-      </h1>
+      <div className="w-full lg:w-[55%] animate-slide-left">
+        <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6 animate-float">
+          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"/>
+          Agents & AI available 24/7
+        </div>
+        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black mb-6 leading-tight text-slate-900">
+          Never Miss<br/>
+          <span className="gradient-text-animated">Another Call</span>
+        </h1>
       <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600 mt-4 mb-6">
         <span className="flex items-center gap-1">
           <span className="text-amber-400">★★★★★</span> 500+ SMBs
@@ -117,8 +117,8 @@ export default function EnHome() {
               {icon: CheckIcon, title: 'Real-time reports', desc: 'Detailed dashboards 24/7'},
               {icon: CheckIcon, title: 'Setup in 48h', desc: 'No infrastructure required'},
               {icon: CheckIcon, title: 'SMB pricing', desc: 'Up to 60% cheaper than in-house'},
-            ].map(({icon: Icon, title, desc}, i) => (
-              <div key={i} className="bg-white/5 backdrop-blur rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all">
+        ].map(({icon: Icon, title, desc}, i) => (
+          <div key={i} className="bg-white/5 backdrop-blur rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover-lift transition-all animate-fade-in-up" style={{animationDelay: `${i * 100}ms`}}>
                 <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center mb-4">
                   <Icon className="w-5 h-5 text-green-400" />
                 </div>
@@ -151,9 +151,9 @@ export default function EnHome() {
             <div className="w-16 h-1 bg-blue-700 mx-auto rounded-full mt-4"/>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-            {SERVICES.map(({ Icon, title, desc, href, bg, color, badge }: any) => (
-              <Link key={href} href={href}
-                className="bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group">
+      {SERVICES.map(({ Icon, title, desc, href, bg, color, badge }: any, i: number) => (
+      <Link key={href} href={href}
+        className="bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-xl hover:-translate-y-1 hover-lift transition-all group animate-fade-in-up" style={{animationDelay: `${i * 100}ms`}}>
                 <div className={`w-12 h-12 ${bg} rounded-2xl flex items-center justify-center mb-4`}>
                   <Icon className={`w-6 h-6 ${color}`} />
                 </div>
@@ -261,7 +261,7 @@ export default function EnHome() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-slate-900 mb-3">Ready to Stop Missing Calls?</h2>
           <p className="text-slate-600 text-lg mb-8">Setup in 48h. No commitment. Free 2-week trial.</p>
-          <Link href="/en/contact" className="bg-blue-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-700 inline-block">Get Started Now</Link>
+          <Link href="/en/contact" className="bg-blue-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-700 inline-block pulse-cta">Get Started Now</Link>
         </div>
       </section>
     </>

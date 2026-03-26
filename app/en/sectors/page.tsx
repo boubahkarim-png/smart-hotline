@@ -32,7 +32,7 @@ export default function Sectors() {
  return (
   <>
 {/* SECTION 1: LIGHT HERO - Text LEFT, Image RIGHT */}
-<section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
+<section className="bg-white text-slate-900 py-16 lg:py-24 border-b border-slate-100">
 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div className="flex flex-col lg:flex-row items-center gap-12">
 <div className="w-full lg:w-[55%]">
@@ -49,7 +49,7 @@ Our expertise covers over 20 industries across North America and Europe. Special
 </p>
 </div>
 <div className="w-full lg:w-[40%]">
-<img src="/smart-hotline-last/images/services-hero.jpg" alt="Sectors We Serve" className="rounded-2xl shadow-2xl w-full object-cover" style={{maxHeight:'380px', objectFit:'cover'}}/>
+<img src="/smart-hotline-last/images/services-hero.jpg" alt="Sectors We Serve" className="rounded-2xl shadow-2xl w-full object-cover" style={{maxHeight:'550px', objectFit:'cover'}}/>
 </div>
 </div>
 </div>

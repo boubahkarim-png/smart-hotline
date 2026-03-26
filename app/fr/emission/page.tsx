@@ -75,17 +75,17 @@ function CTAButtons({ slug }: { slug: string }) {
   return (
     <div className="flex flex-col sm:flex-row gap-4 mb-6">
       <Link href={`/fr/contact?service=${slug}`}
-        className="bg-emerald-600 text-white font-bold px-7 py-3.5 rounded-xl hover:bg-emerald-700 text-center shadow-lg">
+        className="bg-emerald-600 text-white font-bold px-8 py-4 rounded-2xl hover:bg-emerald-700 text-center shadow-lg">
         Démo Sans Engagement
       </Link>
       {showPhone ? (
         <a href={`tel:${CONTACT.phone}`}
-          className="border-2 border-emerald-600 text-emerald-600 font-bold px-7 py-3.5 rounded-xl hover:bg-emerald-600 hover:text-white transition-all text-center">
+          className="border-2 border-emerald-600 text-emerald-600 font-bold px-8 py-4 rounded-2xl hover:bg-emerald-600 hover:text-white transition-all text-center">
           {CONTACT.phoneDisplay}
         </a>
       ) : (
         <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer"
-          className="border-2 border-emerald-600 text-emerald-600 font-bold px-7 py-3.5 rounded-xl hover:bg-emerald-600 hover:text-white transition-all text-center">
+          className="border-2 border-emerald-600 text-emerald-600 font-bold px-8 py-4 rounded-2xl hover:bg-emerald-600 hover:text-white transition-all text-center">
           💬 WhatsApp 24/7
         </a>
       )}
@@ -97,7 +97,7 @@ export default function Page() {
   return (
     <>
       {/* SECTION 1: LIGHT HERO - Text LEFT, Image RIGHT */}
-      <section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
+      <section className="bg-white text-slate-900 py-16 lg:py-24 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="w-full lg:w-[55%]">
@@ -119,7 +119,7 @@ export default function Page() {
               <div className="relative">
                 <img src="/smart-hotline-last/images/telemarketing.jpg" alt="Conseiller appels sortants"
                 className="rounded-2xl shadow-2xl w-full object-cover"
-                style={{maxHeight:'380px', objectFit:'cover'}}/>
+                style={{maxHeight:'550px', objectFit:'cover'}}/>
                 <div className="absolute -bottom-4 -left-4 bg-white text-slate-900 rounded-xl p-3.5 shadow-xl border border-slate-100">
                   <div className="flex items-center gap-2.5">
                     <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
@@ -135,7 +135,7 @@ export default function Page() {
       </section>
 
       {/* SECTION 2: DARK - STATS SECTION */}
-      <section className="bg-gradient-to-br from-slate-900 via-emerald-900 to-emerald-800 text-white py-20 lg:py-24 overflow-hidden relative">
+      <section className="bg-gradient-to-br from-slate-900 via-emerald-900 to-emerald-800 text-white py-20 lg:py-28 overflow-hidden relative">
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-emerald-500 opacity-10 rounded-full blur-3xl"/>
           <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-violet-500 opacity-10 rounded-full blur-3xl"/>

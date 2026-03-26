@@ -34,13 +34,13 @@ export default function Sectors() {
    <section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
      <div className="text-center">
-      <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+      <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"/>
        Expertise Across Industries
       </div>
       <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black mb-6 leading-tight text-slate-900">
        Sectors We Serve<br/>
-       <span className="text-blue-700">Industry Expertise</span>
+       <span className="text-amber-700">Industry Expertise</span>
       </h1>
       <p className="text-blue-600 text-lg max-w-2xl mx-auto">
        Our expertise covers over 20 industries across North America and Europe. Specialized agents for each sector.
@@ -49,20 +49,20 @@ export default function Sectors() {
     </div>
    </section>
    {/* SECTION 2: DARK - STATS */}
-   <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 text-white py-20 lg:py-24 overflow-hidden relative">
+   <section className="bg-gradient-to-br from-slate-900 via-amber-950 to-amber-900 text-white py-20 lg:py-24 overflow-hidden relative">
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
-     <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-blue-500 opacity-10 rounded-full blur-3xl"/>
+     <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-amber-500 opacity-10 rounded-full blur-3xl"/>
      <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-violet-500 opacity-10 rounded-full blur-3xl"/>
     </div>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
      <div className="text-center mb-12">
       <h2 className="text-3xl lg:text-4xl font-black mb-4"> Trusted Across Industries </h2>
-      <p className="text-blue-200 text-lg max-w-2xl mx-auto"> Numbers that demonstrate our expertise and commitment </p>
+      <p className="text-amber-200 text-lg max-w-2xl mx-auto"> Numbers that demonstrate our expertise and commitment </p>
      </div>
      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
       {STATS.map(({value, label}) => (
        <div key={label}>
-        <p className="text-4xl font-black text-blue-400">{value}</p>
+        <p className="text-4xl font-black text-amber-400">{value}</p>
         <p className="text-slate-400 text-sm mt-1 font-medium">{label}</p>
        </div>
       ))}
@@ -74,7 +74,7 @@ export default function Sectors() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
      <div className="text-center mb-12">
       <h2 className="text-3xl font-black text-slate-900 mb-3">Industries We Specialize In</h2>
-      <div className="w-16 h-1 bg-blue-700 mx-auto rounded"/>
+      <div className="w-16 h-1 bg-amber-700 mx-auto rounded"/>
      </div>
      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {SECTORS.map(({icon, name, desc, examples}) => (
@@ -83,7 +83,7 @@ export default function Sectors() {
         <h3 className="font-bold text-xl mb-2">{name}</h3>
         <p className="text-gray-500 text-sm mb-4">{desc}</p>
         <div className="flex flex-wrap gap-2">
-         {examples.map(e => <span key={e} className="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-full">{e}</span>)}
+         {examples.map(e => <span key={e} className="bg-blue-50 text-amber-700 text-xs px-2 py-1 rounded-full">{e}</span>)}
         </div>
        </div>
       ))}
@@ -96,28 +96,28 @@ export default function Sectors() {
      <h2 className="text-3xl font-black text-slate-900 mb-10 text-center">How We Adapt to Your Industry</h2>
      <div className="space-y-6">
       <div className="flex gap-5 items-start">
-       <div className="w-12 h-12 bg-blue-700 text-white rounded-xl flex items-center justify-center font-black text-xl flex-shrink-0 shadow-md">1</div>
+       <div className="w-12 h-12 bg-amber-700 text-white rounded-xl flex items-center justify-center font-black text-xl flex-shrink-0 shadow-md">1</div>
        <div className="pt-1">
         <h3 className="font-bold text-slate-900 text-lg mb-1">Industry Analysis</h3>
         <p className="text-slate-500">We study your sector's specific needs, terminology, and customer expectations.</p>
        </div>
       </div>
       <div className="flex gap-5 items-start">
-       <div className="w-12 h-12 bg-blue-700 text-white rounded-xl flex items-center justify-center font-black text-xl flex-shrink-0 shadow-md">2</div>
+       <div className="w-12 h-12 bg-amber-700 text-white rounded-xl flex items-center justify-center font-black text-xl flex-shrink-0 shadow-md">2</div>
        <div className="pt-1">
         <h3 className="font-bold text-slate-900 text-lg mb-1">Custom Script Development</h3>
         <p className="text-slate-500">We create scripts that reflect your brand voice and industry best practices.</p>
        </div>
       </div>
       <div className="flex gap-5 items-start">
-       <div className="w-12 h-12 bg-blue-700 text-white rounded-xl flex items-center justify-center font-black text-xl flex-shrink-0 shadow-md">3</div>
+       <div className="w-12 h-12 bg-amber-700 text-white rounded-xl flex items-center justify-center font-black text-xl flex-shrink-0 shadow-md">3</div>
        <div className="pt-1">
         <h3 className="font-bold text-slate-900 text-lg mb-1">Specialized Agent Training</h3>
         <p className="text-slate-500">Our agents receive specific training for your industry and business.</p>
        </div>
       </div>
       <div className="flex gap-5 items-start">
-       <div className="w-12 h-12 bg-blue-700 text-white rounded-xl flex items-center justify-center font-black text-xl flex-shrink-0 shadow-md">4</div>
+       <div className="w-12 h-12 bg-amber-700 text-white rounded-xl flex items-center justify-center font-black text-xl flex-shrink-0 shadow-md">4</div>
        <div className="pt-1">
         <h3 className="font-bold text-slate-900 text-lg mb-1">Continuous Optimization</h3>
         <p className="text-slate-500">Regular reviews and adjustments to improve service quality.</p>
@@ -131,7 +131,7 @@ export default function Sectors() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
      <div className="text-center mb-12">
       <h2 className="text-3xl font-black text-slate-900 mb-3">Success Stories by Industry</h2>
-      <div className="w-16 h-1 bg-blue-700 mx-auto rounded-full"/>
+      <div className="w-16 h-1 bg-amber-700 mx-auto rounded-full"/>
      </div>
      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {TESTIMONIALS.map(({quote, name, role, initials}) => (
@@ -141,7 +141,7 @@ export default function Sectors() {
         </div>
         <p className="text-slate-700 mb-5 leading-relaxed italic">"{quote}"</p>
         <div className="flex items-center gap-3">
-         <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center font-bold text-white text-sm">{initials}</div>
+         <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-amber-700 rounded-full flex items-center justify-center font-bold text-white text-sm">{initials}</div>
          <div>
           <p className="font-bold text-slate-900 text-sm">{name}</p>
           <p className="text-slate-500 text-xs">{role}</p>
@@ -157,7 +157,7 @@ export default function Sectors() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
      <div className="text-center mb-12">
       <h2 className="text-3xl font-black text-slate-900 mb-3">Frequently Asked Questions</h2>
-      <div className="w-16 h-1 bg-blue-700 mx-auto rounded-full"/>
+      <div className="w-16 h-1 bg-amber-700 mx-auto rounded-full"/>
      </div>
      <div className="space-y-6">
       {FAQ.map(({question, answer}, index) => (
@@ -174,16 +174,16 @@ export default function Sectors() {
     <div className="max-w-4xl mx-auto px-4 text-center">
      <h2 className="text-3xl font-black text-slate-900 mb-3">Your Sector Not Listed?</h2>
      <p className="text-slate-600 mb-8">We adapt to any industry. Contact us for a personalized consultation.</p>
-     <Link href="/en/contact" className="bg-blue-700 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-800 inline-block">Talk to an Expert</Link>
+     <Link href="/en/contact" className="bg-amber-700 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-800 inline-block">Talk to an Expert</Link>
     </div>
    </section>
    {/* SECTION 8: DARK - FINAL CTA */}
-   <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 text-white py-20">
+   <section className="bg-gradient-to-br from-slate-900 via-amber-950 to-amber-900 text-white py-20">
     <div className="max-w-4xl mx-auto px-4 text-center">
      <h2 className="text-3xl lg:text-4xl font-black mb-4">Ready to Transform Your Industry?</h2>
-     <p className="text-blue-200 text-lg mb-10">Join 500+ SMEs who trust us with their calls. Free consultation, no commitment.</p>
+     <p className="text-amber-200 text-lg mb-10">Join 500+ SMEs who trust us with their calls. Free consultation, no commitment.</p>
      <div className="flex flex-col sm:flex-row gap-4 justify-center">
-      <Link href="/en/contact" className="bg-white text-blue-700 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 inline-block">Free Consultation</Link>
+      <Link href="/en/contact" className="bg-white text-amber-700 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 inline-block">Free Consultation</Link>
       <Link href="/en/services" className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white/10 inline-block">View All Services</Link>
      </div>
     </div>

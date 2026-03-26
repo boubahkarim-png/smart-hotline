@@ -37,15 +37,15 @@ export const PRICES_CA: CurrencyConfig = {
   locale: 'fr-CA',
   // Outbound: competitive with local agencies
   outbound_trial: 15,
-  outbound: [19, 18, 17, 16], // per hour, volume discounts
-  // AI: 25% below Retell ($0.11-0.31/min)
-  ai_per_min: [0.15, 0.18, 0.14, 0.12],
-  // Inbound: starts at $499 - premium positioning
-  inbound: [499, 749, 999],
-  // Support: multi-channel
-  support: [399, 599, 849],
-  // CRM: aggressive (selected)
-  crm: [149, 289, 449],
+  outbound: [19, 18, 17, 16, 15], // per hour, volume discounts (5 tiers)
+  // AI: 25% below Retell ($0.11-0.31/min) - sorted: more volume = better price
+  ai_per_min: [0.18, 0.15, 0.12, 0.10, 0.08],
+  // Inbound: starts at $399 - premium positioning (5 tiers)
+  inbound: [399, 599, 849, 1199, 1699],
+  // Support: multi-channel (5 tiers)
+  support: [399, 599, 849, 1199, 1599],
+  // CRM: aggressive (5 tiers)
+  crm: [149, 289, 449, 749, 1199],
 }
 
 // ============================================================
@@ -58,15 +58,15 @@ export const PRICES_EU: CurrencyConfig = {
   locale: 'fr-FR',
   // Outbound: lower than Canada due to labor costs
   outbound_trial: 11,
-  outbound: [13, 12, 11, 10],
-  // AI: similar tech costs
-  ai_per_min: [0.12, 0.15, 0.11, 0.09],
-  // Inbound: starts at €399 - premium positioning
-  inbound: [399, 599, 799],
-  // Support
-  support: [319, 479, 699],
-  // CRM: aggressive
-  crm: [119, 229, 359],
+  outbound: [13, 12, 11, 10, 9], // 5 tiers
+  // AI: similar tech costs - sorted: more volume = better price
+  ai_per_min: [0.15, 0.12, 0.10, 0.08, 0.06],
+  // Inbound: starts at €299 - premium positioning (5 tiers)
+  inbound: [299, 449, 649, 899, 1299],
+  // Support (5 tiers)
+  support: [299, 449, 649, 899, 1199],
+  // CRM: aggressive (5 tiers)
+  crm: [119, 229, 359, 599, 999],
 }
 
 // ============================================================
@@ -79,15 +79,15 @@ export const PRICES_US: CurrencyConfig = {
   locale: 'en-US',
   // Outbound: competitive with US market
   outbound_trial: 12,
-  outbound: [14, 13, 12, 11],
-  // AI: Retell $0.07-0.31/min base
-  ai_per_min: [0.13, 0.16, 0.12, 0.10],
-  // Inbound: starts at $449 - premium positioning
-  inbound: [449, 679, 899],
-  // Support
-  support: [359, 539, 769],
-  // CRM: aggressive
-  crm: [129, 249, 389],
+  outbound: [14, 13, 12, 11, 10], // 5 tiers
+  // AI: Retell $0.07-0.31/min base - sorted: more volume = better price
+  ai_per_min: [0.16, 0.13, 0.10, 0.08, 0.06],
+  // Inbound: starts at $349 - premium positioning (5 tiers)
+  inbound: [349, 549, 799, 1099, 1549],
+  // Support (5 tiers)
+  support: [349, 519, 749, 1049, 1399],
+  // CRM: aggressive (5 tiers)
+  crm: [129, 249, 389, 649, 1099],
 }
 
 // ============================================================
@@ -100,15 +100,15 @@ export const PRICES_CH: CurrencyConfig = {
   locale: 'fr-CH',
   // Outbound: premium pricing for Swiss market
   outbound_trial: 14,
-  outbound: [17, 16, 15, 14],
-  // AI: similar tech, premium positioning
-  ai_per_min: [0.16, 0.19, 0.14, 0.12],
-  // Inbound: starts at CHF 549 - premium
-  inbound: [549, 819, 1089],
-  // Support
-  support: [439, 659, 929],
-  // CRM: aggressive
-  crm: [159, 309, 479],
+  outbound: [17, 16, 15, 14, 13], // 5 tiers
+  // AI: similar tech, premium positioning - sorted: more volume = better price
+  ai_per_min: [0.19, 0.16, 0.13, 0.10, 0.08],
+  // Inbound: starts at CHF 449 - premium (5 tiers)
+  inbound: [449, 699, 999, 1399, 1999],
+  // Support (5 tiers)
+  support: [439, 659, 929, 1299, 1749],
+  // CRM: aggressive (5 tiers)
+  crm: [159, 309, 479, 799, 1299],
 }
 
 export const PRICES: Record<Currency, CurrencyConfig> = {

@@ -31,15 +31,15 @@ function CTAButtons({ slug }: { slug: string }) {
   const showPhone = !loading && geo.showPhone
   return (
     <div className="flex flex-col sm:flex-row gap-4 mb-6">
-      <Link href={`/fr/contact?service=${slug}`} className="bg-indigo-600 text-white font-bold px-7 py-3.5 rounded-xl hover:bg-indigo-700 text-center shadow-lg">
+      <Link href={`/fr/contact?service=${slug}`} className="bg-purple-600 text-white font-bold px-7 py-3.5 rounded-xl hover:bg-purple-700 text-center shadow-lg">
         Démo Sans Engagement
       </Link>
       {showPhone ? (
-        <a href={`tel:${CONTACT.phone}`} className="border-2 border-indigo-600 text-indigo-600 font-bold px-7 py-3.5 rounded-xl hover:bg-indigo-600 hover:text-white transition-all text-center">
+        <a href={`tel:${CONTACT.phone}`} className="border-2 border-purple-600 text-purple-600 font-bold px-7 py-3.5 rounded-xl hover:bg-purple-600 hover:text-white transition-all text-center">
           {CONTACT.phoneDisplay}
         </a>
       ) : (
-        <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="border-2 border-indigo-600 text-indigo-600 font-bold px-7 py-3.5 rounded-xl hover:bg-indigo-600 hover:text-white transition-all text-center">
+        <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="border-2 border-purple-600 text-purple-600 font-bold px-7 py-3.5 rounded-xl hover:bg-purple-600 hover:text-white transition-all text-center">
           💬 WhatsApp 24/7
         </a>
       )}
@@ -55,7 +55,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="w-full lg:w-[55%]">
-              <span className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 text-sm px-3 py-1 rounded-full mb-5">
+              <span className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 text-sm px-3 py-1 rounded-full mb-5">
                 <CRMIcon className="w-4 h-4" /> CRM & Listes
               </span>
               <h1 className="text-4xl lg:text-5xl font-black mb-5 leading-tight text-slate-900">
@@ -65,7 +65,7 @@ export default function Page() {
               <CTAButtons slug="crm"/>
               <div className="flex flex-wrap gap-3">
                 {['SuiteCRM inclus', 'Listes B2B/B2C', 'Mautic intégré', 'Rapports auto'].map(b => (
-                  <span key={b} className="flex items-center gap-1 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full"><CheckIcon className="w-4 h-4 text-indigo-600" /> {b}</span>
+                  <span key={b} className="flex items-center gap-1 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full"><CheckIcon className="w-4 h-4 text-purple-600" /> {b}</span>
                 ))}
               </div>
             </div>
@@ -74,8 +74,8 @@ export default function Page() {
                 <img src="/smart-hotline-last/images/crm-interface.jpg" alt="CRM dashboard" className="rounded-2xl shadow-2xl w-full object-cover" style={{maxHeight:'380px', objectFit:'cover'}}/>
                 <div className="absolute -bottom-4 -left-4 bg-white text-slate-900 rounded-xl p-3.5 shadow-xl border border-slate-100">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
-                      <TrendingIcon className="w-5 h-5 text-indigo-600" />
+<div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+<TrendingIcon className="w-5 h-5 text-purple-600" />
                     </div>
                     <div><p className="font-black text-sm">+35% conversion</p><p className="text-slate-500 text-xs">moyenne clients</p></div>
                   </div>
@@ -87,36 +87,36 @@ export default function Page() {
       </section>
 
       {/* SECTION 2: DARK - Features */}
-      <section className="bg-gradient-to-br from-slate-900 via-indigo-950 to-indigo-900 text-white py-20 lg:py-24 overflow-hidden relative">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-indigo-500 opacity-10 rounded-full blur-3xl"></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-black mb-4">Ce qui est inclus</h2>
-            <p className="text-indigo-200 text-lg max-w-2xl mx-auto">Tout ce dont vous avez besoin pour gérer vos contacts et vos ventes.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {FEATURES.map(({icon: Icon, title, desc}: any) => (
-              <div key={title} className="bg-white/5 backdrop-blur rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all">
-                <div className="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6 text-indigo-300" />
-                </div>
-                <h3 className="font-bold text-lg text-white mb-2">{title}</h3>
-                <p className="text-indigo-200 text-sm">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+<section className="bg-gradient-to-br from-slate-900 via-purple-950 to-purple-900 text-white py-20 lg:py-24 overflow-hidden relative">
+<div className="absolute inset-0 pointer-events-none">
+<div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-purple-500 opacity-10 rounded-full blur-3xl"></div>
+</div>
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+<div className="text-center mb-12">
+<h2 className="text-3xl lg:text-4xl font-black mb-4">Ce qui est inclus</h2>
+<p className="text-purple-200 text-lg max-w-2xl mx-auto">Tout ce dont vous avez besoin pour gérer vos contacts et vos ventes.</p>
+</div>
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+{FEATURES.map(({icon: Icon, title, desc}: any) => (
+<div key={title} className="bg-white/5 backdrop-blur rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all">
+<div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-4">
+<Icon className="w-6 h-6 text-purple-300" />
+</div>
+<h3 className="font-bold text-lg text-white mb-2">{title}</h3>
+<p className="text-purple-200 text-sm">{desc}</p>
+</div>
+))}
+</div>
+</div>
+</section>
 
       {/* SECTION 3: LIGHT - Stats */}
       <section className="bg-white border-b border-slate-100 py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-          <div><p className="text-4xl font-black text-indigo-600">250K+</p><p className="text-slate-500 text-sm mt-1">Contacts B2B</p></div>
-          <div><p className="text-4xl font-black text-indigo-600">98%</p><p className="text-slate-500 text-sm mt-1">Données validées</p></div>
-          <div><p className="text-4xl font-black text-indigo-600">+35%</p><p className="text-slate-500 text-sm mt-1">Taux conversion</p></div>
-          <div><p className="text-4xl font-black text-indigo-600">48h</p><p className="text-slate-500 text-sm mt-1">Setup complet</p></div>
+<div><p className="text-4xl font-black text-purple-600">250K+</p><p className="text-slate-500 text-sm mt-1">Contacts B2B</p></div>
+<div><p className="text-4xl font-black text-purple-600">98%</p><p className="text-slate-500 text-sm mt-1">Données validées</p></div>
+<div><p className="text-4xl font-black text-purple-600">+35%</p><p className="text-slate-500 text-sm mt-1">Taux conversion</p></div>
+<div><p className="text-4xl font-black text-purple-600">48h</p><p className="text-slate-500 text-sm mt-1">Setup complet</p></div>
         </div>
       </section>
 
@@ -125,11 +125,11 @@ export default function Page() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-slate-900 mb-2">Comment ça fonctionne</h2>
-            <div className="w-16 h-1 bg-indigo-600 mx-auto rounded"></div>
-          </div>
-          {STEPS.map(({n, t, d}: any) => (
-            <div key={n} className="flex gap-5 mb-8 items-start">
-              <div className="w-12 h-12 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-black text-xl flex-shrink-0 shadow-md">{n}</div>
+<div className="w-16 h-1 bg-purple-600 mx-auto rounded"></div>
+</div>
+{STEPS.map(({n, t, d}: any) => (
+<div key={n} className="flex gap-5 mb-8 items-start">
+<div className="w-12 h-12 bg-purple-600 text-white rounded-xl flex items-center justify-center font-black text-xl flex-shrink-0 shadow-md">{n}</div>
               <div className="pt-1">
                 <h3 className="font-bold text-slate-900 text-lg mb-1">{t}</h3>
                 <p className="text-slate-500">{d}</p>
@@ -147,24 +147,24 @@ export default function Page() {
               <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-5">Pourquoi choisir notre CRM?</h2>
               <p className="text-slate-600 text-lg mb-6">On ne vous vend pas juste un logiciel. On vous aide à structurer votre processus de vente de A à Z.</p>
               <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-3 text-slate-700"><span className="w-6 h-6 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center"><CheckIcon className="w-4 h-4"/></span>Formation incluse — pas de courbes d'apprentissage interminables</li>
-                <li className="flex items-center gap-3 text-slate-700"><span className="w-6 h-6 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center"><CheckIcon className="w-4 h-4"/></span>Support francophone basé au Québec</li>
-                <li className="flex items-center gap-3 text-slate-700"><span className="w-6 h-6 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center"><CheckIcon className="w-4 h-4"/></span>Mises à jour automatiques, sans frais cachés</li>
-                <li className="flex items-center gap-3 text-slate-700"><span className="w-6 h-6 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center"><CheckIcon className="w-4 h-4"/></span>Intégré à nos services d'appels sortants</li>
+                <li className="flex items-center gap-3 text-slate-700"><span className="w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center"><CheckIcon className="w-4 h-4"/></span>Formation incluse — pas de courbes d'apprentissage interminables</li>
+                <li className="flex items-center gap-3 text-slate-700"><span className="w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center"><CheckIcon className="w-4 h-4"/></span>Support francophone basé au Québec</li>
+                <li className="flex items-center gap-3 text-slate-700"><span className="w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center"><CheckIcon className="w-4 h-4"/></span>Mises à jour automatiques, sans frais cachés</li>
+                <li className="flex items-center gap-3 text-slate-700"><span className="w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center"><CheckIcon className="w-4 h-4"/></span>Intégré à nos services d'appels sortants</li>
               </ul>
-              <Link href="/fr/contact?service=crm" className="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3.5 rounded-xl font-bold hover:bg-indigo-700 transition-colors">
+              <Link href="/fr/contact?service=crm" className="inline-flex items-center gap-2 bg-purple-600 text-white px-6 py-3.5 rounded-xl font-bold hover:bg-purple-700 transition-colors">
                 Voir une démo →
               </Link>
             </div>
             <div className="w-full lg:w-[40%]">
               <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100">
                 <div className="flex items-center gap-3 mb-4">
-                  <ClockIcon className="w-6 h-6 text-indigo-600" />
+                  <ClockIcon className="w-6 h-6 text-purple-600" />
                   <span className="font-bold text-slate-900">Gain de temps</span>
                 </div>
                 <p className="text-slate-600 mb-6">Nos clients économisent en moyenne 8h par semaine sur la gestion de leurs contacts.</p>
                 <div className="flex items-center gap-3 mb-4">
-                  <ShieldCheckIcon className="w-6 h-6 text-indigo-600" />
+                  <ShieldCheckIcon className="w-6 h-6 text-purple-600" />
                   <span className="font-bold text-slate-900">Données sécurisées</span>
                 </div>
                 <p className="text-slate-600">Hébergement au Canada, conforme RGPD et PIPEDA.</p>
@@ -179,7 +179,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-slate-900 mb-2">Ce que nos clients disent</h2>
-            <div className="w-16 h-1 bg-indigo-600 mx-auto rounded"></div>
+            <div className="w-16 h-1 bg-purple-600 mx-auto rounded"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {TESTIMONIALS.map((t, i) => (
@@ -189,7 +189,7 @@ export default function Page() {
                 </div>
                 <p className="text-slate-600 mb-5 leading-relaxed italic">"{t.q}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-full flex items-center justify-center font-bold text-white text-sm">{t.av}</div>
+                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center font-bold text-white text-sm">{t.av}</div>
                   <div>
                     <p className="font-bold text-slate-900 text-sm">{t.name}</p>
                     <p className="text-slate-500 text-xs">{t.role}</p>
@@ -202,12 +202,12 @@ export default function Page() {
       </section>
 
       {/* SECTION 7: DARK - Final CTA */}
-      <section className="bg-gradient-to-br from-slate-900 to-indigo-800 py-20">
+      <section className="bg-gradient-to-br from-slate-900 to-purple-800 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center text-white">
           <h2 className="text-3xl lg:text-4xl font-black mb-4">Prêt à centraliser vos leads?</h2>
-          <p className="text-indigo-200 text-lg mb-10 max-w-2xl mx-auto">CRM + listes qualifiées + support francophone. Tout ce qu'il vous faut pour vendre plus.</p>
+          <p className="text-purple-200 text-lg mb-10 max-w-2xl mx-auto">CRM + listes qualifiées + support francophone. Tout ce qu'il vous faut pour vendre plus.</p>
           <CTAButtons slug="crm"/>
-          <p className="text-indigo-300 text-sm mt-6">
+          <p className="text-purple-300 text-sm mt-6">
             <Link href="/fr/tarifs" className="underline hover:text-white">Voir tous les tarifs</Link> · <Link href="/fr/contact" className="underline hover:text-white">Nous contacter</Link>
           </p>
         </div>
@@ -232,7 +232,7 @@ export default function Page() {
               <p className="text-slate-600 mt-2">Environ 2 heures. On vous montre les bases, et on reste disponible pour les questions.</p>
             </details>
           </div>
-          <Link href="/fr/contact?service=crm" className="inline-block mt-8 bg-indigo-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-indigo-700">
+          <Link href="/fr/contact?service=crm" className="inline-block mt-8 bg-purple-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-purple-700">
             Démarrer Maintenant
           </Link>
         </div>

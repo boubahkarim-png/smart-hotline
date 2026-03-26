@@ -70,32 +70,33 @@ export default function Pricing() {
       {/* SECTION 2: Pricing Sliders - LIGHT (bg-white implicit) */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* OUTBOUND */}
-          <PricingSlider title="Outbound Calls" subtitle="Professional agents — billed per hour" accentColor="bg-blue-700">
-            {/* Trial card */}
-            <div className="flex-shrink-0 w-72 snap-start bg-amber-50 border-2 border-amber-300 rounded-2xl p-6 relative">
-              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                <span className="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full">Trial Offer</span>
-              </div>
-              <h3 className="font-bold text-lg text-slate-900 mb-1">Starter</h3>
-              <p className="text-slate-500 text-sm mb-4 min-h-[40px]">20h/week, 2 weeks</p>
-              <div className="mb-1">
-                <span className="text-4xl font-extrabold text-amber-600">{fmt(prices.outbound_trial)}</span>
-              </div>
-              <p className="text-slate-400 text-sm mb-3">/hour</p>
-              <p className="text-amber-700 text-xs font-semibold bg-amber-100 rounded-lg p-2 mb-5">
-                OR: 1 week free — pay only 3 weeks
-              </p>
-              <Link href="/en/contact?plan=trial" className="block text-center py-2.5 px-4 rounded-xl font-semibold text-sm bg-amber-500 text-white hover:bg-amber-600">
-                Start Trial
-              </Link>
-            </div>
-            {[
-              { name: "Starter", desc: "20h/week", i: 0, features: ["Dedicated agent", "Custom scripts", "Daily reports"] },
-              { name: "Professional", desc: "40h/week", i: 1, popular: true, features: ["2 agents", "Integrated CRM", "Real-time reports"] },
-              { name: "Business", desc: "80h/week", i: 2, features: ["4 agents", "Dedicated manager", "Guaranteed SLA"] },
-              { name: "Enterprise", desc: "120h/week — 3 agents", i: 3, features: ["6 agents", "Account manager", "Volume discounts"] },
-            ].map(({ name, desc, i, popular, features }) => (
+{/* OUTBOUND */}
+<PricingSlider title="Outbound Calls" subtitle="Professional agents — more hours = better rate" accentColor="bg-emerald-600">
+{/* Trial card */}
+<div className="flex-shrink-0 w-72 snap-start bg-amber-50 border-2 border-amber-300 rounded-2xl p-6 relative">
+<div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+<span className="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full">Trial Offer</span>
+</div>
+<h3 className="font-bold text-lg text-slate-900 mb-1">Starter</h3>
+<p className="text-slate-500 text-sm mb-4 min-h-[40px]">20h/week, 2 weeks</p>
+<div className="mb-1">
+<span className="text-4xl font-extrabold text-amber-600">{fmt(prices.outbound_trial)}</span>
+</div>
+<p className="text-slate-400 text-sm mb-3">/hour</p>
+<p className="text-amber-700 text-xs font-semibold bg-amber-100 rounded-lg p-2 mb-5">
+OR: 1 week free — pay only 3 weeks
+</p>
+<Link href="/en/contact?plan=trial" className="block text-center py-2.5 px-4 rounded-xl font-semibold text-sm bg-amber-500 text-white hover:bg-amber-600">
+Start Trial
+</Link>
+</div>
+{[
+{ name: "Starter", desc: "20h/week", i: 0, features: ["Dedicated agent", "Custom scripts", "Daily reports"] },
+{ name: "Pro", desc: "40h/week", i: 1, features: ["2 agents", "Integrated CRM", "Real-time reports"] },
+{ name: "Business", desc: "80h/week", i: 2, popular: true, features: ["4 agents", "Dedicated manager", "Guaranteed SLA"] },
+{ name: "Premium", desc: "120h/week", i: 3, features: ["6 agents", "Account manager", "Volume discounts"] },
+{ name: "Enterprise", desc: "Unlimited", i: 4, features: ["Custom team", "Senior manager", "Annual contract"] },
+].map(({ name, desc, i, popular, features }) => (
               <PricingCard
                 key={name}
                 name={name}
@@ -103,21 +104,22 @@ export default function Pricing() {
                 price={fmt(prices.outbound[i])}
                 unit="hour"
                 popular={popular}
-                accent="bg-blue-700"
-                ctaHref={`/en/contact?plan=outbound-${name.toLowerCase()}`}
+      accent="bg-emerald-600"
+      ctaHref={`/en/contact?plan=outbound-${name.toLowerCase()}`}
                 features={features}
               />
             ))}
           </PricingSlider>
 
-          {/* AI AGENTS */}
-          <PricingSlider title="Voice AI Agents" subtitle="Per-minute billing — 30% below market — 24/7 availability" accentColor="bg-violet-600">
-            {[
-              { name: "Starter", desc: "Up to 1,000 min/month", i: 0, features: ["Response < 2 sec", "Native English", "Message taking"] },
-              { name: "Professional", desc: "Up to 3,000 min/month", i: 1, popular: true, features: ["All Starter +", "Appointment booking", "CRM integration"] },
-              { name: "Business", desc: "Up to 8,000 min/month", i: 2, features: ["All Pro +", "Agent transfer", "Dashboard"] },
-              { name: "Enterprise", desc: "Unlimited volume", i: 3, features: ["All Business +", "99.9% SLA", "Priority support"] },
-            ].map(({ name, desc, i, popular, features }) => (
+{/* AI AGENTS */}
+<PricingSlider title="Voice AI Agents" subtitle="Per-minute billing — more volume = better rate" accentColor="bg-violet-600">
+{[
+{ name: "Starter", desc: "500 min/month", i: 0, features: ["Response < 2 sec", "Native English", "Message taking"] },
+{ name: "Pro", desc: "2,000 min/month", i: 1, features: ["All Starter +", "Appointment booking", "CRM integration"] },
+{ name: "Business", desc: "5,000 min/month", i: 2, popular: true, features: ["All Pro +", "Agent transfer", "Dashboard"] },
+{ name: "Premium", desc: "10,000 min/month", i: 3, features: ["All Business +", "99.9% SLA", "Priority support"] },
+{ name: "Enterprise", desc: "Unlimited volume", i: 4, features: ["All Premium +", "Account manager", "Custom rate"] },
+].map(({ name, desc, i, popular, features }) => (
               <PricingCard
                 key={name}
                 name={name}
@@ -132,13 +134,15 @@ export default function Pricing() {
             ))}
           </PricingSlider>
 
-          {/* INBOUND */}
-          <PricingSlider title="Inbound Calls" subtitle="Monthly packages — dedicated agents" accentColor="bg-teal-600">
-            {[
-              { name: "Basic", desc: "Up to 500 calls/month", i: 0, features: ["24/7 reception", "Bilingual EN/FR", "Monthly reports"] },
-              { name: "Advanced", desc: "Up to 1,500 calls/month", i: 1, popular: true, features: ["All Basic +", "Smart transfer", "Weekly reports"] },
-              { name: "Premium", desc: "Up to 2,500 calls/month", i: 2, features: ["All Advanced +", "Dedicated agent", "Guaranteed SLA"] },
-            ].map(({ name, desc, i, popular, features }) => (
+{/* INBOUND */}
+<PricingSlider title="Inbound Calls" subtitle="Monthly packages — more calls = better rate" accentColor="bg-sky-600">
+{[
+{ name: "Basic", desc: "300 calls/month", i: 0, features: ["24/7 reception", "Bilingual EN/FR", "Monthly reports"] },
+{ name: "Standard", desc: "750 calls/month", i: 1, features: ["All Basic +", "Smart transfer", "Weekly reports"] },
+{ name: "Pro", desc: "1,500 calls/month", i: 2, popular: true, features: ["All Standard +", "Dedicated agent", "Guaranteed SLA"] },
+{ name: "Premium", desc: "3,000 calls/month", i: 3, features: ["All Pro +", "2 agents", "Priority routing"] },
+{ name: "Enterprise", desc: "Unlimited", i: 4, features: ["Custom team", "Dedicated manager", "Annual contract"] },
+].map(({ name, desc, i, popular, features }) => (
               <PricingCard
                 key={name}
                 name={name}
@@ -146,20 +150,22 @@ export default function Pricing() {
                 price={fmt(prices.inbound[i])}
                 unit="month"
                 popular={popular}
-                accent="bg-teal-600"
-                ctaHref={`/en/contact?plan=inbound-${name.toLowerCase()}`}
+      accent="bg-sky-600"
+      ctaHref={`/en/contact?plan=inbound-${name.toLowerCase()}`}
                 features={features}
               />
             ))}
           </PricingSlider>
 
-		{/* CRM */}
-          <PricingSlider title="CRM & Lists" subtitle="Integrated SuiteCRM + prospecting lists" accentColor="bg-indigo-600">
-            {[
-              { name: "Starter", desc: "500 contacts/month", i: 0, features: ["SuiteCRM", "500 leads/month", "Email integration"] },
-              { name: "Pro", desc: "2,000 contacts + lists", i: 1, popular: true, features: ["All Starter +", "B2B/B2C lists", "Automations"] },
-              { name: "Enterprise", desc: "Unlimited + custom", i: 2, features: ["All Pro +", "Custom integrations", "Account manager"] },
-            ].map(({ name, desc, i, popular, features }) => (
+{/* CRM */}
+<PricingSlider title="CRM & Lists" subtitle="Integrated SuiteCRM + prospecting lists — more contacts = better rate" accentColor="bg-purple-600">
+{[
+{ name: "Starter", desc: "500 contacts/month", i: 0, features: ["SuiteCRM", "500 leads/month", "Email integration"] },
+{ name: "Pro", desc: "2,000 contacts + lists", i: 1, popular: true, features: ["All Starter +", "B2B/B2C lists", "Automations"] },
+{ name: "Business", desc: "5,000 contacts", i: 2, features: ["All Pro +", "Custom integrations", "Account manager"] },
+{ name: "Premium", desc: "15,000 contacts", i: 3, features: ["All Business +", "Full API", "Priority support"] },
+{ name: "Enterprise", desc: "Unlimited + custom", i: 4, features: ["All Premium +", "Unlimited training", "Annual contract"] },
+].map(({ name, desc, i, popular, features }) => (
               <PricingCard
                 key={name}
                 name={name}
@@ -167,8 +173,8 @@ export default function Pricing() {
                 price={fmt(prices.crm[i])}
                 unit="month"
                 popular={popular}
-                accent="bg-indigo-600"
-                ctaHref={`/en/contact?plan=crm-${name.toLowerCase()}`}
+      accent="bg-purple-600"
+      ctaHref={`/en/contact?plan=crm-${name.toLowerCase()}`}
                 features={features}
               />
             ))}

@@ -25,17 +25,17 @@ function CTAButtons({ slug }: { slug: string }) {
   return (
     <div className="flex flex-col sm:flex-row gap-4 mb-6">
       <Link href={`/en/contact?service=${slug}`}
-        className="bg-indigo-600 text-white font-bold px-7 py-3.5 rounded-xl hover:bg-indigo-700 text-center shadow-lg">
+        className="bg-purple-600 text-white font-bold px-7 py-3.5 rounded-xl hover:bg-purple-700 text-center shadow-lg">
         Free Demo
       </Link>
       {showPhone ? (
         <a href={`tel:${CONTACT.phone}`}
-          className="border-2 border-indigo-600 text-indigo-600 font-bold px-7 py-3.5 rounded-xl hover:bg-indigo-600 hover:text-white transition-all text-center">
+          className="border-2 border-purple-600 text-purple-600 font-bold px-7 py-3.5 rounded-xl hover:bg-purple-600 hover:text-white transition-all text-center">
           {CONTACT.phoneDisplay}
         </a>
       ) : (
         <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer"
-          className="border-2 border-indigo-600 text-indigo-600 font-bold px-7 py-3.5 rounded-xl hover:bg-indigo-600 hover:text-white transition-all text-center">
+          className="border-2 border-purple-600 text-purple-600 font-bold px-7 py-3.5 rounded-xl hover:bg-purple-600 hover:text-white transition-all text-center">
           💬 WhatsApp 24/7
         </a>
       )}
@@ -50,7 +50,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="w-full lg:w-[55%]">
-              <span className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 text-sm px-3 py-1 rounded-full mb-5">
+              <span className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 text-sm px-3 py-1 rounded-full mb-5">
                 <CRMIcon className="w-4 h-4" /> CRM & Lists
               </span>
               <h1 className="text-4xl lg:text-5xl font-black mb-5 leading-tight text-slate-900">
@@ -60,7 +60,7 @@ export default function Page() {
               <CTAButtons slug="crm"/>
               <div className="flex flex-wrap gap-3">
                 {['SuiteCRM included', 'B2B/B2C lists', 'Mautic integrated', 'Auto reports'].map(b => (
-                  <span key={b} className="flex items-center gap-1 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full"><CheckIcon className="w-4 h-4 text-indigo-600" /> {b}</span>
+                  <span key={b} className="flex items-center gap-1 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full"><CheckIcon className="w-4 h-4 text-purple-600" /> {b}</span>
                 ))}
               </div>
             </div>
@@ -71,8 +71,8 @@ export default function Page() {
                   style={{maxHeight:'380px', objectFit:'cover'}}/>
                 <div className="absolute -bottom-4 -left-4 bg-white text-slate-900 rounded-xl p-3.5 shadow-xl border border-slate-100">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
-                      <TrendingIcon className="w-5 h-5 text-indigo-600" />
+                    <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                      <TrendingIcon className="w-5 h-5 text-purple-600" />
                     </div>
                     <div><p className="font-black text-sm">+35% conversion</p><p className="text-slate-500 text-xs">client average</p></div>
                   </div>
@@ -87,13 +87,13 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-slate-900 mb-2">What's Included</h2>
-            <div className="w-16 h-1 bg-indigo-600 mx-auto rounded"/>
+            <div className="w-16 h-1 bg-purple-600 mx-auto rounded"/>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {FEATURES.map(({icon: Icon, title, desc}: any) => (
               <div key={title} className="bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-lg transition-all">
-                <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6 text-indigo-700" />
+                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                  <Icon className="w-6 h-6 text-purple-700" />
                 </div>
                 <h3 className="font-bold text-lg text-slate-900 mb-2">{title}</h3>
                 <p className="text-slate-500 text-sm">{desc}</p>
@@ -108,7 +108,7 @@ export default function Page() {
           <h2 className="text-3xl font-black text-slate-900 mb-10 text-center">How It Works</h2>
           {STEPS.map(({n, t, d}: any) => (
             <div key={n} className="flex gap-5 mb-8 items-start">
-              <div className="w-12 h-12 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-black text-xl flex-shrink-0 shadow-md">{n}</div>
+              <div className="w-12 h-12 bg-purple-600 text-white rounded-xl flex items-center justify-center font-black text-xl flex-shrink-0 shadow-md">{n}</div>
               <div className="pt-1">
                 <h3 className="font-bold text-slate-900 text-lg mb-1">{t}</h3>
                 <p className="text-slate-500">{d}</p>
@@ -118,7 +118,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-br from-slate-900 to-indigo-800 py-16">
+      <section className="bg-gradient-to-br from-slate-900 to-purple-800 py-16">
         <div className="max-w-4xl mx-auto px-4 text-center text-white">
           <h2 className="text-3xl font-black mb-3">Ready to Get Started?</h2>
           <p className="text-white text-opacity-80 mb-8">2-week trial — no commitment.</p>

@@ -173,7 +173,7 @@ export default function EnHome() {
               <img src="/smart-hotline-last/images/agents-ia-hero.png"
                 alt="AI Agent Sophie"
                 className="rounded-2xl shadow-xl w-full object-cover"
-                style={{maxHeight:'380px', objectFit:'cover'}}/>
+                style={{maxHeight:'500px', objectFit:'cover'}}/>
             </div>
           </div>
         </div>

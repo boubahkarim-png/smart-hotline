@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import { useGeo } from '@/hooks/useGeo'
 import { CONTACT } from '@/lib/nav'
-import { PhoneIcon, MailIcon, ChatIcon, TicketIcon, MobileIcon, AnalyticsIcon, CheckIcon, HeadphonesIcon, StarIcon, UsersIcon, ClockIcon, ShieldIcon, HeartIcon, RocketIcon } from '@/components/Icons'
+import { PhoneIcon, MailIcon, ChatIcon, TicketIcon, MobileIcon, AnalyticsIcon, CheckIcon, HeadphonesIcon, StarIcon, UsersIcon, ClockIcon, ShieldCheckIcon, StarIcon, BoltIcon } from '@/components/Icons'
 
 const FEATURES = [
   {icon: PhoneIcon, title: 'Phone Support', desc: 'Inbound calls, escalation, proactive callbacks.'},
@@ -19,7 +19,7 @@ const STEPS = [
   {n: '4', t: 'Continuous Quality Follow-up', d: 'CSAT monitoring, coaching, weekly reports.'},
 ]
 const METRICS = [
-  {v: '98%', l: 'Satisfaction Rate', Icon: HeartIcon},
+  {v: '98%', l: 'Satisfaction Rate', Icon: StarIcon},
   {v: '< 4h', l: 'Average Resolution', Icon: ClockIcon},
   {v: '50+', l: 'Trusted SMEs', Icon: UsersIcon},
 ]
@@ -163,9 +163,9 @@ export default function Page() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              {Icon: RocketIcon, title: 'Fast Setup', desc: 'Live in under 2 weeks. No lengthy onboarding.'},
+              {Icon: BoltIcon, title: 'Fast Setup', desc: 'Live in under 2 weeks. No lengthy onboarding.'},
               {Icon: UsersIcon, title: 'Dedicated Team', desc: 'Same agents every day. They learn your business.'},
-              {Icon: ShieldIcon, title: 'Data Secure', desc: 'NDAs, encrypted channels, GDPR compliant.'},
+              {Icon: ShieldCheckIcon, title: 'Data Secure', desc: 'NDAs, encrypted channels, GDPR compliant.'},
               {Icon: AnalyticsIcon, title: 'Full Visibility', desc: 'Weekly reports, real-time dashboards, CSAT scores.'},
             ].map(({Icon, title, desc}) => (
               <div key={title} className="bg-white rounded-xl p-5 border border-slate-100 hover:shadow-md transition-all text-center">

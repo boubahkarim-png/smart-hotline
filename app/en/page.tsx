@@ -56,16 +56,16 @@ export default function EnHome() {
       
       <section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-14">
-            <div className="w-full lg:w-[55%] animate-slide-left">
-              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6 animate-float">
-                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"/>
-                Agents & AI available 24/7
-              </div>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black mb-6 leading-tight text-slate-900">
-                Never Miss<br/>
-                <span className="gradient-text-animated">Another Call</span>
-              </h1>
+<div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="w-full lg:w-1/2 animate-slide-left">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-sky-100 to-blue-100 text-sky-700 text-sm font-semibold px-4 py-2 rounded-full mb-6 animate-slow-float">
+            <span className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"/>
+            Agents & AI available 24/7
+          </div>
+          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black mb-6 leading-tight text-slate-900">
+            Never Miss<br/>
+            <span className="bg-gradient-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent">Another Call</span>
+          </h1>
               <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600 mt-4 mb-6">
                 <span className="flex items-center gap-1">
                   <span className="text-amber-400">*****</span>
@@ -76,34 +76,35 @@ export default function EnHome() {
               <div className="mt-6 mb-8">
                 <GeoAwareCTA lang="en"/>
               </div>
-              <div className="flex flex-wrap gap-3">
-                <span className="flex items-center gap-1.5 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full">
-                  <ClockIcon className="w-4 h-4" /> 2 week trial
-                </span>
-                <GeoComplianceBadge lang="en" />
-                <span className="flex items-center gap-1.5 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full">
-                  <ClockIcon className="w-4 h-4" /> 24/7
-                </span>
-                <span className="flex items-center gap-1.5 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full">
-                  <CheckIcon className="w-4 h-4" /> Setup 48h
-                </span>
-              </div>
-            </div>
-            <div className="w-full lg:w-[40%]">
-              <div className="relative">
-                <img src="/smart-hotline-last/images/main-hero.jpg"
-                  alt="Smart Hotline Team"
-                  className="rounded-2xl shadow-2xl w-full object-cover"
-                  style={{maxHeight:'420px', objectFit:'cover'}}/>
-                <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl p-4 shadow-2xl border border-slate-100">
-                  <GeoHeroStats lang="en" />
-                </div>
-                <div className="absolute -top-5 -right-5 bg-blue-700 rounded-2xl p-4 shadow-xl text-white">
-                  <p className="font-black text-2xl leading-none">98%</p>
-                  <p className="text-blue-200 text-xs mt-0.5">Satisfaction</p>
-                </div>
-              </div>
-            </div>
+<div className="flex flex-wrap gap-3">
+        <span className="flex items-center gap-2 bg-white text-slate-700 text-sm font-medium px-4 py-2 rounded-full shadow-md">
+          <ClockIcon className="w-5 h-5 text-sky-600" /> 2 week trial
+        </span>
+        <GeoComplianceBadge lang="en" />
+        <span className="flex items-center gap-2 bg-white text-slate-700 text-sm font-medium px-4 py-2 rounded-full shadow-md">
+          <ClockIcon className="w-5 h-5 text-sky-600" /> 24/7
+        </span>
+        <span className="flex items-center gap-2 bg-white text-slate-700 text-sm font-medium px-4 py-2 rounded-full shadow-md">
+          <CheckIcon className="w-5 h-5 text-sky-600" /> Setup 48h
+        </span>
+      </div>
+    </div>
+    <div className="w-full lg:w-1/2 animate-slide-right">
+      <div className="relative">
+        <div className="absolute -inset-4 bg-gradient-to-r from-sky-400 to-blue-500 rounded-3xl blur-2xl opacity-20"></div>
+        <img src="/smart-hotline-last/images/main-hero.jpg"
+        alt="Smart Hotline Team"
+        className="relative rounded-3xl shadow-2xl w-full object-cover hero-image-zoom"
+        style={{maxHeight:'550px', objectFit:'cover'}}/>
+        <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-2xl border border-slate-100 animate-float-badge modern-box">
+          <GeoHeroStats lang="en" />
+        </div>
+        <div className="absolute -top-5 -right-5 bg-gradient-to-br from-sky-600 to-blue-700 rounded-2xl p-4 shadow-xl text-white">
+          <p className="font-black text-2xl leading-none">98%</p>
+          <p className="text-sky-200 text-xs mt-0.5">Satisfaction</p>
+        </div>
+      </div>
+    </div>
           </div>
         </div>
       </section>

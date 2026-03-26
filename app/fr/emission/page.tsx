@@ -96,43 +96,48 @@ function CTAButtons({ slug }: { slug: string }) {
 export default function Page() {
   return (
     <>
-      {/* SECTION 1: LIGHT HERO - Text LEFT, Image RIGHT */}
-      <section className="bg-white text-slate-900 py-16 lg:py-24 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="w-full lg:w-[55%]">
-              <span className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 text-sm px-3 py-1 rounded-full mb-5">
-                <TargetIcon className="w-4 h-4" /> Appels Sortants
-              </span>
-              <h1 className="text-4xl lg:text-5xl font-black mb-5 leading-tight text-slate-900">
-                Multipliez vos Leads<br/>avec nos Conseillers
-              </h1>
-              <p className="text-lg text-slate-600 mb-8">Prospection, télémarketing, prise de rendez-vous. Nos conseillers connaissent l'art de décrocher des rendez-vous — sans faire peur à vos prospects.</p>
-              <CTAButtons slug="emission"/>
-              <div className="flex flex-wrap gap-3">
-                {['Leads qualifiés', 'CRM inclus', 'Scripts optimisés', 'Reporting daily'].map(b => (
-                  <span key={b} className="flex items-center gap-1 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full"><CheckIcon className="w-4 h-4 text-emerald-600" /> {b}</span>
-                ))}
-              </div>
-            </div>
-            <div className="w-full lg:w-[40%]">
-              <div className="relative">
-                <img src="/smart-hotline-last/images/telemarketing.jpg" alt="Conseiller appels sortants"
-                className="rounded-2xl shadow-2xl w-full object-cover"
-                style={{maxHeight:'550px', objectFit:'cover'}}/>
-                <div className="absolute -bottom-4 -left-4 bg-white text-slate-900 rounded-xl p-3.5 shadow-xl border border-slate-100">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
-                      <TrendingIcon className="w-5 h-5 text-emerald-600" />
-                    </div>
-                    <div><p className="font-black text-sm">+40% de RDV</p><p className="text-slate-500 text-xs">en moyenne</p></div>
-                  </div>
+{/* SECTION 1: LIGHT HERO - Text LEFT, Image RIGHT */}
+  <section className="bg-gradient-to-br from-slate-50 via-white to-emerald-50 text-slate-900 py-16 lg:py-24 overflow-hidden">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="w-full lg:w-1/2 animate-slide-left">
+          <span className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 text-sm font-semibold px-4 py-2 rounded-full mb-6 animate-slow-float">
+            <TargetIcon className="w-5 h-5" /> Appels Sortants
+          </span>
+          <h1 className="text-4xl lg:text-5xl font-black mb-6 leading-tight text-slate-900">
+            Multipliez vos Leads<br/>
+            <span className="bg-gradient-to-r from-emerald-600 to-teal-700 bg-clip-text text-transparent">avec nos Conseillers</span>
+          </h1>
+          <p className="text-xl text-slate-600 mb-8 leading-relaxed">Prospection, télémarketing, prise de rendez-vous. Nos conseillers connaissent l'art de décrocher des rendez-vous — sans faire peur à vos prospects.</p>
+          <CTAButtons slug="emission"/>
+          <div className="flex flex-wrap gap-3">
+            {['Leads qualifiés', 'CRM inclus', 'Scripts optimisés', 'Reporting daily'].map((b, i) => (
+              <span key={b} className={`flex items-center gap-2 bg-white text-slate-700 text-sm font-medium px-4 py-2 rounded-full shadow-md animate-fade-in-up animate-delay-${(i+1)*100}`}><CheckIcon className="w-5 h-5 text-emerald-600" /> {b}</span>
+            ))}
+          </div>
+        </div>
+        <div className="w-full lg:w-1/2 animate-slide-right">
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-3xl blur-2xl opacity-20"></div>
+            <img src="/smart-hotline-last/images/telemarketing.jpg" alt="Conseiller appels sortants"
+            className="relative rounded-3xl shadow-2xl w-full object-cover hero-image-zoom"
+            style={{maxHeight:'550px', objectFit:'cover'}}/>
+            <div className="absolute -bottom-6 -left-6 bg-white text-slate-900 rounded-2xl p-5 shadow-2xl border border-slate-100 animate-float-badge modern-box">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <TrendingIcon className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <p className="font-black text-xl">+40% de RDV</p>
+                  <p className="text-slate-500 text-sm">en moyenne</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
       {/* SECTION 2: DARK - STATS SECTION */}
       <section className="bg-gradient-to-br from-slate-900 via-emerald-900 to-emerald-800 text-white py-20 lg:py-28 overflow-hidden relative">

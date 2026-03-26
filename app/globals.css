@@ -302,9 +302,52 @@ body {
   .modern-box, .modern-box-dark {
     border-radius: 16px;
   }
-  
+
   .testimonial-card:hover {
     transform: translateY(-5px);
+  }
+}
+
+/* ===== TAWK.TO CHAT WIDGET - SMALLER ===== */
+div[id^="tawk-bubble"] {
+  width: 45px !important;
+  height: 45px !important;
+  bottom: 15px !important;
+  right: 15px !important;
+}
+
+div[id^="tawk-bubble"] svg {
+  width: 22px !important;
+  height: 22px !important;
+}
+
+div[id^="tawk-chat-container"] {
+  width: 320px !important;
+  height: 400px !important;
+  bottom: 70px !important;
+  right: 15px !important;
+}
+
+div[id^="tawk-chat-container"] iframe {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Mobile - even smaller */
+@media (max-width: 640px) {
+  div[id^="tawk-bubble"] {
+    width: 40px !important;
+    height: 40px !important;
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+
+  div[id^="tawk-chat-container"] {
+    width: 100% !important;
+    height: 70vh !important;
+    bottom: 55px !important;
+    right: 0 !important;
+    left: 0 !important;
   }
 }
 

@@ -63,43 +63,46 @@ function CTAButtons({ slug }: { slug: string }) {
 export default function Page() {
   return (
     <>
-      {/* 1. Hero - Light */}
-      <section className="bg-white text-slate-900 py-16 lg:py-24 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="w-full lg:w-[55%]">
-              <span className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-sm px-3 py-1 rounded-full mb-5">
-                <HeadphonesIcon className="w-4 h-4" /> Customer Support
-              </span>
-              <h1 className="text-4xl lg:text-5xl font-black mb-5 leading-tight text-slate-900">
-                5-Star Support<br/>for Your SME
-              </h1>
-              <p className="text-lg text-slate-600 mb-8">Turn your clients into ambassadors. Our agents handle tickets, emails, chat and calls with excellence and responsiveness.</p>
-              <CTAButtons slug="support"/>
-              <div className="flex flex-wrap gap-3">
-                {['Multi-channel', 'Tickets & Email', 'Live Chat', 'WhatsApp Business'].map(b => (
-                  <span key={b} className="flex items-center gap-1 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full"><CheckIcon className="w-4 h-4 text-emerald-700" /> {b}</span>
-                ))}
-              </div>
-            </div>
-            <div className="w-full lg:w-[40%]">
-              <div className="relative">
-                <img src="/smart-hotline-last/images/support-tech.jpg" alt="Professional customer support"
-                  className="rounded-2xl shadow-2xl w-full object-cover"
-                  style={{maxHeight:'550px', objectFit:'cover'}}/>
-                <div className="absolute -bottom-4 -left-4 bg-white text-slate-900 rounded-xl p-3.5 shadow-xl border border-slate-100">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
-                      <HeadphonesIcon className="w-5 h-5 text-emerald-700" />
-                    </div>
-                    <div><p className="font-black text-sm">{"< 4h resolution"}</p><p className="text-slate-500 text-xs">average time</p></div>
-                  </div>
+{/* 1. Hero - Light */}
+  <section className="bg-gradient-to-br from-slate-50 via-white to-emerald-50 text-slate-900 py-16 lg:py-24 overflow-hidden">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="w-full lg:w-1/2 animate-slide-left">
+          <span className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 text-sm font-semibold px-4 py-2 rounded-full mb-6 animate-slow-float">
+            <HeadphonesIcon className="w-5 h-5" /> Customer Support
+          </span>
+          <h1 className="text-4xl lg:text-5xl font-black mb-6 leading-tight text-slate-900">
+            5-Star Support<br/>
+            <span className="bg-gradient-to-r from-emerald-600 to-teal-700 bg-clip-text text-transparent">for Your SME</span>
+          </h1>
+          <p className="text-xl text-slate-600 mb-8 leading-relaxed">Turn your clients into ambassadors. Our agents handle tickets, emails, chat and calls with excellence and responsiveness.</p>
+          <CTAButtons slug="support"/>
+          <div className="flex flex-wrap gap-3">
+            {['Multi-channel', 'Tickets & Email', 'Live Chat', 'WhatsApp Business'].map((b, i) => (
+              <span key={b} className={`flex items-center gap-2 bg-white text-slate-700 text-sm font-medium px-4 py-2 rounded-full shadow-md animate-fade-in-up animate-delay-${(i+1)*100}`}><CheckIcon className="w-5 h-5 text-emerald-600" /> {b}</span>
+            ))}
+          </div>
+        </div>
+        <div className="w-full lg:w-1/2 animate-slide-right">
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-3xl blur-2xl opacity-20"></div>
+            <img src="/smart-hotline-last/images/support-tech.jpg" alt="Professional customer support" className="relative rounded-3xl shadow-2xl w-full object-cover hero-image-zoom" style={{maxHeight:'550px', objectFit:'cover'}}/>
+            <div className="absolute -bottom-6 -left-6 bg-white text-slate-900 rounded-2xl p-5 shadow-2xl border border-slate-100 animate-float-badge modern-box">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <HeadphonesIcon className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <p className="font-black text-xl">&lt; 4h resolution</p>
+                  <p className="text-slate-500 text-sm">average time</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
       {/* 2. Metrics - Dark */}
       <section className="bg-gradient-to-r from-slate-900 to-teal-900 py-16">

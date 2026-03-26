@@ -55,17 +55,17 @@ export default function FrHome() {
     <>
       <section className="bg-white text-slate-900 py-20 lg:py-28 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-14">
-            <div className="w-full lg:w-[55%] animate-slide-left">
-              <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6 animate-float">
-                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"/>
-                Conseillers & IA disponibles 24/7
-              </div>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black mb-6 leading-tight text-slate-900">
-                Le Centre d&apos;Appels<br/>
-                <span className="gradient-text-animated">Qui Comprend</span><br/>
-                les PME d&apos;Ici
-              </h1>
+<div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="w-full lg:w-1/2 animate-slide-left">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-sky-100 to-blue-100 text-sky-700 text-sm font-semibold px-4 py-2 rounded-full mb-6 animate-slow-float">
+            <span className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"/>
+            Conseillers & IA disponibles 24/7
+          </div>
+          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black mb-6 leading-tight text-slate-900">
+            Le Centre d&apos;Appels<br/>
+            <span className="bg-gradient-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent">Qui Comprend</span><br/>
+            les PME d&apos;Ici
+          </h1>
               <GeoHeroSubtitle lang="fr"/>
               <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600 mt-4">
                 <span className="flex items-center gap-1">
@@ -76,34 +76,35 @@ export default function FrHome() {
               <div className="mt-6 mb-8">
                 <GeoAwareCTA lang="fr"/>
               </div>
-              <div className="flex flex-wrap gap-3">
-                <span className="flex items-center gap-1.5 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full">
-                  <ClockIcon className="w-4 h-4" /> Essai 2 semaines
-                </span>
-                <GeoComplianceBadge lang="fr" />
-                <span className="flex items-center gap-1.5 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full">
-                  <ClockIcon className="w-4 h-4" /> 24/7
-                </span>
-                <span className="flex items-center gap-1.5 bg-slate-100 text-slate-700 text-sm px-3 py-1.5 rounded-full">
-                  <CheckIcon className="w-4 h-4" /> Setup 48h
-                </span>
-              </div>
+<div className="flex flex-wrap gap-3">
+        <span className="flex items-center gap-2 bg-white text-slate-700 text-sm font-medium px-4 py-2 rounded-full shadow-md">
+          <ClockIcon className="w-5 h-5 text-sky-600" /> Essai 2 semaines
+        </span>
+        <GeoComplianceBadge lang="fr" />
+        <span className="flex items-center gap-2 bg-white text-slate-700 text-sm font-medium px-4 py-2 rounded-full shadow-md">
+          <ClockIcon className="w-5 h-5 text-sky-600" /> 24/7
+        </span>
+        <span className="flex items-center gap-2 bg-white text-slate-700 text-sm font-medium px-4 py-2 rounded-full shadow-md">
+          <CheckIcon className="w-5 h-5 text-sky-600" /> Setup 48h
+        </span>
+      </div>
             </div>
-            <div className="w-full lg:w-[40%]">
-              <div className="relative">
-                <img src="/smart-hotline-last/images/main-hero.jpg"
-                  alt="Equipe Smart Hotline"
-                  className="rounded-2xl shadow-2xl w-full object-cover"
-                  style={{maxHeight:'420px', objectFit:'cover'}}/>
-                <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl p-4 shadow-2xl border border-slate-100">
-                  <GeoHeroStats lang="fr" />
-                </div>
-                <div className="absolute -top-5 -right-5 bg-blue-700 rounded-2xl p-4 shadow-xl text-white">
-                  <p className="font-black text-2xl leading-none">98%</p>
-                  <p className="text-blue-200 text-xs mt-0.5">renouvellent</p>
-                </div>
-              </div>
+<div className="w-full lg:w-1/2 animate-slide-right">
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-r from-sky-400 to-blue-500 rounded-3xl blur-2xl opacity-20"></div>
+            <img src="/smart-hotline-last/images/main-hero.jpg"
+            alt="Equipe Smart Hotline"
+            className="relative rounded-3xl shadow-2xl w-full object-cover hero-image-zoom"
+            style={{maxHeight:'550px', objectFit:'cover'}}/>
+            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-2xl border border-slate-100 animate-float-badge modern-box">
+              <GeoHeroStats lang="fr" />
             </div>
+            <div className="absolute -top-5 -right-5 bg-gradient-to-br from-sky-600 to-blue-700 rounded-2xl p-4 shadow-xl text-white">
+              <p className="font-black text-2xl leading-none">98%</p>
+              <p className="text-sky-200 text-xs mt-0.5">renouvellent</p>
+            </div>
+          </div>
+        </div>
           </div>
         </div>
       </section>
@@ -140,44 +141,49 @@ export default function FrHome() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-14">
-            <div className="w-full lg:w-[55%]">
-              <span className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 text-sm font-bold px-3 py-1.5 rounded-full mb-5">
-                Nouveau Service
-              </span>
-              <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-5">
-                Sophie, l&apos;Agente IA<br/>Qui Parle comme Nous
-              </h2>
-              <p className="text-slate-600 text-lg mb-6">
-                Elle repond en moins de 2 secondes. Avec l&apos;accent de votre region — au choix. Et ca coute une fraction d&apos;un salaire.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {[CheckIcon, CheckIcon, CheckIcon, CheckIcon, CheckIcon].map((Icon, i) => {
-                  const features = ['Reponse en moins de 2 secondes — pas de musique d\'attente', 'Accents adaptes a votre region', 'Transfert vers un humain si c\'est complique', 'Cout? Environ 30% d\'un salaire standard', 'Dispo 24/7, meme pendant les periodes de pointe']
-                  return (
-                    <li key={i} className="flex items-center gap-3 text-slate-700">
-                      <span className="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-4 h-4" />
-                      </span>
-                      {features[i]}
-                    </li>
-                  )})}
-              </ul>
-              <Link href="/fr/agents-ia" className="inline-flex items-center gap-2 bg-violet-600 text-white px-6 py-3.5 rounded-xl font-bold hover:bg-violet-700 transition-colors">
-                Decouvrir les Agents IA &rarr;
-              </Link>
-            </div>
-            <div className="w-full lg:w-[40%]">
-              <img src="/smart-hotline-last/images/agents-ia-hero.jpg"
-                alt="Agent IA Sophie"
-                className="rounded-2xl shadow-xl w-full object-cover"
-                style={{maxHeight:'500px', objectFit:'cover'}}/>
-            </div>
+<section className="py-20 bg-white">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="w-full lg:w-1/2">
+          <span className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 text-sm font-bold px-4 py-2 rounded-full mb-6 animate-slow-float">
+            <span className="w-2.5 h-2.5 bg-violet-500 rounded-full animate-pulse"/>
+            Nouveau Service
+          </span>
+          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-black text-slate-900 mb-5">
+            Sophie, l&apos;Agente IA<br/>
+            <span className="bg-gradient-to-r from-violet-600 to-purple-700 bg-clip-text text-transparent">Qui Parle comme Nous</span>
+          </h2>
+          <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+            Elle repond en moins de 2 secondes. Avec l&apos;accent de votre region — au choix. Et ca coute une fraction d&apos;un salaire.
+          </p>
+          <ul className="space-y-3 mb-8">
+            {[CheckIcon, CheckIcon, CheckIcon, CheckIcon, CheckIcon].map((Icon, i) => {
+            const features = ['Reponse en moins de 2 secondes — pas de musique d\'attente', 'Accents adaptes a votre region', 'Transfert vers un humain si c\'est complique', 'Cout? Environ 30% d\'un salaire standard', 'Dispo 24/7, meme pendant les periodes de pointe']
+            return (
+              <li key={i} className="flex items-center gap-3 text-slate-700">
+                <span className="w-6 h-6 bg-violet-100 text-violet-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-4 h-4" />
+                </span>
+                {features[i]}
+              </li>
+            )})}
+          </ul>
+          <Link href="/fr/agents-ia" className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-600 to-purple-700 text-white px-6 py-3.5 rounded-xl font-bold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+            Decouvrir les Agents IA &rarr;
+          </Link>
+        </div>
+        <div className="w-full lg:w-1/2 animate-slide-right">
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-r from-violet-400 to-purple-500 rounded-3xl blur-2xl opacity-20"></div>
+            <img src="/smart-hotline-last/images/agents-ia-hero.jpg"
+            alt="Agent IA Sophie"
+            className="relative rounded-3xl shadow-2xl w-full object-cover hero-image-zoom"
+            style={{maxHeight:'550px', objectFit:'cover'}}/>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

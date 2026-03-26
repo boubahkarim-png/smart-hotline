@@ -45,10 +45,10 @@ export const PRICES_CA: CurrencyConfig = {
   ai_monthly: [249, 799, 1999],
   ai_minutes: [500, 2000, 6000],
   ai_per_min: [0.40, 0.32, 0.25],
-  // Inbound Reception - Premium bilingual 24/7
-  inbound: [849, 1699, 4099],
+  // Inbound Reception - 50% lower, competitive pricing
+  inbound: [425, 850, 2050],
   inbound_calls: [100, 300, 1000],
-  inbound_per_call: [6.50, 4.50, 3.50],
+  inbound_per_call: [3.50, 2.50, 2.00],
   // Customer Support - Multi-channel
   support: [849, 1799, 4199],
   support_channels: [1, 3, 5],
@@ -72,10 +72,10 @@ export const PRICES_EU: CurrencyConfig = {
   ai_monthly: [199, 649, 1649],
   ai_minutes: [500, 2000, 6000],
   ai_per_min: [0.35, 0.28, 0.22],
-  // Inbound Reception
-  inbound: [699, 1399, 3399],
+  // Inbound Reception - 50% lower
+  inbound: [350, 700, 1700],
   inbound_calls: [100, 300, 1000],
-  inbound_per_call: [5.50, 4.00, 3.00],
+  inbound_per_call: [3.00, 2.00, 1.50],
   // Customer Support
   support: [699, 1499, 3499],
   support_channels: [1, 3, 5],
@@ -99,10 +99,10 @@ export const PRICES_US: CurrencyConfig = {
   ai_monthly: [199, 649, 1649],
   ai_minutes: [500, 2000, 6000],
   ai_per_min: [0.35, 0.28, 0.22],
-  // Inbound Reception
-  inbound: [699, 1399, 3399],
+  // Inbound Reception - 50% lower
+  inbound: [350, 700, 1700],
   inbound_calls: [100, 300, 1000],
-  inbound_per_call: [5.50, 4.00, 3.00],
+  inbound_per_call: [3.00, 2.00, 1.50],
   // Customer Support
   support: [699, 1499, 3499],
   support_channels: [1, 3, 5],
@@ -126,10 +126,10 @@ export const PRICES_CH: CurrencyConfig = {
   ai_monthly: [249, 799, 1999],
   ai_minutes: [500, 2000, 6000],
   ai_per_min: [0.45, 0.35, 0.28],
-  // Inbound Reception
-  inbound: [849, 1699, 4099],
+  // Inbound Reception - 50% lower
+  inbound: [425, 850, 2050],
   inbound_calls: [100, 300, 1000],
-  inbound_per_call: [7.00, 5.00, 3.50],
+  inbound_per_call: [3.50, 2.50, 2.00],
   // Customer Support
   support: [849, 1799, 4199],
   support_channels: [1, 3, 5],

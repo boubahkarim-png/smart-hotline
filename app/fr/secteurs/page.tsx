@@ -156,7 +156,7 @@ export default function Secteurs() {
 <h3 className="font-bold text-lg text-slate-900 mb-2">{name}</h3>
 <p className="text-slate-500 text-sm">{desc}</p>
 <div className="mt-4">
-<span className="text-slate-600 text-sm font-medium">Exemples : {examples.join(\', \')}</span>
+<span className="text-slate-600 text-sm font-medium">Exemples : {examples.join(', ')}</span>
 </div>
 </div>
 ))}

@@ -184,16 +184,20 @@ export default function Page() {
                 Voir une démo
               </Link>
             </div>
-            <div className="w-full lg:w-1/2">
-              <div className="modern-box p-10 bg-gradient-to-br from-slate-50 to-sky-50">
-                <h3 className="font-bold text-2xl text-slate-900 mb-6">Ce que ça vous coûte</h3>
-                <p className="text-5xl font-black bg-gradient-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent mb-3">À partir de 15$/h</p>
-                <p className="text-slate-600 text-lg mb-6">Comparé à un employé à 25-30$/h + avantages sociaux + formation.</p>
-                <Link href="/fr/tarifs" className="text-sky-600 font-bold text-lg hover:underline flex items-center gap-2">
-                  Voir tous les tarifs
-                </Link>
-              </div>
-            </div>
+<div className="w-full lg:w-1/2">
+        <div className="modern-box p-10 bg-gradient-to-br from-slate-50 to-sky-50">
+          <h3 className="font-bold text-2xl text-slate-900 mb-6">Des tarifs adaptés à votre croissance</h3>
+          <p className="text-slate-600 text-lg mb-4">Tarifs compétitifs, sans engagement longue durée. Vous payez pour ce que vous utilisez.</p>
+          <ul className="space-y-3 mb-6">
+            <li className="flex items-center gap-2 text-slate-700"><CheckIcon className="w-5 h-5 text-sky-600"/> Aucun frais caché</li>
+            <li className="flex items-center gap-2 text-slate-700"><CheckIcon className="w-5 h-5 text-sky-600"/> Annulez quand vous voulez</li>
+            <li className="flex items-center gap-2 text-slate-700"><CheckIcon className="w-5 h-5 text-sky-600"/> CRM et autodialer inclus</li>
+          </ul>
+          <Link href="/fr/tarifs" className="text-sky-600 font-bold text-lg hover:underline flex items-center gap-2">
+            Voir tous les tarifs
+          </Link>
+        </div>
+      </div>
           </div>
         </div>
       </section>

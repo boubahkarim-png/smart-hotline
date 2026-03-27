@@ -120,12 +120,76 @@ export default function Tarifs() {
                 <img src="/smart-hotline-last/images/pricing-hero.webp" alt="Tarifs Smart Hotline" className="relative rounded-3xl shadow-2xl w-full object-cover" style={{maxHeight:'450px', objectFit:'cover'}}/>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      {/* OUTBOUND CALLS - HOURLY RATE */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-teal-50 overflow-hidden" id="pricing">
+  {/* PROMOTION BANNER */}
+  <section className="py-12 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 relative overflow-hidden">
+    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHN0cm9rZS13aWR0aD0iMiIvPjwvZz48L3N2Zz4=')] opacity-30"></div>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="text-center mb-8">
+        <span className="inline-flex items-center gap-2 bg-white/20 backdrop-blur text-white text-sm font-bold px-4 py-2 rounded-full mb-4 border border-white/30">
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5M8 21h8m-8 0v-2a2 2 0 012-2h4a2 2 0 012 2v2m-8 0h8" /></svg>
+          OFFRES SPÉCIALES
+        </span>
+        <h2 className="text-3xl lg:text-4xl font-black text-white mb-2">Choisissez Votre Offre de Bienvenue</h2>
+        <p className="text-amber-100 text-lg">Profitez de nos offres exclusives pour nouveaux clients</p>
+      </div>
+      <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="bg-white rounded-2xl p-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-amber-300">
+          <div className="flex items-start gap-4 mb-6">
+            <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+              <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5M8 21h8m-8 0v-2a2 2 0 012-2h4a2 2 0 012 2v2m-8 0h8" /></svg>
+            </div>
+            <div>
+              <h3 className="text-2xl font-black text-slate-900 mb-1">1 Semaine Gratuite</h3>
+              <p className="text-amber-600 font-semibold">avec votre premier mois</p>
+            </div>
+          </div>
+          <p className="text-slate-600 mb-6 leading-relaxed">
+            Payez pour 4 semaines, obtenez-en <span className="font-bold text-amber-600">5 semaines</span> de service. L'offre idéale pour maximiser votre ROI dès le départ.
+          </p>
+          <ul className="space-y-2 mb-6">
+            <li className="flex items-center gap-2 text-slate-700"><CheckIcon className="w-5 h-5 text-emerald-500" /> Aucun frais supplémentaire</li>
+            <li className="flex items-center gap-2 text-slate-700"><CheckIcon className="w-5 h-5 text-emerald-500" /> Valable sur tous les forfaits</li>
+            <li className="flex items-center gap-2 text-slate-700"><CheckIcon className="w-5 h-5 text-emerald-500" /> Activation immédiate</li>
+          </ul>
+          <Link href="/fr/contact?promo=1semaine" className="block text-center py-4 px-6 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-600 transition-all shadow-lg">
+            Obtenir 1 Semaine Gratuite
+          </Link>
+        </div>
+        <div className="bg-white rounded-2xl p-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-sky-300">
+          <div className="flex items-start gap-4 mb-6">
+            <div className="w-14 h-14 bg-gradient-to-br from-sky-400 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+              <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+            </div>
+            <div>
+              <h3 className="text-2xl font-black text-slate-900 mb-1">Testez 2 Semaines</h3>
+              <p className="text-sky-600 font-semibold">avant de vous engager</p>
+            </div>
+          </div>
+          <p className="text-slate-600 mb-6 leading-relaxed">
+            Découvrez nos services pendant <span className="font-bold text-sky-600">14 jours</span> sans engagement. Vous ne payez que si vous êtes satisfait.
+          </p>
+          <ul className="space-y-2 mb-6">
+            <li className="flex items-center gap-2 text-slate-700"><CheckIcon className="w-5 h-5 text-emerald-500" /> Aucun paiement requis</li>
+            <li className="flex items-center gap-2 text-slate-700"><CheckIcon className="w-5 h-5 text-emerald-500" /> Accès complet aux fonctionnalités</li>
+            <li className="flex items-center gap-2 text-slate-700"><CheckIcon className="w-5 h-5 text-emerald-500" /> Annulation facile</li>
+          </ul>
+          <Link href="/fr/contact?promo=2semaines" className="block text-center py-4 px-6 bg-gradient-to-r from-sky-500 to-blue-500 text-white font-bold rounded-xl hover:from-sky-600 hover:to-blue-600 transition-all shadow-lg">
+            Tester Pendant 2 Semaines
+          </Link>
+        </div>
+      </div>
+      <p className="text-center text-white/80 mt-8 text-sm">
+        * Offres valables pour les nouveaux clients uniquement. Non cumulables.
+      </p>
+    </div>
+  </section>
+
+  {/* OUTBOUND CALLS - HOURLY RATE */}
+  <section className="py-20 bg-gradient-to-br from-emerald-50 to-teal-50 overflow-hidden" id="pricing">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">

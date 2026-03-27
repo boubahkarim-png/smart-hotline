@@ -39,7 +39,7 @@ export const PRICES_CA: CurrencyConfig = {
   outbound_trial: 15,
   outbound: [19, 18, 17, 16, 15], // per hour, more hours = lower rate
   // AI Voice Agents - 4 tiers
-  ai_monthly: [249, 799, 1999, 3499],
+  ai_monthly: [324, 799, 1999, 3499],
   ai_minutes: [500, 2000, 6000, 15000],
   ai_per_min: [0.40, 0.32, 0.25, 0.20],
   // Inbound Reception - 4 tiers
@@ -62,7 +62,7 @@ export const PRICES_EU: CurrencyConfig = {
   outbound_trial: 11,
   outbound: [13, 12, 11, 10, 9], // per hour, more hours = lower rate
   // AI Voice Agents - 4 tiers
-  ai_monthly: [199, 649, 1649, 2899],
+  ai_monthly: [259, 649, 1649, 2899],
   ai_minutes: [500, 2000, 6000, 15000],
   ai_per_min: [0.35, 0.28, 0.22, 0.18],
   // Inbound Reception - 4 tiers
@@ -85,7 +85,7 @@ export const PRICES_US: CurrencyConfig = {
   outbound_trial: 12,
   outbound: [14, 13, 12, 11, 10], // per hour, more hours = lower rate
   // AI Voice Agents - 4 tiers
-  ai_monthly: [199, 649, 1649, 2899],
+  ai_monthly: [259, 649, 1649, 2899],
   ai_minutes: [500, 2000, 6000, 15000],
   ai_per_min: [0.35, 0.28, 0.22, 0.18],
   // Inbound Reception - 4 tiers
@@ -108,7 +108,7 @@ export const PRICES_CH: CurrencyConfig = {
   outbound_trial: 14,
   outbound: [17, 16, 15, 14, 13], // per hour, more hours = lower rate
   // AI Voice Agents - 4 tiers
-  ai_monthly: [249, 799, 1999, 3499],
+  ai_monthly: [324, 799, 1999, 3499],
   ai_minutes: [500, 2000, 6000, 15000],
   ai_per_min: [0.45, 0.35, 0.28, 0.22],
   // Inbound Reception - 4 tiers

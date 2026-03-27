@@ -1,8 +1,7 @@
 
 // ============================================================
-// PRICES — Premium Monthly Packages (50% increase)
-// Outbound: UNCHANGED - per hour pricing works well
-// AI/Inbound/Support/CRM: Monthly packages with included volume
+// PRICES — Premium Monthly Packages (4+ tiers per service)
+// All services: Monthly packages with included volume
 // ============================================================
 
 export type Currency = 'CAD' | 'EUR' | 'USD' | 'CHF'
@@ -11,23 +10,19 @@ export interface CurrencyConfig {
   symbol: string
   code: Currency
   locale: string
-  // Outbound human agents per hour (appointment setting) - UNCHANGED
-  outbound_trial: number
-  outbound: number[] // [Starter 20h, Pro 40h, Business 80h, Enterprise 120h]
+  // Outbound human agents - Monthly packages with CRM + autodialer
+  outbound_monthly: number[] // [Starter, Pro, Business, Enterprise]
+  outbound_hours: number[] // included hours per tier
   // AI voice agents - Monthly packages with included minutes
-  ai_monthly: number[] // [Starter, Pro, Business]
+  ai_monthly: number[] // [Starter, Pro, Business, Enterprise]
   ai_minutes: number[] // included minutes per tier
   ai_per_min: number[] // overage rate per tier
   // Inbound reception - Monthly packages with included calls
-  inbound: number[] // [Starter, Pro, Business]
+  inbound: number[] // [Starter, Pro, Business, Enterprise]
   inbound_calls: number[] // included calls per tier
   inbound_per_call: number[] // overage rate per tier
-  // Support - Monthly packages by channels
-  support: number[] // [Starter, Pro, Business]
-  support_channels: number[] // channels included
-  // CRM - Setup fee + Monthly
-  crm_setup: number[] // one-time setup fee
-  crm_monthly: number[] // monthly fee
+  // CRM - Monthly only (no setup fee)
+  crm_monthly: number[] // [Starter, Pro, Business, Enterprise]
   crm_contacts: number[] // contact limit
 }
 
@@ -38,24 +33,20 @@ export const PRICES_CA: CurrencyConfig = {
   symbol: 'CA$',
   code: 'CAD',
   locale: 'fr-CA',
-  // Outbound - UNCHANGED
-  outbound_trial: 15,
-  outbound: [19, 18, 17, 16, 15],
-  // AI Voice Agents - Premium monthly packages
-  ai_monthly: [249, 799, 1999],
-  ai_minutes: [500, 2000, 6000],
-  ai_per_min: [0.40, 0.32, 0.25],
-  // Inbound Reception - Starter high, Pro/Business higher
-  inbound: [699, 999, 2499],
-  inbound_calls: [100, 300, 1000],
-  inbound_per_call: [6.50, 4.00, 2.50],
-  // Customer Support - Multi-channel
-  support: [849, 1799, 4199],
-  support_channels: [1, 3, 5],
-  // CRM Integration
-  crm_setup: [699, 1399, 2799],
-  crm_monthly: [249, 499, 1099],
-  crm_contacts: [500, 2000, 10000],
+  // Outbound - Monthly with CRM + autodialer
+  outbound_monthly: [899, 1599, 2799, 4999],
+  outbound_hours: [20, 40, 80, 160],
+  // AI Voice Agents - 4 tiers
+  ai_monthly: [249, 799, 1999, 3499],
+  ai_minutes: [500, 2000, 6000, 15000],
+  ai_per_min: [0.40, 0.32, 0.25, 0.20],
+  // Inbound Reception - 4 tiers
+  inbound: [699, 999, 2499, 4499],
+  inbound_calls: [100, 300, 1000, 2500],
+  inbound_per_call: [6.50, 4.00, 2.50, 2.00],
+  // CRM - Monthly only
+  crm_monthly: [249, 499, 1099, 1999],
+  crm_contacts: [500, 2000, 10000, 50000],
 }
 
 // ============================================================
@@ -65,24 +56,20 @@ export const PRICES_EU: CurrencyConfig = {
   symbol: '€',
   code: 'EUR',
   locale: 'fr-FR',
-  // Outbound - UNCHANGED
-  outbound_trial: 11,
-  outbound: [13, 12, 11, 10, 9],
-  // AI Voice Agents
-  ai_monthly: [199, 649, 1649],
-  ai_minutes: [500, 2000, 6000],
-  ai_per_min: [0.35, 0.28, 0.22],
-  // Inbound Reception - Starter high, Pro/Business higher
-  inbound: [599, 899, 2199],
-  inbound_calls: [100, 300, 1000],
-  inbound_per_call: [5.50, 3.50, 2.20],
-  // Customer Support
-  support: [699, 1499, 3499],
-  support_channels: [1, 3, 5],
-  // CRM Integration
-  crm_setup: [599, 1199, 2399],
-  crm_monthly: [199, 399, 899],
-  crm_contacts: [500, 2000, 10000],
+  // Outbound - Monthly with CRM + autodialer
+  outbound_monthly: [699, 1299, 2299, 3999],
+  outbound_hours: [20, 40, 80, 160],
+  // AI Voice Agents - 4 tiers
+  ai_monthly: [199, 649, 1649, 2899],
+  ai_minutes: [500, 2000, 6000, 15000],
+  ai_per_min: [0.35, 0.28, 0.22, 0.18],
+  // Inbound Reception - 4 tiers
+  inbound: [599, 899, 2199, 3999],
+  inbound_calls: [100, 300, 1000, 2500],
+  inbound_per_call: [5.50, 3.50, 2.20, 1.80],
+  // CRM - Monthly only
+  crm_monthly: [199, 399, 899, 1699],
+  crm_contacts: [500, 2000, 10000, 50000],
 }
 
 // ============================================================
@@ -92,24 +79,20 @@ export const PRICES_US: CurrencyConfig = {
   symbol: '$',
   code: 'USD',
   locale: 'en-US',
-  // Outbound - UNCHANGED
-  outbound_trial: 12,
-  outbound: [14, 13, 12, 11, 10],
-  // AI Voice Agents
-  ai_monthly: [199, 649, 1649],
-  ai_minutes: [500, 2000, 6000],
-  ai_per_min: [0.35, 0.28, 0.22],
-  // Inbound Reception - Starter high, Pro/Business higher
-  inbound: [599, 899, 2199],
-  inbound_calls: [100, 300, 1000],
-  inbound_per_call: [5.50, 3.50, 2.20],
-  // Customer Support
-  support: [699, 1499, 3499],
-  support_channels: [1, 3, 5],
-  // CRM Integration
-  crm_setup: [599, 1199, 2399],
-  crm_monthly: [199, 399, 899],
-  crm_contacts: [500, 2000, 10000],
+  // Outbound - Monthly with CRM + autodialer
+  outbound_monthly: [699, 1299, 2299, 3999],
+  outbound_hours: [20, 40, 80, 160],
+  // AI Voice Agents - 4 tiers
+  ai_monthly: [199, 649, 1649, 2899],
+  ai_minutes: [500, 2000, 6000, 15000],
+  ai_per_min: [0.35, 0.28, 0.22, 0.18],
+  // Inbound Reception - 4 tiers
+  inbound: [599, 899, 2199, 3999],
+  inbound_calls: [100, 300, 1000, 2500],
+  inbound_per_call: [5.50, 3.50, 2.20, 1.80],
+  // CRM - Monthly only
+  crm_monthly: [199, 399, 899, 1699],
+  crm_contacts: [500, 2000, 10000, 50000],
 }
 
 // ============================================================
@@ -119,24 +102,20 @@ export const PRICES_CH: CurrencyConfig = {
   symbol: 'CHF ',
   code: 'CHF',
   locale: 'fr-CH',
-  // Outbound - UNCHANGED
-  outbound_trial: 14,
-  outbound: [17, 16, 15, 14, 13],
-  // AI Voice Agents - Premium Swiss pricing
-  ai_monthly: [249, 799, 1999],
-  ai_minutes: [500, 2000, 6000],
-  ai_per_min: [0.45, 0.35, 0.28],
-  // Inbound Reception - Starter high, Pro/Business higher
-  inbound: [749, 1099, 2699],
-  inbound_calls: [100, 300, 1000],
-  inbound_per_call: [7.00, 4.50, 2.80],
-  // Customer Support
-  support: [849, 1799, 4199],
-  support_channels: [1, 3, 5],
-  // CRM Integration
-  crm_setup: [749, 1499, 2999],
-  crm_monthly: [249, 499, 1099],
-  crm_contacts: [500, 2000, 10000],
+  // Outbound - Monthly with CRM + autodialer
+  outbound_monthly: [899, 1599, 2799, 4999],
+  outbound_hours: [20, 40, 80, 160],
+  // AI Voice Agents - 4 tiers
+  ai_monthly: [249, 799, 1999, 3499],
+  ai_minutes: [500, 2000, 6000, 15000],
+  ai_per_min: [0.45, 0.35, 0.28, 0.22],
+  // Inbound Reception - 4 tiers
+  inbound: [749, 1099, 2699, 4899],
+  inbound_calls: [100, 300, 1000, 2500],
+  inbound_per_call: [7.00, 4.50, 2.80, 2.20],
+  // CRM - Monthly only
+  crm_monthly: [249, 499, 1099, 1999],
+  crm_contacts: [500, 2000, 10000, 50000],
 }
 
 export const PRICES: Record<Currency, CurrencyConfig> = {

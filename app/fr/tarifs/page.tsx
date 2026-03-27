@@ -91,7 +91,7 @@ export default function Tarifs() {
       <section className="bg-gradient-to-br from-slate-50 via-white to-sky-50 text-slate-900 py-20 lg:py-28 overflow-hidden relative">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-sky-400 to-blue-500 rounded-full blur-3xl opacity-30 animate-slow-float"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-violet-400 to-purple-500 rounded-full blur-3xl opacity-20 animate-slow-float"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-violet-400 to-orange-500 rounded-full blur-3xl opacity-20 animate-slow-float"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
@@ -262,39 +262,39 @@ export default function Tarifs() {
       </section>
 
       {/* CRM */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-purple-50 overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-orange-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+            <span className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
               CRM & Listes
             </span>
           </div>
           <PricingSlider title="SuiteCRM + Listes B2B/B2C">
             {TIERS_4.map((tier, i) => (
-              <div key={tier.name} className={`flex-shrink-0 w-72 bg-white rounded-2xl p-6 snap-start ${tier.badge === 'Populaire' ? 'border-2 border-purple-500 shadow-2xl' : 'border border-slate-200 shadow-lg'}`}>
-                {tier.badge && (
-                  <div className="mb-4">
-                    <span className="bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full">{tier.badge}</span>
-                  </div>
-                )}
-                <h3 className="font-bold text-xl text-slate-900 mb-1">{tier.name}</h3>
-                <p className="text-slate-500 text-sm mb-4">{tier.desc}</p>
-                <div className="mb-2">
-                  <span className="text-3xl font-black text-purple-600">{fmt(prices.crm_monthly[i])}</span>
-                  <span className="text-slate-500">/mois</span>
-                </div>
-                <p className="text-slate-600 font-semibold mb-1">{loading ? '...' : `${prices.crm_contacts[i].toLocaleString()} contacts inclus`}</p>
-                <p className="text-emerald-600 text-sm font-semibold mb-4">Setup gratuit</p>
-                <ul className="space-y-2 mb-6 text-sm">
-                  <li className="flex items-center gap-2 text-slate-600"><CheckIcon className="w-4 h-4 text-purple-600" /> SuiteCRM hébergé</li>
-                  <li className="flex items-center gap-2 text-slate-600"><CheckIcon className="w-4 h-4 text-purple-600" /> Formation incluse</li>
-                  <li className="flex items-center gap-2 text-slate-600"><CheckIcon className="w-4 h-4 text-purple-600" /> Support FR dédié</li>
-                  <li className="flex items-center gap-2 text-slate-600"><CheckIcon className="w-4 h-4 text-purple-600" /> Import de vos données</li>
-                  {i > 0 && <li className="flex items-center gap-2 text-slate-600"><CheckIcon className="w-4 h-4 text-purple-600" /> Listes B2B/B2C</li>}
-                  {i > 1 && <li className="flex items-center gap-2 text-slate-600"><CheckIcon className="w-4 h-4 text-purple-600" /> Automatisations</li>}
-                  {i > 2 && <li className="flex items-center gap-2 text-slate-600"><CheckIcon className="w-4 h-4 text-purple-600" /> API complète</li>}
-                </ul>
-                <Link href={`/fr/contact?service=crm&plan=${tier.name.toLowerCase()}`} className={`block text-center py-3 px-4 rounded-xl font-bold ${tier.badge === 'Populaire' ? 'bg-purple-600 text-white hover:bg-purple-700' : 'border-2 border-purple-600 text-purple-600 hover:bg-purple-50'}`}>
+<div key={tier.name} className={`flex-shrink-0 w-72 bg-white rounded-2xl p-6 snap-start ${tier.badge === 'Populaire' ? 'border-2 border-orange-500 shadow-2xl' : 'border border-slate-200 shadow-lg'}`}>
+					{tier.badge && (
+						<div className="mb-4">
+							<span className="bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full">{tier.badge}</span>
+						</div>
+					)}
+					<h3 className="font-bold text-xl text-slate-900 mb-1">{tier.name}</h3>
+					<p className="text-slate-500 text-sm mb-4">{tier.desc}</p>
+					<div className="mb-2">
+						<span className="text-3xl font-black text-orange-600">{fmt(prices.crm_monthly[i])}</span>
+						<span className="text-slate-500">/mois</span>
+					</div>
+					<p className="text-slate-600 font-semibold mb-1">{loading ? '...' : `${prices.crm_contacts[i].toLocaleString()} contacts inclus`}</p>
+					<p className="text-emerald-600 text-sm font-semibold mb-4">Setup gratuit</p>
+					<ul className="space-y-2 mb-6 text-sm">
+						<li className="flex items-center gap-2 text-slate-600"><CheckIcon className="w-4 h-4 text-orange-600" /> SuiteCRM hébergé</li>
+						<li className="flex items-center gap-2 text-slate-600"><CheckIcon className="w-4 h-4 text-orange-600" /> Formation incluse</li>
+						<li className="flex items-center gap-2 text-slate-600"><CheckIcon className="w-4 h-4 text-orange-600" /> Support FR dédié</li>
+						<li className="flex items-center gap-2 text-slate-600"><CheckIcon className="w-4 h-4 text-orange-600" /> Import de vos données</li>
+						{i > 0 && <li className="flex items-center gap-2 text-slate-600"><CheckIcon className="w-4 h-4 text-orange-600" /> Listes B2B/B2C</li>}
+						{i > 1 && <li className="flex items-center gap-2 text-slate-600"><CheckIcon className="w-4 h-4 text-orange-600" /> Automatisations</li>}
+						{i > 2 && <li className="flex items-center gap-2 text-slate-600"><CheckIcon className="w-4 h-4 text-orange-600" /> API complète</li>}
+					</ul>
+					<Link href={`/fr/contact?service=crm&plan=${tier.name.toLowerCase()}`} className={`block text-center py-3 px-4 rounded-xl font-bold ${tier.badge === 'Populaire' ? 'bg-orange-600 text-white hover:bg-orange-700' : 'border-2 border-orange-600 text-orange-600 hover:bg-orange-50'}`}>
                   Commencer
                 </Link>
               </div>

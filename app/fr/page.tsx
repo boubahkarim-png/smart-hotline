@@ -7,6 +7,7 @@ import GeoStats from '@/components/GeoStats'
 import GeoHeroStats from '@/components/GeoHeroStats'
 import GeoComplianceBadge from '@/components/GeoComplianceBadge'
 import GeoWhyUsSection from '@/components/GeoWhyUsSection'
+import ScrollAnimate from '@/components/ScrollAnimate'
 import { useGeo } from '@/hooks/useGeo'
 
 import { PhoneIcon, MegaphoneIcon, BotIcon, HeadphonesIcon, DatabaseIcon, CheckIcon, ClockIcon } from '@/components/Icons'
@@ -115,6 +116,7 @@ export default function FrHome() {
         <GeoStats lang="fr" />
       </section>
 
+<ScrollAnimate animation="fade-up">
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -122,69 +124,74 @@ export default function FrHome() {
             <p className="text-slate-500 text-lg">Tout ce dont votre PME a besoin pour sa relation client</p>
             <div className="w-16 h-1 bg-blue-700 mx-auto rounded-full mt-4"/>
           </div>
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {SERVICES.map(({ Icon, title, desc, href, bg, color, badge }: any, i: number) => (
-          <Link key={href} href={href}
-          className="bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-xl hover:-translate-y-1 hover-lift transition-all group animate-fade-in-up" style={{animationDelay: `${i * 100}ms`}}>
-          <div className={`w-12 h-12 ${bg} rounded-2xl flex items-center justify-center mb-4`}>
-            <Icon className={`w-6 h-6 ${color}`} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {SERVICES.map(({ Icon, title, desc, href, bg, color, badge }: any, i: number) => (
+              <Link key={href} href={href}
+                className="bg-white rounded-2xl p-6 border border-slate-100 hover:shadow-xl hover:-translate-y-1 hover-lift transition-all group auto-float"
+                style={{animationDelay: `${i * 100}ms`}}>
+                <div className={`w-12 h-12 ${bg} rounded-2xl flex items-center justify-center mb-4`}>
+                  <Icon className={`w-6 h-6 ${color}`} />
+                </div>
+                <div className="flex items-start gap-2 mb-2">
+                  <h3 className="font-bold text-slate-900">{title}</h3>
+                  {badge && <span className="text-xs bg-violet-100 text-violet-700 px-1.5 py-0.5 rounded-full font-semibold flex-shrink-0">{badge}</span>}
+                </div>
+                <p className="text-slate-500 text-sm mb-3">{desc}</p>
+                <span className="text-blue-700 text-sm font-semibold group-hover:underline">En savoir plus &rarr;</span>
+              </Link>
+            ))}
           </div>
-          <div className="flex items-start gap-2 mb-2">
-            <h3 className="font-bold text-slate-900">{title}</h3>
-            {badge && <span className="text-xs bg-violet-100 text-violet-700 px-1.5 py-0.5 rounded-full font-semibold flex-shrink-0">{badge}</span>}
-          </div>
-          <p className="text-slate-500 text-sm mb-3">{desc}</p>
-          <span className="text-blue-700 text-sm font-semibold group-hover:underline">En savoir plus &rarr;</span>
-        </Link>
-        ))}
-      </div>
         </div>
       </section>
+      </ScrollAnimate>
 
-<section className="py-20 bg-white">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-        <div className="w-full lg:w-1/2">
-          <span className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 text-sm font-bold px-4 py-2 rounded-full mb-6 animate-slow-float">
-            <span className="w-2.5 h-2.5 bg-violet-500 rounded-full animate-pulse"/>
-            Nouveau Service
-          </span>
-          <h2 className="text-3xl lg:text-4xl xl:text-5xl font-black text-slate-900 mb-5">
-            Sophie, l&apos;Agente IA<br/>
-            <span className="bg-gradient-to-r from-violet-600 to-purple-700 bg-clip-text text-transparent">Qui Parle comme Nous</span>
-          </h2>
-          <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-            Elle repond en moins de 2 secondes. Avec l&apos;accent de votre region — au choix. Et ca coute une fraction d&apos;un salaire.
-          </p>
-          <ul className="space-y-3 mb-8">
-            {[CheckIcon, CheckIcon, CheckIcon, CheckIcon, CheckIcon].map((Icon, i) => {
-            const features = ['Reponse en moins de 2 secondes — pas de musique d\'attente', 'Accents adaptes a votre region', 'Transfert vers un humain si c\'est complique', 'Cout? Environ 30% d\'un salaire standard', 'Dispo 24/7, meme pendant les periodes de pointe']
-            return (
-              <li key={i} className="flex items-center gap-3 text-slate-700">
-                <span className="w-6 h-6 bg-violet-100 text-violet-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-4 h-4" />
-                </span>
-                {features[i]}
-              </li>
-            )})}
-          </ul>
-          <Link href="/fr/agents-ia" className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-600 to-purple-700 text-white px-6 py-3.5 rounded-xl font-bold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-            Decouvrir les Agents IA &rarr;
-          </Link>
-        </div>
-        <div className="w-full lg:w-1/2 animate-slide-right">
-          <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-r from-violet-400 to-purple-500 rounded-3xl blur-2xl opacity-20"></div>
-            <img src="/smart-hotline-last/images/agents-ia-hero.jpg"
-            alt="Agent IA Sophie"
-            className="relative rounded-3xl shadow-2xl w-full object-cover hero-image-zoom"
-            style={{maxHeight:'550px', objectFit:'cover'}}/>
+<ScrollAnimate animation="fade-left" delay={1}>
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <div className="w-full lg:w-1/2">
+              <span className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 text-sm font-bold px-4 py-2 rounded-full mb-6 animate-slow-float">
+                <span className="w-2.5 h-2.5 bg-violet-500 rounded-full animate-pulse"/>
+                Nouveau Service
+              </span>
+              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-black text-slate-900 mb-5">
+                Sophie, l&apos;Agente IA<br/>
+                <span className="bg-gradient-to-r from-violet-600 to-purple-700 bg-clip-text text-transparent">Qui Parle comme Nous</span>
+              </h2>
+              <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                Elle repond en moins de 2 secondes. Avec l&apos;accent de votre region — au choix. Et ca coute une fraction d&apos;un salaire.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[CheckIcon, CheckIcon, CheckIcon, CheckIcon, CheckIcon].map((Icon, i) => {
+                  const features = ['Reponse en moins de 2 secondes — pas de musique d\'attente', 'Accents adaptes a votre region', 'Transfert vers un humain si c\'est complique', 'Cout? Environ 30% d\'un salaire standard', 'Dispo 24/7, meme pendant les periodes de pointe']
+                  return (
+                    <li key={i} className="flex items-center gap-3 text-slate-700">
+                      <span className="w-6 h-6 bg-violet-100 text-violet-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-4 h-4" />
+                      </span>
+                      {features[i]}
+                    </li>
+                )})}
+              </ul>
+              <Link href="/fr/agents-ia" className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-600 to-purple-700 text-white px-6 py-3.5 rounded-xl font-bold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                Decouvrir les Agents IA &rarr;
+              </Link>
+            </div>
+            <div className="w-full lg:w-1/2 animate-slide-right">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-violet-400 to-purple-500 rounded-3xl blur-2xl opacity-20"></div>
+                <img src="/smart-hotline-last/images/agents-ia-hero.jpg"
+                  alt="Agent IA Sophie"
+                  className="relative rounded-3xl shadow-2xl w-full object-cover hero-image-zoom"
+                  style={{maxHeight:'550px', objectFit:'cover'}}/>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
+      </ScrollAnimate>
 
+      <ScrollAnimate animation="scale" delay={2}>
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -193,7 +200,7 @@ export default function FrHome() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {STEPS.map(({ n, t, d }) => (
-              <div key={n} className="text-center">
+              <div key={n} className="text-center auto-float">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl font-black shadow-lg">{n}</div>
                 <h3 className="font-bold text-slate-900 text-lg mb-2">{t}</h3>
                 <p className="text-slate-500 text-sm">{d}</p>
@@ -202,7 +209,9 @@ export default function FrHome() {
           </div>
         </div>
       </section>
+      </ScrollAnimate>
 
+      <ScrollAnimate animation="fade-up" delay={3}>
       <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -212,6 +221,7 @@ export default function FrHome() {
           <GeoTestimonials lang="fr" />
         </div>
       </section>
+      </ScrollAnimate>
 
       <section className="bg-white py-20 border-t border-slate-100">
         <div className="max-w-4xl mx-auto px-4 text-center">
